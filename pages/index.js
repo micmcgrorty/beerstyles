@@ -1,65 +1,77 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
 
-export default function Home() {
+import beerStyles from '../data/styles';
+
+const Home = ({ beerStyles }) => {
+  const { beers } = beerStyles;
+  console.log(beers);
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Beer Styles</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      {beers.map((section) => {
+        return section.subcategories.map((beer) => {
+          const { guidelines } = beer;
+          const { vitalStatistics } = guidelines;
+          return (
+            <div
+              style={{
+                width: '75%',
+                boxShadow:
+                  '-5px -10px 13px 0 #fff, 5px 10px 13px 0 rgb(0 0 0 / 15%)',
+                padding: '1rem',
+                margin: '1rem',
+                borderRadius: '10px'
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-around',
+                  textAlign: 'center'
+                }}
+              >
+                <h3>{beer.name}</h3>
+                <div>
+                  <p>ABV</p>
+                  <p>{vitalStatistics.abv}</p>
+                </div>
+                <div>
+                  <p>OG</p>
+                  <p>{vitalStatistics.og}</p>
+                </div>
+                <div>
+                  <p>FG</p>
+                  <p>{vitalStatistics.fg}</p>
+                </div>
+                <div>
+                  <p>IBU</p>
+                  <p>{vitalStatistics.ibu}</p>
+                </div>
+                <div>
+                  <p>SRM</p>
+                  <p>{vitalStatistics.srm}</p>
+                </div>
+              </div>
+              <p>{guidelines.overallImpression}</p>
+            </div>
+          );
+        });
+      })}
     </div>
-  )
+  );
+};
+
+export async function getStaticProps() {
+  return {
+    props: {
+      beerStyles
+    } // will be passed to the page component as props
+  };
 }
+
+export default Home;
