@@ -19,7 +19,7 @@ const Home = ({ beerStyles }) => {
           return (
             <div
               style={{
-                width: '75%',
+                width: '95%',
                 boxShadow:
                   '-5px -10px 13px 0 #fff, 5px 10px 13px 0 rgb(0 0 0 / 15%)',
                 padding: '1rem',
@@ -32,7 +32,8 @@ const Home = ({ beerStyles }) => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-around',
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  flexWrap: 'wrap'
                 }}
               >
                 <h3>{beer.name}</h3>
