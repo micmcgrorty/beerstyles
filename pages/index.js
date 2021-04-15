@@ -5,7 +5,6 @@ import beerStyles from '../data/styles';
 
 const Home = ({ beerStyles }) => {
   const { beers } = beerStyles;
-  console.log(beers);
   return (
     <div className={styles.container}>
       <Head>
