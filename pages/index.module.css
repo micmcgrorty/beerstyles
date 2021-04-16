@@ -1,0 +1,15 @@
+.beerContainer {
+  width: '95%';
+  box-shadow: -5px -10px 13px 0 #fff, 5px 10px 13px 0 rgb(0 0 0 / 15%);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+.detailsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+}

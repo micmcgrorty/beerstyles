@@ -1,0 +1,38 @@
+.headerContainer {
+  display: flex;
+  width: 100%;
+  padding: 10px 25px;
+}
+
+.header {
+  width: 25%;
+}
+
+.keyContainer {
+  display: flex;
+  width: 75%;
+  justify-content: space-between;
+}
+
+.beerContainer {
+  width: 100%;
+  display: flex;
+}
+
+.detailContainer {
+  width: 75%;
+}
+
+@media (max-width: 576px) {
+  .header {
+    width: 33%;
+  }
+
+  .keyContainer {
+    width: 67%;
+  }
+
+  .detailContainer {
+    width: 67%;
+  }
+}
