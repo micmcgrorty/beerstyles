@@ -1,6 +1,6 @@
 # BJCP Beer Styles
 
-A reference for every beer style in the BJCP 2015 Style Guidelines, built as a React single-page app. Browse, search and filter the styles, compare their colour and bitterness on charts, and read the full guideline for each one.
+A reference for every beer style in the BJCP 2021 Style Guidelines, built as a React single-page app. Browse, search and filter the styles, compare their colour and bitterness on charts, and read the full guideline for each one.
 
 Live at [beer.micmcgrorty.dev](https://beer.micmcgrorty.dev).
 
@@ -26,7 +26,7 @@ Search, filters and sort live in the URL query string (`?q=stout&group=porters-s
 - **The URL is the state.** Pages read their search, filter and sort from the query string, and the filter form submits with `GET` (React Router's `<Form>`), so nothing about a view is lost on reload or when shared.
 - **Long text loads on demand.** The catalogue (names, stats, tags) is bundled, because the list, search and charts need all of it up front. Each style's guideline text is its own small chunk, loaded by the style page's route `loader`.
 - **Each thing is defined once.** Every vital statistic (its label, format, unit, sort option and scale) is one entry in `STATS`; every chart is one entry in `CHARTS`; and the route table drives the router, the main nav and Netlify's routing rules. Adding an ABV chart, for example, means giving ABV a scale and a chart entry, and the compiler and tests point to anything missed.
-- **The guidelines edition is swappable.** Everything specific to BJCP 2015 (its name, data, group rules and guideline sections) sits behind an `Edition` interface. The rest of the app reads styles through a catalogue built from it, so moving to the 2021 guidelines means writing a new edition, not editing pages.
+- **The guidelines edition is swappable.** Everything specific to an edition of the guidelines (its name, data, group rules and guideline sections) sits behind an `Edition` interface, and the rest of the app reads styles through a catalogue built from it. Moving from the 2015 to the 2021 guidelines meant writing a new edition, adding the one browsing group and two guideline fields it introduced, and changing one import; no page changed.
 - **Real 404s from a static host.** At build time, a Vite plugin writes Netlify's `_redirects` from the route table and the catalogue: every page and style URL serves the app with 200, and anything else serves it with 404.
 
 ## Project layout
@@ -44,7 +44,7 @@ src/
 └── ui/           components shared by several features
 ```
 
-`e2e/` holds the Playwright tests. The style data is in `src/catalogue/bjcp-2015/`, which has its own README.
+`e2e/` holds the Playwright tests. The style data is in `src/catalogue/bjcp-2021/`, which has its own README.
 
 ## Commands
 
@@ -73,8 +73,4 @@ To run the end-to-end tests against any deployed site, set `E2E_BASE_URL`, for e
 
 ## Data
 
-The style text and vital statistics come from the [BJCP 2015 Beer Style Guidelines](https://www.bjcp.org/beer-styles/), © Beer Judge Certification Program. These corrections were made to the original dataset:
-
-- ABV for International Pale Lager (4.6–6.0%), British Golden Ale (3.8–5.0%) and Australian Sparkling Ale (4.5–6.0%) now matches the published guidelines.
-- Lost hyphens and spaces (for example "lightbodied") and dropped letters ("imilar", "tronger") are restored.
-- Tags are normalised.
+The style text and vital statistics come from the [BJCP 2021 Beer Style Guidelines](https://www.bjcp.org/beer-styles/), © Beer Judge Certification Program, via the JSON transcription in [ascholer/bjcp-styleview](https://github.com/ascholer/bjcp-styleview). All 116 beer styles in categories 1–34 are included. [`src/catalogue/bjcp-2021/README.md`](src/catalogue/bjcp-2021/README.md) lists the changes made when converting it.

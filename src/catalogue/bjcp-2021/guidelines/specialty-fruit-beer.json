@@ -1,0 +1,11 @@
+{
+	"aroma": "Same as Fruit Beer, except that some additional fermentables (e.g., honey, molasses) may add an aroma component. Whatever additional aroma component is present should be in balance with the fruit and the beer components, and be a pleasant combination.",
+	"appearance": "Same as Fruit Beer.",
+	"flavor": "Same as Fruit Beer, except that some additional fermentables (e.g., honey, molasses) may add a flavor component. Whatever additional flavor component is present should be in balance with the fruit and the beer components, and be a pleasant combination. Added sugars should not have a raw, unfermented flavor. Some added sugars will have unfermentable elements that may provide a fuller and sweeter finish; fully fermentable sugars may thin out the finish.",
+	"mouthfeel": "Same as Fruit Beer, although depending on the type of sugar added, could increase or decrease the body.",
+	"comments": "If the additional fermentables or processes do not add a distinguishable character to the beer, enter it as one of the other (non-Specialty) Fruit Beer styles and omit a description of the extra ingredients or processes.",
+	"history": "-",
+	"ingredients": "-",
+	"comparison": "-",
+	"entryInstructions": "The entrant must specify the type of fruit used. The entrant must specify the type of additional ingredient (per the introduction) or special process employed. Entrant must specify a description of the beer, identifying either a Base Style or the ingredients, specs, or target character of the beer. A general description of the special nature of the beer can cover all the required items."
+}

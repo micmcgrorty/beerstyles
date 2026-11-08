@@ -1,0 +1,3469 @@
+[
+	{
+		"number": 1,
+		"name": "Standard American Beer",
+		"styles": [
+			{
+				"code": "1A",
+				"slug": "american-light-lager",
+				"name": "American Light Lager",
+				"overallImpression": "A highly carbonated, very light-bodied, nearly flavorless lager designed to be consumed very cold. Very refreshing and thirst-quenching.",
+				"vitalStatistics": {
+					"og": "1.028 - 1.040",
+					"fg": "0.998 - 1.008",
+					"abv": "2.8 - 4.2%",
+					"ibu": "8 - 12",
+					"srm": "2 - 3"
+				},
+				"commercialExamples": [
+					"Bud Light",
+					"Coors Light",
+					"Grain Belt Premium Light American Lager",
+					"Michelob Light",
+					"Miller Lite",
+					"Old Milwaukee Light"
+				],
+				"tags": [
+					"session-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"north-america",
+					"traditional-style",
+					"pale-lager-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "1B",
+				"slug": "american-lager",
+				"name": "American Lager",
+				"overallImpression": "A very pale, highly-carbonated, light-bodied, well-attenuated lager with a very neutral flavor profile and low bitterness. Served very cold, it can be a very refreshing and thirst-quenching drink.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.050",
+					"fg": "1.004 - 1.010",
+					"abv": "4.2 - 5.3%",
+					"ibu": "8 - 18",
+					"srm": "2 - 3.5"
+				},
+				"commercialExamples": [
+					"Budweiser",
+					"Coors Original",
+					"Grain Belt Premium American Lager",
+					"Miller High Life",
+					"Old Style",
+					"Pabst Blue Ribbon",
+					"Special Export"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"north-america",
+					"traditional-style",
+					"pale-lager-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "1C",
+				"slug": "cream-ale",
+				"name": "Cream Ale",
+				"overallImpression": "A clean, well-attenuated, highly carbonated, flavorful American \"lawnmower\" beer. Easily drinkable, smooth, and refreshing, with more character than typical American lagers, yet still subtle and restrained.",
+				"vitalStatistics": {
+					"og": "1.042 - 1.055",
+					"fg": "1.006 - 1.012",
+					"abv": "4.2 - 5.6%",
+					"ibu": "8 - 20",
+					"srm": "2 - 5"
+				},
+				"commercialExamples": [
+					"Genesee Cream Ale",
+					"Liebotschaner Cream Ale",
+					"Kiwanda Pre-Prohibition Cream Ale",
+					"Little Kings Cream Ale",
+					"Sleeman Cream Ale",
+					"Sun King Sunlight Cream Ale"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"any-fermentation",
+					"northamerica",
+					"traditional-style",
+					"pale-ale-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "1D",
+				"slug": "american-wheat-beer",
+				"name": "American Wheat Beer",
+				"overallImpression": "A pale, refreshing grainy, doughy, or bready wheat beer with a clean fermentation profile and a variable hop character and bitterness. Its lighter body and higher carbonation contribute to its easy-drinking nature.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.055",
+					"fg": "1.008 - 1.013",
+					"abv": "4.0 - 5.5%",
+					"ibu": "15 - 30",
+					"srm": "3 - 6"
+				},
+				"commercialExamples": [
+					"Bell's Oberon",
+					"Boulevard Unfiltered Wheat Beer",
+					"GoodLife Sweet As! Pacific Ale",
+					"Goose Island 312 Urban Wheat Ale",
+					"Widmer Hefeweizen"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"any-fermentation",
+					"northamerica",
+					"craft-style",
+					"wheat-beer-family",
+					"balanced"
+				]
+			}
+		]
+	},
+	{
+		"number": 2,
+		"name": "International Lager",
+		"styles": [
+			{
+				"code": "2A",
+				"slug": "international-pale-lager",
+				"name": "International Pale Lager",
+				"overallImpression": "A highly-attenuated pale lager without strong flavors, typically well-balanced and highly carbonated. Served cold, it is refreshing and thirst-quenching.",
+				"vitalStatistics": {
+					"og": "1.042 - 1.050",
+					"fg": "1.008 - 1.012",
+					"abv": "4.5 - 6.0%",
+					"ibu": "18 - 25",
+					"srm": "2 - 6"
+				},
+				"commercialExamples": [
+					"Asahi Super Dry",
+					"Birra Moretti",
+					"Corona Extra",
+					"Devils Backbone Gold Leaf Lager",
+					"Full Sail Session Premium Lager",
+					"Heineken",
+					"Red Stripe",
+					"Singha"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"traditional-style",
+					"pale-lager-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "2B",
+				"slug": "international-amber-lager",
+				"name": "International Amber Lager",
+				"overallImpression": "A smooth, easily-drinkable, malty amber lager with a flavorful caramel or toast character. Usually fairly well-attenuated, often with an adjunct quality and restrained bitterness.",
+				"vitalStatistics": {
+					"og": "1.042 - 1.055",
+					"fg": "1.008 - 1.014",
+					"abv": "4.5 - 6.0%",
+					"ibu": "8 - 25",
+					"srm": "6 - 14"
+				},
+				"commercialExamples": [
+					"Abita Amber Lager",
+					"Brooklyn Lager",
+					"Capital Wisconsin Amber Lager",
+					"Dos Equis Amber",
+					"Grain Belt NordEast",
+					"Yuengling Lager"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"bottom-fermented",
+					"lagered",
+					"traditional-style",
+					"amber-lager-family",
+					"malty"
+				]
+			},
+			{
+				"code": "2C",
+				"slug": "international-dark-lager",
+				"name": "International Dark Lager",
+				"overallImpression": "A darker, richer, and somewhat sweeter version of international pale lager with a little more body and flavor, but equally restrained in bitterness. The low bitterness leaves the malt as the primary flavor element, and the low hop levels provide very little in the way of balance.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.056",
+					"fg": "1.008 - 1.012",
+					"abv": "4.2 - 6.0%",
+					"ibu": "8 - 20",
+					"srm": "14 - 30"
+				},
+				"commercialExamples": [
+					"Baltika #4 Original",
+					"Dixie Blackened Voodoo",
+					"Heineken Dark Lager",
+					"Saint Pauli Girl Special Dark",
+					"San Miguel Dark",
+					"Shiner Bock"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"bottom-fermented",
+					"lagered",
+					"traditional-style",
+					"dark-lager-family",
+					"malty"
+				]
+			}
+		]
+	},
+	{
+		"number": 3,
+		"name": "Czech Lager",
+		"styles": [
+			{
+				"code": "3A",
+				"slug": "czech-pale-lager",
+				"name": "Czech Pale Lager",
+				"overallImpression": "A lighter-bodied, rich, refreshing, hoppy, bitter pale Czech lager having the familiar flavors of the stronger Czech Premium Pale Lager (Pilsner-type) beer but in a lower alcohol, lighter-bodied, and slightly less intense format.",
+				"vitalStatistics": {
+					"og": "1.028 - 1.044",
+					"fg": "1.008 - 1.014",
+					"abv": "3.0 - 4.1%",
+					"ibu": "20 - 35",
+					"srm": "3 - 6"
+				},
+				"commercialExamples": [
+					"Bernard světlé pivo 10",
+					"Březňák světlé výčepní pivo",
+					"Notch Session Pils",
+					"Primátor Antonín světlé výčepní",
+					"Radegast Rázna 10",
+					"Únětické pivo 10°"
+				],
+				"tags": [
+					"session-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"pale-lager-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "3B",
+				"slug": "czech-premium-pale-lager",
+				"name": "Czech Premium Pale Lager",
+				"overallImpression": "A refreshing pale Czech lager with considerable malt and hop character and a long finish. The malt flavors are complex for a Pilsner-type beer. The bitterness is strong and clean but lacks harshness, which gives a well-balanced, rounded flavor impression that enhances drinkability.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.060",
+					"fg": "1.013 - 1.017",
+					"abv": "4.2 - 5.8%",
+					"ibu": "30 - 45",
+					"srm": "3.5 - 6"
+				},
+				"commercialExamples": [
+					"Bernard světlé ležák 12°",
+					"Budvar 33 světlý ležák",
+					"Pilsner Urquell",
+					"Pivovar Jihlava Ježek 11%",
+					"Primátor Premium lager",
+					"Radegast Ryze hořká 12",
+					"Únětická pivo 12°"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"pilsner-family",
+					"balanced",
+					"hoppy"
+				]
+			},
+			{
+				"code": "3C",
+				"slug": "czech-amber-lager",
+				"name": "Czech Amber Lager",
+				"overallImpression": "A malty amber Czech lager with a hop character that can vary from low to quite significant. The malt flavors also can vary, leading to different interpretations and balances ranging from drier, bready, and slightly biscuity to sweeter and somewhat caramel-like.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.060",
+					"fg": "1.013 - 1.017",
+					"abv": "4.4 - 5.8%",
+					"ibu": "20 - 35",
+					"srm": "10 - 16"
+				},
+				"commercialExamples": [
+					"Bernard Jantarový ležák 12°",
+					"Gambrinus Polotmavá 12°",
+					"Kozel Semi-Dark",
+					"Lobkowicz Démon 13",
+					"Primátor 13 polotmavé",
+					"Strakonický Dudák Klostermann polotmavý ležák"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"amber-lager-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "3D",
+				"slug": "czech-dark-lager",
+				"name": "Czech Dark Lager",
+				"overallImpression": "A rich, dark, malty Czech lager with a roast character that can vary from almost absent to quite prominent. Malty balance and an interesting and complex flavor profile, with variable levels of hopping that provides a range of possible interpretations.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.060",
+					"fg": "1.013 - 1.017",
+					"abv": "4.4 - 5.8%",
+					"ibu": "18 - 34",
+					"srm": "17 - 35"
+				},
+				"commercialExamples": [
+					"Bernard černý ležák 12°",
+					"Budvar tmavý ležák",
+					"Herold Tmavé silné pivo 13°",
+					"Kozel Dark",
+					"Krušovice černé",
+					"Primátor dark lager",
+					"U Fleků Flekovský tmavý ležák 13°"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"dark-lager-family",
+					"balanced"
+				]
+			}
+		]
+	},
+	{
+		"number": 4,
+		"name": "Pale Malty European Lager",
+		"styles": [
+			{
+				"code": "4A",
+				"slug": "munich-helles",
+				"name": "Munich Helles",
+				"overallImpression": "A gold-colored German lager with a smooth, malty flavor and a soft, dry finish. Subtle spicy, floral, or herbal hops and restrained bitterness help keep the balance malty but not sweet, which helps make this beer a refreshing, everyday drink.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.048",
+					"fg": "1.006 - 1.012",
+					"abv": "4.7 - 5.4%",
+					"ibu": "16 - 22",
+					"srm": "3 - 5"
+				},
+				"commercialExamples": [
+					"Augustiner Lagerbier Hell",
+					"Hacker-Pschorr Münchner Gold",
+					"Löwenbraü Original",
+					"Paulaner Münchner Lager",
+					"Schönramer Hell",
+					"Spaten Münchner Hell",
+					"Weihenstephaner Original Helles"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"pale-lager-family",
+					"malty"
+				]
+			},
+			{
+				"code": "4B",
+				"slug": "festbier",
+				"name": "Festbier",
+				"overallImpression": "A smooth, clean, pale German lager with a moderately strong malty flavor and a light hop character. Deftly balances strength and drinkability, with a palate impression and finish that encourages drinking. Showcases elegant German malt flavors without becoming too heavy or filling.",
+				"vitalStatistics": {
+					"og": "1.054 - 1.057",
+					"fg": "1.010 - 1.012",
+					"abv": "5.8 - 6.3%",
+					"ibu": "18 - 25",
+					"srm": "4 - 6"
+				},
+				"commercialExamples": [
+					"Augustiner Oktoberfest",
+					"Hacker-Pschorr Superior Festbier",
+					"Hofbräu Oktoberfestbier",
+					"Löwenbräu Oktoberfestbier",
+					"Paulaner Oktoberfest Bier",
+					"Weihenstephaner Festbier"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"pale-lager-family",
+					"malty"
+				]
+			},
+			{
+				"code": "4C",
+				"slug": "helles-bock",
+				"name": "Helles Bock",
+				"overallImpression": "A relatively pale, strong, malty German lager with a nicely attenuated finish that enhances drinkability. The hop character is generally more apparent and the malt character less deeply rich than in other Bocks.",
+				"vitalStatistics": {
+					"og": "1.064 - 1.072",
+					"fg": "1.011 - 1.018",
+					"abv": "6.3 - 7.4%",
+					"ibu": "23 - 35",
+					"srm": "6 - 9"
+				},
+				"commercialExamples": [
+					"Altenmünster Maibock",
+					"Ayinger Maibock",
+					"Chuckanut Maibock",
+					"Einbecker Mai-Ur-Bock",
+					"Hofbräu Maibock",
+					"Mahr's Heller Bock"
+				],
+				"tags": [
+					"high-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"bock-family",
+					"malty"
+				]
+			}
+		]
+	},
+	{
+		"number": 5,
+		"name": "Pale Bitter European Beer",
+		"styles": [
+			{
+				"code": "5A",
+				"slug": "german-leichtbier",
+				"name": "German Leichtbier",
+				"overallImpression": "A pale, highly-attenuated, light-bodied German lager with lower alcohol and calories than standard-strength beers. Moderately bitter with noticeable malt and hop flavors, the beer is still interesting to drink.",
+				"vitalStatistics": {
+					"og": "1.026 - 1.034",
+					"fg": "1.006 - 1.010",
+					"abv": "2.4 - 3.6%",
+					"ibu": "15 - 28",
+					"srm": "1.5 - 4"
+				},
+				"commercialExamples": [
+					"Autenrieder Schlossbräu Leicht",
+					"Greif Bräu Leicht",
+					"Hohenthanner Tannen Hell Leicht",
+					"Müllerbrau Heimer Leicht",
+					"Schönramer Surtaler Schankbier",
+					"Waldhaus Sommer Bier"
+				],
+				"tags": [
+					"session-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"pale-lager-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "5B",
+				"slug": "kolsch",
+				"name": "Kolsch",
+				"overallImpression": "A subtle, brilliantly clear, pale beer with a delicate balance of malt, fruit, and hop character, moderate bitterness, and a well-attenuated but soft finish. Freshness makes a huge difference with this beer, as the delicate character can fade quickly with age.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.050",
+					"fg": "1.007 - 1.011",
+					"abv": "4.4 - 5.2%",
+					"ibu": "18 - 30",
+					"srm": "3.5 - 5"
+				},
+				"commercialExamples": [
+					"Früh Kölsch",
+					"Gaffel Kölsch",
+					"Mühlen Kölsch",
+					"Päffgen Kolsch",
+					"Reissdorf Kölsch",
+					"Sion Kölsch",
+					"Sünner Kölsch"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"pale-ale-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "5C",
+				"slug": "german-helles-exportbier",
+				"name": "German Helles Exportbier",
+				"overallImpression": "A golden German lager balancing a smooth malty profile with a bitter, hoppy character in a slightly above-average body and strength beer.",
+				"vitalStatistics": {
+					"og": "1.050 - 1.058",
+					"fg": "1.008 - 1.015",
+					"abv": "5.0 - 6.0%",
+					"ibu": "20 - 30",
+					"srm": "4 - 6"
+				},
+				"commercialExamples": [
+					"Chuckanut Export Dortmunder Lager",
+					"DAB Dortmunder Export",
+					"Dortmunder Kronen",
+					"Landshuter Edel Hell",
+					"Müllerbräu Export Gold",
+					"Schönramer Gold"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"pale-lager-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "5D",
+				"slug": "german-pils",
+				"name": "German Pils",
+				"overallImpression": "A pale, dry, bitter German lager featuring a prominent hop aroma. Crisp, clean, and refreshing, showing a brilliant gold color with excellent head retention.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.050",
+					"fg": "1.008 - 1.013",
+					"abv": "4.4 - 5.2%",
+					"ibu": "22 - 40",
+					"srm": "2 - 4"
+				},
+				"commercialExamples": [
+					"ABK Pils Anno 1907",
+					"Jever Pilsener",
+					"König Pilsener",
+					"Paulaner Pils",
+					"Bierstadt Slow-Pour Pils",
+					"Rothaus Pils",
+					"Schönramer Pils",
+					"Trumer Pils"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"pilsner-family",
+					"bitter",
+					"hoppy"
+				]
+			}
+		]
+	},
+	{
+		"number": 6,
+		"name": "Amber Malty European Lager",
+		"styles": [
+			{
+				"code": "6A",
+				"slug": "marzen",
+				"name": "Marzen",
+				"overallImpression": "An amber, malty German lager with a clean, rich, toasty, bready malt flavor, restrained bitterness, and a well-attenuated finish. The overall malt impression is soft, elegant, and complex, with a rich malty aftertaste that is never cloying or heavy.",
+				"vitalStatistics": {
+					"og": "1.054 - 1.060",
+					"fg": "1.010 - 1.014",
+					"abv": "5.6 - 6.3%",
+					"ibu": "18 - 24",
+					"srm": "8 - 17"
+				},
+				"commercialExamples": [
+					"Hacker-Pschorr Oktoberfest Märzen",
+					"Hofmark Märzen",
+					"Paulaner Oktoberfest",
+					"Saalfelder Ur-Saalfelder",
+					"Weltenburger Kloster Anno 1050"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"amber-lager-family",
+					"malty"
+				]
+			},
+			{
+				"code": "6B",
+				"slug": "rauchbier",
+				"name": "Rauchbier",
+				"overallImpression": "A beechwood-smoked, malty, amber German lager. The expected Märzen profile of toasty-rich malt, restrained bitterness, clean fermentation, and a relatively dry finish is enhanced by a noticeable to intense smoke character.",
+				"vitalStatistics": {
+					"og": "1.050 - 1.057",
+					"fg": "1.012 - 1.016",
+					"abv": "4.8 - 6%",
+					"ibu": "20 - 30",
+					"srm": "12 - 22"
+				},
+				"commercialExamples": [
+					"Cervejaria Bamberg Rauchbier",
+					"Göller Rauchbier",
+					"Rittmayer Rauchbier",
+					"Schlenkerla Rauchbier Märzen",
+					"Spezial Rauchbier Märzen"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"amber-lager-family",
+					"malty",
+					"smoke"
+				]
+			},
+			{
+				"code": "6C",
+				"slug": "dunkles-bock",
+				"name": "Dunkles Bock",
+				"overallImpression": "A strong, dark, malty German lager beer that emphasizes the malty-rich and somewhat toasty qualities of continental malts without being sweet in the finish.",
+				"vitalStatistics": {
+					"og": "1.064 - 1.072",
+					"fg": "1.013 - 1.019",
+					"abv": "6.3 - 7.2%",
+					"ibu": "20 - 27",
+					"srm": "14 - 22"
+				},
+				"commercialExamples": [
+					"Aass Bock",
+					"Einbecker Ur-Bock Dunkel",
+					"Kneitinger Bock",
+					"Lindeboom Bock",
+					"Schell's Bock",
+					"Penn Brewery St. Nikolaus Bock"
+				],
+				"tags": [
+					"high-strength",
+					"amber-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"bock-family",
+					"malty"
+				]
+			}
+		]
+	},
+	{
+		"number": 7,
+		"name": "Amber Bitter European Beer",
+		"styles": [
+			{
+				"code": "7A",
+				"slug": "vienna-lager",
+				"name": "Vienna Lager",
+				"overallImpression": "A moderate-strength continental amber lager with a soft, smooth maltiness and a balanced, moderate bitterness, yet finishing relatively dry. The malt flavor is clean, bready-rich, and somewhat toasty, with an elegant impression derived from quality base malts and process, not specialty malts or adjuncts.",
+				"vitalStatistics": {
+					"og": "1.048 - 1.055",
+					"fg": "1.010 - 1.014",
+					"abv": "4.7 - 5.5%",
+					"ibu": "18 - 30",
+					"srm": "9 - 15"
+				},
+				"commercialExamples": [
+					"Chuckanut Vienna Lager",
+					"Devils Backbone Vienna Lager",
+					"Figueroa Mountain Red Lager",
+					"Heavy Seas Cutlass",
+					"Ottakringer Wiener Original",
+					"Schell's Firebrick",
+					"Theresianer Vienna"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"amber-lager-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "7B",
+				"slug": "altbier",
+				"name": "Altbier",
+				"overallImpression": "A moderately colored, well-attenuated, bitter beer with a rich maltiness balancing a strong bitterness. Light and spicy hop character complements the malt. A dry beer with a firm body and smooth palate.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.052",
+					"fg": "1.008 - 1.014",
+					"abv": "4.3 - 5.5%",
+					"ibu": "25 - 50",
+					"srm": "9 - 17"
+				},
+				"commercialExamples": [
+					"Bolten Alt",
+					"Diebels Alt",
+					"Füchschen Alt",
+					"Original Schlüssel Alt",
+					"Schlösser Alt",
+					"Schumacher Alt",
+					"Uerige Altbier"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"amber-ale-family",
+					"bitter"
+				]
+			}
+		]
+	},
+	{
+		"number": 8,
+		"name": "Dark European Lager",
+		"styles": [
+			{
+				"code": "8A",
+				"slug": "munich-dunkel",
+				"name": "Munich Dunkel",
+				"overallImpression": "A traditional malty brown lager from Bavaria. Deeply toasted, bready malt flavors without any roasty or burnt flavors. Smooth and rich, with a restrained bitterness and a relatively dry finish that allows for drinking in quantity.",
+				"vitalStatistics": {
+					"og": "1.048 - 1.056",
+					"fg": "1.010 - 1.016",
+					"abv": "4.5 - 5.6%",
+					"ibu": "18 - 28",
+					"srm": "17 - 28"
+				},
+				"commercialExamples": [
+					"Ayinger Altbairisch Dunkel",
+					"Ettaler Kloster-Dunkel",
+					"Eittinger Urtyp Dunkel",
+					"Hacker-Pschorr Münchner Dunkel",
+					"Hofbräuhaus Dunkel",
+					"Weltenburger Kloster Barock-Dunkel"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"malty",
+					"dark-lager-family"
+				]
+			},
+			{
+				"code": "8B",
+				"slug": "schwarzbier",
+				"name": "Schwarzbier",
+				"overallImpression": "A dark German lager that balances roasted yet smooth malt flavors with moderate hop bitterness. The lighter body, dryness, and lack of a harsh, burnt, or heavy aftertaste helps make this beer quite drinkable.",
+				"vitalStatistics": {
+					"og": "1.046 - 1.052",
+					"fg": "1.010 - 1.016",
+					"abv": "4.4 - 5.4%",
+					"ibu": "20 - 35",
+					"srm": "19 - 30"
+				},
+				"commercialExamples": [
+					"Chuckanut Schwarz Lager",
+					"Devils Backbone Schwartz Bier",
+					"Köstritzer Schwarzbier",
+					"Kulmbacher Mönchshof Schwarzbier",
+					"Neuzeller Original Badebier",
+					"pFriem Schwarzbier"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"balanced",
+					"dark-lager-family"
+				]
+			}
+		]
+	},
+	{
+		"number": 9,
+		"name": "Strong European Beer",
+		"styles": [
+			{
+				"code": "9A",
+				"slug": "doppelbock",
+				"name": "Doppelbock",
+				"overallImpression": "A strong, rich, and very malty German lager that can have both pale and dark variants. The darker versions have more richly-developed, deeper malt flavors, while the paler versions have slightly more hops and dryness.",
+				"vitalStatistics": {
+					"og": "1.072 - 1.112",
+					"fg": "1.016 - 1.024",
+					"abv": "7.0 - 10.0%",
+					"ibu": "16 - 26",
+					"srm": "6 - 25"
+				},
+				"commercialExamples": [
+					"Dark Versions – Andechs Doppelbock Dunkel",
+					"Ayinger Celebrator",
+					"Paulaner Salvator",
+					"Spaten Optimator",
+					"Tröegs Troegenator",
+					"Weihenstephaner Korbinian; Pale Versions – Eggenberg Urbock 23º",
+					"Meinel Doppelbock Hell",
+					"Plank Bavarian Heller Doppelbock",
+					"Riegele Auris 19",
+					"Schönbuch Doppelbock Hell",
+					"Staffelberg-Bräu Zwergator"
+				],
+				"tags": [
+					"high-strength",
+					"amber-color",
+					"pale-color",
+					"bottom fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"bock-family",
+					"malty"
+				]
+			},
+			{
+				"code": "9B",
+				"slug": "eisbock",
+				"name": "Eisbock",
+				"overallImpression": "A strong, full-bodied, rich, and malty dark German lager often with a viscous quality and strong flavors. Even though flavors are concentrated, the alcohol should be smooth and warming, not burning.",
+				"vitalStatistics": {
+					"og": "1.078 - 1.120",
+					"fg": "1.020 - 1.035",
+					"abv": "9.0 - 14.0%",
+					"ibu": "25 - 35",
+					"srm": "17 - 30"
+				},
+				"commercialExamples": ["Kulmbacher Eisbock"],
+				"tags": [
+					"very-high-strength",
+					"amber-color",
+					"bottom-fermented",
+					"lagered",
+					"central-europe",
+					"traditional-style",
+					"bock-family",
+					"malty"
+				]
+			},
+			{
+				"code": "9C",
+				"slug": "baltic-porter",
+				"name": "Baltic Porter",
+				"overallImpression": "A strong, dark, malty beer with different interpretations within the Baltic region. Smooth, warming, and richly malty, with complex dark fruit flavors and a roasted flavor without burnt notes.",
+				"vitalStatistics": {
+					"og": "1.060 - 1.090",
+					"fg": "1.016 - 1.024",
+					"abv": "6.5 - 9.5%",
+					"ibu": "20 - 40",
+					"srm": "17 - 30"
+				},
+				"commercialExamples": [
+					"Aldaris Mežpils Porteris",
+					"Baltika 6 Porter",
+					"Devils Backbone Danzig",
+					"Okocim Mistrzowski Porter",
+					"Sinebrychoff Porter",
+					"Zywiec Porter"
+				],
+				"tags": [
+					"high-strength",
+					"dark-color",
+					"any-fermentation",
+					"lagered",
+					"eastern-europe",
+					"traditional-style",
+					"porter-family",
+					"malty"
+				]
+			}
+		]
+	},
+	{
+		"number": 10,
+		"name": "German Wheat Beer",
+		"styles": [
+			{
+				"code": "10A",
+				"slug": "weissbier",
+				"name": "Weissbier",
+				"overallImpression": "A pale, refreshing, lightly-hopped German wheat beer with high carbonation, dry finish, fluffy mouthfeel, and a distinctive banana-and-clove weizen yeast fermentation profile.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.053",
+					"fg": "1.008 - 1.014",
+					"abv": "4.3 - 5.6%",
+					"ibu": "8 - 15",
+					"srm": "2 - 6"
+				},
+				"commercialExamples": [
+					"Ayinger Bräuweisse",
+					"Distelhäuser Hell Weizen",
+					"Hacker-Pschorr Hefeweißbier",
+					"Hofbräuhaus Münchner Weisse",
+					"Schneider Weisse Original Weissbier",
+					"Weihenstephaner Hefeweißbier"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"centraleurope",
+					"traditional-style",
+					"wheat-beer-family",
+					"malty"
+				]
+			},
+			{
+				"code": "10B",
+				"slug": "dunkles-weissbier",
+				"name": "Dunkles Weissbier",
+				"overallImpression": "A moderately dark German wheat beer with a distinctive banana-and-clove weizen yeast fermentation profile, supported by a toasted bread or caramel malt flavor. Highly carbonated and refreshing, with a creamy, fluffy texture and light finish.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.057",
+					"fg": "1.008 - 1.014",
+					"abv": "4.3 - 5.6%",
+					"ibu": "10 - 18",
+					"srm": "14 - 23"
+				},
+				"commercialExamples": [
+					"Ayinger Urweisse",
+					"Ettaler Benediktiner Weißbier Dunkel",
+					"Franziskaner Hefe-Weisse Dunkel",
+					"Hirsch Dunkel Weisse",
+					"Tucher Dunkles Hefe Weizen",
+					"Weihenstephaner Hefeweißbier Dunkel"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"centraleurope",
+					"traditional-style",
+					"wheat-beer-family",
+					"malty"
+				]
+			},
+			{
+				"code": "10C",
+				"slug": "weizenbock",
+				"name": "Weizenbock",
+				"overallImpression": "A strong and malty German wheat beer combining the best wheat and yeast flavors of a Weissbier with the rich maltiness, strength, and body of a Bock. The style range includes Bock and Doppelbock strength, with variations for pale and dark color.",
+				"vitalStatistics": {
+					"og": "1.064 - 1.090",
+					"fg": "1.015 - 1.022",
+					"abv": "6.5 - 9.0%",
+					"ibu": "15 - 30",
+					"srm": "6 - 25"
+				},
+				"commercialExamples": [
+					"Dark – Plank Bavarian Dunkler Weizenbock",
+					"Penn Weizenbock",
+					"Schalchner Weisser Bock",
+					"Schneider Weisse Aventinus; Pale –Ayinger Weizenbock",
+					"Distelhäuser Weizen Bock",
+					"Ladenburger Weizenbock Hell",
+					"Weihenstephaner Vitus"
+				],
+				"tags": [
+					"high-strength",
+					"amber-color",
+					"pale-color",
+					"top-fermented",
+					"central-europe",
+					"traditional-style",
+					"wheat-beer-family",
+					"malty"
+				]
+			}
+		]
+	},
+	{
+		"number": 11,
+		"name": "British Bitter",
+		"styles": [
+			{
+				"code": "11A",
+				"slug": "ordinary-bitter",
+				"name": "Ordinary Bitter",
+				"overallImpression": "Low gravity, alcohol, and carbonation make this an easy-drinking session beer. The malt profile can vary in flavor and intensity, but should never override the overall bitter impression. Drinkability is a critical component of the style.",
+				"vitalStatistics": {
+					"og": "1.030 - 1.039",
+					"fg": "1.007 - 1.011",
+					"abv": "3.2 - 3.8%",
+					"ibu": "25 - 35",
+					"srm": "8 - 14"
+				},
+				"commercialExamples": [
+					"Bateman's XB",
+					"Brains Bitter",
+					"Brakspear Gravity",
+					"Fuller's Chiswick Bitter",
+					"Greene King IPA",
+					"Tetley's Original Bitter"
+				],
+				"tags": [
+					"session-strength",
+					"amber-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"amber-ale-family",
+					"bitter"
+				]
+			},
+			{
+				"code": "11B",
+				"slug": "best-bitter",
+				"name": "Best Bitter",
+				"overallImpression": "A flavorful, yet refreshing, session beer. Some examples can be more malt balanced, but this should not override the overall bitter impression. Drinkability is a critical component of the style.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.048",
+					"fg": "1.008 - 1.012",
+					"abv": "3.8 - 4.6%",
+					"ibu": "25 - 40",
+					"srm": "8 - 16"
+				},
+				"commercialExamples": [
+					"Adnams Southwold Bitter",
+					"Fuller's London Pride",
+					"Harvey's Sussex Best Bitter",
+					"Salopian Darwin's Origin",
+					"Surrey Hills Shere Drop",
+					"Timothy Taylor Landlord"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"amber-ale-family",
+					"bitter"
+				]
+			},
+			{
+				"code": "11C",
+				"slug": "strong-bitter",
+				"name": "Strong Bitter",
+				"overallImpression": "An average-strength to moderately-strong British bitter ale. The balance may vary between fairly even between malt and hops to somewhat bitter. Drinkability is a critical component of the style. A rather broad style that allows for considerable interpretation by the brewer.",
+				"vitalStatistics": {
+					"og": "1.048 - 1.060",
+					"fg": "1.010 - 1.016",
+					"abv": "4.6 - 6.2%",
+					"ibu": "30 - 50",
+					"srm": "8 - 18"
+				},
+				"commercialExamples": [
+					"Bass Ale",
+					"Bateman's Triple XB",
+					"Robinsons Trooper",
+					"Samuel Smith's Organic Pale Ale",
+					"Shepherd Neame Bishop's Finger",
+					"Summit Extra Pale Ale"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"amber-ale-family",
+					"bitter"
+				]
+			}
+		]
+	},
+	{
+		"number": 12,
+		"name": "Pale Commonwealth Beer",
+		"styles": [
+			{
+				"code": "12A",
+				"slug": "british-golden-ale",
+				"name": "British Golden Ale",
+				"overallImpression": "A hop-forward, average-strength to moderately-strong pale bitter. Drinkability and a refreshing quality are critical components of the style, as it was initially a summer seasonal beer.",
+				"vitalStatistics": {
+					"og": "1.038 - 1.053",
+					"fg": "1.006 - 1.012",
+					"abv": "3.8 - 5.0%",
+					"ibu": "20 - 45",
+					"srm": "2 - 5"
+				},
+				"commercialExamples": [
+					"Adnams Explorer",
+					"Crouch Vale Brewers Gold",
+					"Golden Hill Exmoor Gold",
+					"Hop Back Summer Lightning",
+					"Oakham JHB",
+					"Spitfire Golden Ale"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"britishisles",
+					"craft-style",
+					"pale-ale-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "12B",
+				"slug": "australian-sparkling-ale",
+				"name": "Australian Sparkling Ale",
+				"overallImpression": "A well-balanced, pale, highly carbonated, and refreshing ale suitable for drinking in a hot climate. Fairly bitter, with a moderate herbal-spicy hop and pome fruit ester profile. Smooth, neutral malt flavors with a fuller body but a crisp, highly-attenuated finish.",
+				"vitalStatistics": {
+					"og": "1.038 - 1.050",
+					"fg": "1.004 - 1.006",
+					"abv": "4.5 - 6.0%",
+					"ibu": "20 - 35",
+					"srm": "4 - 7"
+				},
+				"commercialExamples": ["Coopers Sparkling Ale"],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"pacific",
+					"traditional-style",
+					"pale-ale-family",
+					"bitter"
+				]
+			},
+			{
+				"code": "12C",
+				"slug": "english-ipa",
+				"name": "English IPA",
+				"overallImpression": "A bitter, moderately-strong, very well-attenuated pale British ale with a dry finish and a hoppy aroma and flavor. Classic British ingredients provide the most authentic flavor profile.",
+				"vitalStatistics": {
+					"og": "1.050 - 1.070",
+					"fg": "1.010 - 1.015",
+					"abv": "5.0 - 7.5%",
+					"ibu": "40 - 60",
+					"srm": "6 - 14"
+				},
+				"commercialExamples": [
+					"Berkshire Lost Sailor IPA",
+					"Fuller's Bengal Lancer",
+					"Marston's Old Empire IPA",
+					"Meantime London IPA",
+					"Thornbridge Jaipur",
+					"Worthington White Shield"
+				],
+				"tags": [
+					"high-strength",
+					"pale-color",
+					"top-fermented",
+					"british-isles",
+					"traditional-style",
+					"ipa-family",
+					"bitter",
+					"hoppy"
+				]
+			}
+		]
+	},
+	{
+		"number": 13,
+		"name": "Brown British Beer",
+		"styles": [
+			{
+				"code": "13A",
+				"slug": "dark-mild",
+				"name": "Dark Mild",
+				"overallImpression": "A dark, low-gravity, malt-focused British session ale readily suited to drinking in quantity. Refreshing, yet flavorful for its strength, with a wide range of dark malt or dark sugar expression.",
+				"vitalStatistics": {
+					"og": "1.030 - 1.038",
+					"fg": "1.008 - 1.013",
+					"abv": "3.0 - 3.8%",
+					"ibu": "10 - 25",
+					"srm": "14 - 25"
+				},
+				"commercialExamples": [
+					"Brain's Dark",
+					"Greene King XX Mild",
+					"Hobson's Champion Mild",
+					"Mighty Oak Oscar Wilde",
+					"Moorhouse Black Cat",
+					"Theakston Traditional Mild"
+				],
+				"tags": [
+					"session-strength",
+					"dark-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"brown-ale-family",
+					"malty"
+				]
+			},
+			{
+				"code": "13B",
+				"slug": "british-brown-ale",
+				"name": "British Brown Ale",
+				"overallImpression": "A malty, caramelly, brown British ale without the roasted flavors of a Porter. Balanced and flavorful, but usually a little stronger than most average UK beers.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.052",
+					"fg": "1.008 - 1.013",
+					"abv": "4.2 - 5.9%",
+					"ibu": "20 - 30",
+					"srm": "12 - 22"
+				},
+				"commercialExamples": [
+					"AleSmith Nut Brown Ale",
+					"Cigar City Maduro Brown Ale",
+					"Maxim Double Maxim",
+					"Newcastle Brown Ale",
+					"Riggwelter Yorkshire Ale",
+					"Samuel Smith's Nut Brown Ale"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"brown-ale-family",
+					"malty"
+				]
+			},
+			{
+				"code": "13C",
+				"slug": "english-porter",
+				"name": "English Porter",
+				"overallImpression": "A moderate-strength dark brown English ale with a restrained roasty, bitter character. May have a range of roasted flavors, generally without burnt qualities, and often has a malty chocolate and caramel profile.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.052",
+					"fg": "1.008 - 1.014",
+					"abv": "4.0 - 5.4%",
+					"ibu": "18 - 35",
+					"srm": "20 - 30"
+				},
+				"commercialExamples": [
+					"Bateman's Salem Porter",
+					"Burton Bridge Burton Porter",
+					"Fuller's London Porter",
+					"Nethergate Old Growler Porter",
+					"RCH Old Slug Porter",
+					"Samuel Smith Taddy Porter"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"porter-family",
+					"malty",
+					"roasty"
+				]
+			}
+		]
+	},
+	{
+		"number": 14,
+		"name": "Scottish Ale",
+		"styles": [
+			{
+				"code": "14A",
+				"slug": "scottish-light",
+				"name": "Scottish Light",
+				"overallImpression": "A low-alcohol, malty beer with light caramel, toast, toffee, and fruit flavors. A slight roast dryness offsets the residual sweetness in the finish, with the bitterness perceived only to keep the beer from being cloying.",
+				"vitalStatistics": {
+					"og": "1.030 - 1.035",
+					"fg": "1.010 - 1.013",
+					"abv": "2.5 - 3.3%",
+					"ibu": "10 - 20",
+					"srm": "17 - 25"
+				},
+				"commercialExamples": ["Belhaven Best", "McEwan's 60/-"],
+				"tags": [
+					"session-strength",
+					"amber-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"amber-ale-family",
+					"malty"
+				]
+			},
+			{
+				"code": "14B",
+				"slug": "scottish-heavy",
+				"name": "Scottish Heavy",
+				"overallImpression": "A lower-alcohol, malty beer with light caramel, toast, toffee, and fruity flavors. A slight roast dryness offsets the residual sweetness in the finish, with the bitterness perceived only to keep the beer from being cloying.",
+				"vitalStatistics": {
+					"og": "1.035 - 1.040",
+					"fg": "1.010 - 1.015",
+					"abv": "3.3 - 3.9%",
+					"ibu": "10 - 20",
+					"srm": "12 - 20"
+				},
+				"commercialExamples": ["McEwan's 70/-", "Orkney Raven Ale"],
+				"tags": [
+					"session-strength",
+					"amber-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"amber-ale-family",
+					"malty"
+				]
+			},
+			{
+				"code": "14C",
+				"slug": "scottish-export",
+				"name": "Scottish Export",
+				"overallImpression": "A moderate-strength, malty beer with light caramel, toast, toffee, and fruit flavors. A slight roast dryness offsets the residual sweetness in the finish, with the bitterness perceived only to keep the beer from being cloying.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.060",
+					"fg": "1.010 - 1.016",
+					"abv": "3.9 - 6.0%",
+					"ibu": "15 - 30",
+					"srm": "12 - 20"
+				},
+				"commercialExamples": [
+					"Belhaven Scottish Ale",
+					"Broughton Wee Jock 80 Shilling",
+					"Caledonian Edinburgh Castle",
+					"McEwan's 80/-",
+					"McEwan's Export",
+					"Traquair Bear Ale"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"amber-ale-family",
+					"malty"
+				]
+			}
+		]
+	},
+	{
+		"number": 15,
+		"name": "Irish Beer",
+		"styles": [
+			{
+				"code": "15A",
+				"slug": "irish-red-ale",
+				"name": "Irish Red Ale",
+				"overallImpression": "An easy-drinking pint, often with subtle flavors. Slightly malty in the balance sometimes with an initial soft toffee or caramel sweetness, a slightly grainy biscuity palate, and a touch of roasted dryness in the finish. Some versions can emphasize the caramel and sweetness more, while others will favor the grainy palate and roasted dryness.",
+				"vitalStatistics": {
+					"og": "1.036 - 1.046",
+					"fg": "1.010 - 1.014",
+					"abv": "3.8 - 5.0%",
+					"ibu": "18 - 28",
+					"srm": "9 - 14"
+				},
+				"commercialExamples": [
+					"Franciscan Well Rebel Red",
+					"Kilkenny Irish Beer",
+					"Murphy's Irish Red",
+					"O'Hara's Irish Red Ale",
+					"Porterhouse Nitro Red Ale",
+					"Smithwick's Irish Ale"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"amber-ale-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "15B",
+				"slug": "irish-stout",
+				"name": "Irish Stout",
+				"overallImpression": "A black beer with a pronounced roasted flavor, often similar to coffee. The balance can range from fairly even to quite bitter, with the more balanced versions having a little malty sweetness and the bitter versions being quite dry. Draught versions typically are creamy from a nitro pour, but bottled versions will not have this dispense-derived character. The roasted flavor can range from dry and coffee-like to somewhat chocolaty.",
+				"vitalStatistics": {
+					"og": "1.036 - 1.044",
+					"fg": "1.007 - 1.011",
+					"abv": "3.8 - 5.0%",
+					"ibu": "25 - 45",
+					"srm": "25 - 40"
+				},
+				"commercialExamples": [
+					"Beamish Irish Stout",
+					"Belhaven Black Stout",
+					"Guinness Draught",
+					"Murphy's Irish Stout",
+					"O'Hara's Irish Stout",
+					"Porterhouse Irish Stout"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"stout-family",
+					"bitter",
+					"roasty"
+				]
+			},
+			{
+				"code": "15C",
+				"slug": "irish-extra-stout",
+				"name": "Irish Extra Stout",
+				"overallImpression": "A fuller-bodied black beer with a pronounced roasted flavor, often similar to coffee and dark chocolate with some malty complexity. The balance can range from moderately bittersweet to bitter, with the more balanced versions having up to moderate malty richness and the bitter versions being quite dry.",
+				"vitalStatistics": {
+					"og": "1.052 - 1.062",
+					"fg": "1.010 - 1.014",
+					"abv": "5.0 - 6.5%",
+					"ibu": "35 - 50",
+					"srm": "30 - 40"
+				},
+				"commercialExamples": [
+					"Guinness Extra Stout",
+					"O'Hara's Leann Folláin",
+					"Porterhouse XXXX",
+					"Sheaf Stout"
+				],
+				"tags": [
+					"high-strength",
+					"dark-color",
+					"top-fermented",
+					"british-isles",
+					"traditional-style",
+					"stout-family",
+					"bitter",
+					"roasty"
+				]
+			}
+		]
+	},
+	{
+		"number": 16,
+		"name": "Dark British Beer",
+		"styles": [
+			{
+				"code": "16A",
+				"slug": "sweet-stout",
+				"name": "Sweet Stout",
+				"overallImpression": "A very dark, sweet, full-bodied, slightly roasty stout that can suggest coffee-and-cream, or sweetened espresso.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.060",
+					"fg": "1.012 - 1.024",
+					"abv": "4.0 - 6.0%",
+					"ibu": "20 - 40",
+					"srm": "30 - 40"
+				},
+				"commercialExamples": [
+					"Bristol Beer Factory Milk Stout",
+					"Firestone Nitro Merlin Milk Stout",
+					"Left Hand Milk Stout",
+					"Lancaster Milk Stout",
+					"Mackeson's XXX Stout",
+					"Marston's Pearl Jet Stout"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"stout-family",
+					"malty",
+					"roasty",
+					"sweet"
+				]
+			},
+			{
+				"code": "16B",
+				"slug": "oatmeal-stout",
+				"name": "Oatmeal Stout",
+				"overallImpression": "A dark, roasty, full-bodied stout with enough sweetness to support the oat backbone. The sweetness, balance, and oatmeal impression can vary considerably.",
+				"vitalStatistics": {
+					"og": "1.045 - 1.065",
+					"fg": "1.010 - 1.018",
+					"abv": "4.2 - 5.9%",
+					"ibu": "25 - 40",
+					"srm": "22 - 40"
+				},
+				"commercialExamples": [
+					"Anderson Valley Barney Flats Oatmeal Stout",
+					"Broughton Stout Jock",
+					"St-Ambroise Oatmeal Stout",
+					"Samuel Smith Oatmeal Stout",
+					"Summit Oatmeal Stout",
+					"Young's London Stout"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"stout-family",
+					"balanced",
+					"roasty"
+				]
+			},
+			{
+				"code": "16C",
+				"slug": "tropical-stout",
+				"name": "Tropical Stout",
+				"overallImpression": "A very dark, sweet, fruity, moderately strong stout with smooth, roasty flavors, yet no burnt harshness.",
+				"vitalStatistics": {
+					"og": "1.056 - 1.075",
+					"fg": "1.010 - 1.018",
+					"abv": "5.5 - 8.0%",
+					"ibu": "30 - 50",
+					"srm": "30 - 40"
+				},
+				"commercialExamples": [
+					"ABC Extra Stout",
+					"Bahamian Strong Back Stout",
+					"Dragon Stout",
+					"Jamaica Stout",
+					"Lion Stout",
+					"Royal Extra Stout"
+				],
+				"tags": [
+					"high-strength",
+					"dark-color",
+					"top-fermented",
+					"british-isles",
+					"traditional-style",
+					"stout-family",
+					"malty",
+					"roasty",
+					"sweet"
+				]
+			},
+			{
+				"code": "16D",
+				"slug": "foreign-extra-stout",
+				"name": "Foreign Extra Stout",
+				"overallImpression": "A very dark, rich, moderately strong, fairly dry stout with prominent roast flavors.",
+				"vitalStatistics": {
+					"og": "1.056 - 1.075",
+					"fg": "1.010 - 1.018",
+					"abv": "6.3 - 8.0%",
+					"ibu": "50 - 70",
+					"srm": "30 - 40"
+				},
+				"commercialExamples": [
+					"Coopers Best Extra Stout",
+					"Guinness Foreign Extra Stout",
+					"The Kernel Export Stout London 1890",
+					"La Cumbre Malpais Stout",
+					"Pelican Tsunami Export Stout",
+					"Ridgeway Foreign Export Stout"
+				],
+				"tags": [
+					"high-strength",
+					"dark-color",
+					"top-fermented",
+					"british-isles",
+					"traditional-style",
+					"stout-family",
+					"balanced",
+					"roasty"
+				]
+			}
+		]
+	},
+	{
+		"number": 17,
+		"name": "Strong British Ale",
+		"styles": [
+			{
+				"code": "17A",
+				"slug": "british-strong-ale",
+				"name": "British Strong Ale",
+				"overallImpression": "An ale of respectable alcoholic strength, traditionally bottled-conditioned and cellared. Can have a wide range of interpretations, but most will have varying degrees of malty richness, late hops and bitterness, fruity esters, and alcohol warmth. The malt and adjunct flavors and intensity can vary widely, but any combination should result in an agreeable palate experience.",
+				"vitalStatistics": {
+					"og": "1.055 - 1.080",
+					"fg": "1.015 - 1.022",
+					"abv": "5.5 - 8.0%",
+					"ibu": "30 - 60",
+					"srm": "8 - 22"
+				},
+				"commercialExamples": [
+					"Fuller's 1845",
+					"Harvey's Elizabethan Ale",
+					"J.W. Lees Moonraker",
+					"McEwan's Champion",
+					"Samuel Smith's Winter Welcome",
+					"Shepherd Neame 1698"
+				],
+				"tags": [
+					"high-strength",
+					"amber-color",
+					"top-fermented",
+					"british-isles",
+					"traditional-style",
+					"strong-ale-family",
+					"malty"
+				]
+			},
+			{
+				"code": "17B",
+				"slug": "old-ale",
+				"name": "Old Ale",
+				"overallImpression": "A stronger-than-average English ale, though usually not as strong or rich as an English Barley Wine, but usually malty. Warming. Shows positive maturation effects of a well-kept, aged beer.",
+				"vitalStatistics": {
+					"og": "1.055 - 1.088",
+					"fg": "1.015 - 1.022",
+					"abv": "5.5 - 9.0%",
+					"ibu": "30 - 60",
+					"srm": "10 - 22"
+				},
+				"commercialExamples": [
+					"Avery Old Jubilation",
+					"Berlina Old Ale",
+					"Greene King Strong Suffolk Ale",
+					"Marston Owd Roger",
+					"Theakston Old Peculier"
+				],
+				"tags": [
+					"high-strength",
+					"amber-color",
+					"top-fermented",
+					"british-isles",
+					"traditional-style",
+					"strong-ale-family",
+					"malty",
+					"aged"
+				]
+			},
+			{
+				"code": "17C",
+				"slug": "wee-heavy",
+				"name": "Wee Heavy",
+				"overallImpression": "Rich, sweet malt depth with caramel, toffee, and fruity flavors. Full-bodied and chewy, with warming alcohol. Restrained bitterness, but not cloying or syrupy.",
+				"vitalStatistics": {
+					"og": "1.070 - 1.130",
+					"fg": "1.018 - 1.040",
+					"abv": "6.5 - 10.0%",
+					"ibu": "17 - 35",
+					"srm": "14 - 25"
+				},
+				"commercialExamples": [
+					"Belhaven Wee Heavy",
+					"Broughton Old Jock",
+					"McEwan's Scotch Ale",
+					"Orkney Skull Splitter",
+					"Traquair House Ale",
+					"The Duck-Rabbit Wee Heavy Scotch-Style Ale"
+				],
+				"tags": [
+					"high-strength",
+					"amber-color",
+					"top-fermented",
+					"british-isles",
+					"traditional-style",
+					"strong-ale-family",
+					"malty"
+				]
+			},
+			{
+				"code": "17D",
+				"slug": "english-barley-wine",
+				"name": "English Barley Wine",
+				"overallImpression": "A strong and richly malty ale with a pleasant fruity or hoppy depth. A wintertime sipper with a full, chewy body and warming alcohol.",
+				"vitalStatistics": {
+					"og": "1.080 - 1.120",
+					"fg": "1.018 - 1.030",
+					"abv": "8.0 - 12.0%",
+					"ibu": "35 - 70",
+					"srm": "8 - 22"
+				},
+				"commercialExamples": [
+					"Burton Bridge Thomas Sykes Old Ale",
+					"Coniston No. 9 Barley Wine",
+					"Fuller's Golden Pride",
+					"Hogs Back A over T",
+					"J.W. Lee's Vintage Harvest Ale",
+					"Robinson's Old Tom"
+				],
+				"tags": [
+					"very-high-strength",
+					"amber-color",
+					"top-fermented",
+					"britishisles",
+					"traditional-style",
+					"strong-ale-family",
+					"malty"
+				]
+			}
+		]
+	},
+	{
+		"number": 18,
+		"name": "Pale American Ale",
+		"styles": [
+			{
+				"code": "18A",
+				"slug": "blonde-ale",
+				"name": "Blonde Ale",
+				"overallImpression": "Easy-drinking, approachable, malt oriented American craft beer, often with interesting fruit, hop, or character malt notes. Well-balanced and clean, is a refreshing pint without aggressive flavors.",
+				"vitalStatistics": {
+					"og": "1.038 - 1.054",
+					"fg": "1.008 - 1.013",
+					"abv": "3.8 - 5.5%",
+					"ibu": "15 - 28",
+					"srm": "3 - 6"
+				},
+				"commercialExamples": [
+					"Firestone Walker 805",
+					"Kona Big Wave Golden Ale",
+					"Real Ale Firemans #4 Blonde Ale",
+					"Russian River Aud Blonde",
+					"Victory Summer Love",
+					"Widmer Citra Summer Blonde Brew"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"any-fermentation",
+					"northamerica",
+					"craft-style",
+					"pale-ale-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "18B",
+				"slug": "american-pale-ale",
+				"name": "American Pale Ale",
+				"overallImpression": "An average-strength, hop-forward, pale American craft beer with sufficient supporting malt to make the beer balanced and drinkable. The clean hop presence can reflect classic or modern American or New World hop varieties with a wide range of characteristics.",
+				"vitalStatistics": {
+					"og": "1.045 - 1.060",
+					"fg": "1.010 - 1.015",
+					"abv": "4.5 - 6.2%",
+					"ibu": "30 - 50",
+					"srm": "5 - 10"
+				},
+				"commercialExamples": [
+					"Deschutes Mirror Pond Pale Ale",
+					"Half Acre Daisy Cutter Pale Ale",
+					"Great Lakes Burning River",
+					"La Cumbre Acclimated APA",
+					"Sierra Nevada Pale Ale",
+					"Stone Pale Ale 2.0"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"pale-ale-family",
+					"bitter",
+					"hoppy"
+				]
+			}
+		]
+	},
+	{
+		"number": 19,
+		"name": "Amber and Brown American Beer",
+		"styles": [
+			{
+				"code": "19A",
+				"slug": "american-amber-ale",
+				"name": "American Amber Ale",
+				"overallImpression": "An amber, hoppy, moderate-strength American craft beer with a malty caramel flavor. The balance can vary quite a bit, with some versions being fairly malty and others being aggressively hoppy. Hoppy and bitter versions should not have clashing flavors with the caramel malt profile.",
+				"vitalStatistics": {
+					"og": "1.045 - 1.060",
+					"fg": "1.010 - 1.015",
+					"abv": "4.5 - 6.2%",
+					"ibu": "25 - 40",
+					"srm": "10 - 17"
+				},
+				"commercialExamples": [
+					"Anderson Valley Boont Amber Ale",
+					"Bell's Amber Ale",
+					"Full Sail Amber",
+					"North Coast Red Seal Ale",
+					"Saint Arnold Amber Ale",
+					"Tröegs Hopback Amber Ale"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"amber-ale-family",
+					"balanced",
+					"hoppy"
+				]
+			},
+			{
+				"code": "19B",
+				"slug": "california-common",
+				"name": "California Common",
+				"overallImpression": "A toasty and caramelly, fairly bitter, standard-strength beer with an interesting fruitiness and rustic, woody hop character. Smooth and well carbonated.",
+				"vitalStatistics": {
+					"og": "1.048 - 1.054",
+					"fg": "1.011 - 1.014",
+					"abv": "4.5 - 5.5%",
+					"ibu": "30 - 45",
+					"srm": "9 - 14"
+				},
+				"commercialExamples": ["Anchor Steam", "Steamworks Steam Engine Lager"],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"bottom-fermented",
+					"north-america",
+					"traditional-style",
+					"amber-lager-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "19C",
+				"slug": "american-brown-ale",
+				"name": "American Brown Ale",
+				"overallImpression": "A malty but hoppy standard-strength American ale frequently with chocolate and caramel flavors. The hop flavor and aroma complement and enhance the malt rather than clashing with it.",
+				"vitalStatistics": {
+					"og": "1.045 - 1.060",
+					"fg": "1.010 - 1.016",
+					"abv": "4.3 - 6.2%",
+					"ibu": "20 - 30",
+					"srm": "18 - 35"
+				},
+				"commercialExamples": [
+					"Avery Ellie's Brown Ale",
+					"Big Sky Moose Drool Brown Ale",
+					"Brooklyn Brown Ale",
+					"Bell's Best Brown",
+					"Smuttynose Old Brown Dog Ale",
+					"Telluride Face Down Brown"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"brown-ale-family",
+					"balanced",
+					"hoppy"
+				]
+			}
+		]
+	},
+	{
+		"number": 20,
+		"name": "American Porter and Stout",
+		"styles": [
+			{
+				"code": "20A",
+				"slug": "american-porter",
+				"name": "American Porter",
+				"overallImpression": "A malty, bitter, and often somewhat hoppy dark beer with a balanced, roasted, and frequently chocolatey character.",
+				"vitalStatistics": {
+					"og": "1.050 - 1.070",
+					"fg": "1.012 - 1.018",
+					"abv": "4.8 - 6.5%",
+					"ibu": "25 - 50",
+					"srm": "22 - 40"
+				},
+				"commercialExamples": [
+					"Anchor Porter",
+					"Bell's Porter",
+					"Deschutes Black Butte Porter",
+					"Great Lakes Edmund Fitzgerald Porter",
+					"Sierra Nevada Porter",
+					"Smuttynose Robust Porter"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"porter-family",
+					"bitter",
+					"roasty",
+					"hoppy"
+				]
+			},
+			{
+				"code": "20B",
+				"slug": "american-stout",
+				"name": "American Stout",
+				"overallImpression": "A fairly strong, highly roasted, bitter, hoppy dark stout. The body and dark flavors typical of stouts with a more aggressive American hop character and bitterness.",
+				"vitalStatistics": {
+					"og": "1.050 - 1.075",
+					"fg": "1.010 - 1.022",
+					"abv": "5.0 - 7.0%",
+					"ibu": "35 - 75",
+					"srm": "30 - 40"
+				},
+				"commercialExamples": [
+					"Avery Out of Bounds Stout",
+					"Bell's Kalamazoo Stout",
+					"Deschutes Obsidian Stout",
+					"Sierra Nevada Stout",
+					"Trillium Secret Stairs"
+				],
+				"tags": [
+					"high-strength",
+					"dark-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"stout-family",
+					"bitter",
+					"roasty",
+					"hoppy"
+				]
+			},
+			{
+				"code": "20C",
+				"slug": "imperial-stout",
+				"name": "Imperial Stout",
+				"overallImpression": "An intensely-flavored, very strong, very dark stout with a broad range of interpretations. Roasty-burnt malt with a depth of dark or dried fruit flavors, and a warming, bittersweet finish. Despite the intense flavors, the components need to meld together to create a complex, harmonious beer, not a hot mess -- sometimes only accomplished with age.",
+				"vitalStatistics": {
+					"og": "1.075 - 1.115",
+					"fg": "1.018 - 1.030",
+					"abv": "8.0 - 12.0%",
+					"ibu": "50 - 90",
+					"srm": "30 - 40"
+				},
+				"commercialExamples": [
+					"American – Bell’s Expedition Stout",
+					"Great Divide Yeti Imperial Stout",
+					"North Coast Old Rasputin Imperial Stout",
+					"Oskar Blues Ten Fidy",
+					"Sierra Nevada Narwhal Imperial Stout; English – 2SP Brewing Co The Russian",
+					"Courage Imperial Russian Stout",
+					"Le Coq Imperial Extra Double Stout",
+					"Samuel Smith Imperial Stout",
+					"Thornbridge Saint Petersburg"
+				],
+				"tags": [
+					"very-high-strength",
+					"dark-color",
+					"top-fermented",
+					"britishisles",
+					"north-america",
+					"traditional-style",
+					"craft-style",
+					"stout-family",
+					"malty",
+					"bitter",
+					"roasty"
+				]
+			}
+		]
+	},
+	{
+		"number": 21,
+		"name": "IPA",
+		"styles": [
+			{
+				"code": "21A",
+				"slug": "american-ipa",
+				"name": "American IPA",
+				"overallImpression": "A decidedly hoppy and bitter, moderately strong, pale American ale. The balance is hop-forward, with a clean fermentation profile, dryish finish, and clean, supporting malt allowing a creative range of hop character to shine through.",
+				"vitalStatistics": {
+					"og": "1.056 - 1.070",
+					"fg": "1.008 - 1.014",
+					"abv": "5.5 - 7.5%",
+					"ibu": "40 - 70",
+					"srm": "6 - 14"
+				},
+				"commercialExamples": [
+					"Bell's Two-Hearted Ale",
+					"Cigar City Jai Alai",
+					"Fat Heads Head Hunter IPA",
+					"Firestone Walker Union Jack",
+					"Maine Lunch",
+					"Russian River Blind Pig IPA"
+				],
+				"tags": [
+					"high-strength",
+					"pale-color",
+					"top-fermented",
+					"north america",
+					"craft-style",
+					"ipa-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "21B",
+				"slug": "specialty-ipa",
+				"name": "Specialty IPA",
+				"overallImpression": "A very pale, hop-forward American IPA variant with a bone-dry finish, very high carbonation, and a restrained bitterness level. Can be suggestive of a sparkling white wine or Champagne. The hop character is modern, and emphasizes flavor and aroma dimensions.",
+				"vitalStatistics": {
+					"og": "1.046 - 1.057",
+					"fg": "0.990 - 1.004",
+					"abv": "6.0 - 7.5%",
+					"ibu": "20 - 30",
+					"srm": "2 - 4"
+				},
+				"commercialExamples": [
+					"Drake's Brightside Extra Brut IPA",
+					"Fair State Brewing Co-Op The Brut Squad",
+					"Ommegang Brut IPA"
+				],
+				"tags": [
+					"high-strength",
+					"pale-color",
+					"top-fermented",
+					"north america",
+					"craft-style",
+					"ipa-family",
+					"specialty-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "21C",
+				"slug": "hazy-ipa",
+				"name": "Hazy IPA",
+				"overallImpression": "An American IPA with intense fruit flavors and aromas, a soft body, smooth mouthfeel, and often opaque with substantial haze. Less perceived bitterness than traditional IPAs but always massively hop-forward.",
+				"vitalStatistics": {
+					"og": "1.060 - 1.085",
+					"fg": "1.010 - 1.015",
+					"abv": "6.0 - 9.0%",
+					"ibu": "25 - 60",
+					"srm": "3 - 7"
+				},
+				"commercialExamples": [
+					"Belching Beaver Hazers Gonna Haze",
+					"Hill Farmstead Susan",
+					"Other Half Green Diamonds Double IPA",
+					"Pinthouse Electric Jellyfish",
+					"Tree House Julius",
+					"Trillium Congress Street",
+					"WeldWerks Juicy Bits"
+				],
+				"tags": [
+					"high-strength",
+					"pale-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"ipa-family",
+					"bitter",
+					"hoppy"
+				]
+			}
+		]
+	},
+	{
+		"number": 22,
+		"name": "Strong American Ale",
+		"styles": [
+			{
+				"code": "22A",
+				"slug": "double-ipa",
+				"name": "Double IPA",
+				"overallImpression": "An intensely hoppy, fairly strong, bitter pale ale without the big, rich, complex maltiness, residual sweetness, and body of an American Barleywine. Strongly hopped, but clean, dry, and lacking harshness. Despite showing its strength, drinkability is an important consideration.",
+				"vitalStatistics": {
+					"og": "1.065 - 1.085",
+					"fg": "1.008 - 1.018",
+					"abv": "7.5 - 10.0%",
+					"ibu": "60 - 100",
+					"srm": "6 - 14"
+				},
+				"commercialExamples": [
+					"Columbus Brewing Bohdi",
+					"Fat Head's Hop Juju",
+					"Port Brewing Hop-15",
+					"Russian River Pliny the Elder",
+					"Stone Ruination Double IPA 2.0",
+					"Wicked Weed Freak of Nature"
+				],
+				"tags": [
+					"very-high-strength",
+					"pale-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"ipa-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "22B",
+				"slug": "american-strong-ale",
+				"name": "American Strong Ale",
+				"overallImpression": "A malty, bitter, and strong American Ale fitting in the space between American Barleywine, Double IPA, and Red IPA. The malty and hoppy flavors can be quite strong, but are generally in balance.",
+				"vitalStatistics": {
+					"og": "1.062 - 1.090",
+					"fg": "1.014 - 1.024",
+					"abv": "6.3 - 10.0%",
+					"ibu": "50 - 100",
+					"srm": "7 - 18"
+				},
+				"commercialExamples": [
+					"Arrogant Bastard Ale",
+					"Fat Head's Bone Head",
+					"Great Lakes Nosferatu",
+					"Oskar Blues G'Knight",
+					"Port Brewing Shark Attack Double Red Ale"
+				],
+				"tags": [
+					"high-strength",
+					"amber-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"strong-ale-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "22C",
+				"slug": "american-barleywine",
+				"name": "American Barleywine",
+				"overallImpression": "A very strong, malty, hoppy, bitter American ale with a rich palate, full mouthfeel, and warming aftertaste, suitable for contemplative sipping.",
+				"vitalStatistics": {
+					"og": "1.080 - 1.120",
+					"fg": "1.016 - 1.030",
+					"abv": "8.0 - 12.0%",
+					"ibu": "50 - 100",
+					"srm": "9 - 18"
+				},
+				"commercialExamples": [
+					"Anchor Old Foghorn",
+					"Bell's Third Coast Old Ale",
+					"East End Gratitude",
+					"Hair of the Dog Doggie Claws",
+					"Sierra Nevada Bigfoot"
+				],
+				"tags": [
+					"very-high-strength",
+					"amber-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"strong-ale-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "22D",
+				"slug": "wheatwine",
+				"name": "Wheatwine",
+				"overallImpression": "A richly textured, high alcohol sipping beer with a significant grainy, bready flavor, and a sleek body. The emphasis is first on the bready, wheaty flavors with malt, hops, fruity yeast, and alcohol complexity.",
+				"vitalStatistics": {
+					"og": "1.080 - 1.120",
+					"fg": "1.016 - 1.030",
+					"abv": "8.0 - 12.0%",
+					"ibu": "30 - 60",
+					"srm": "6 - 14"
+				},
+				"commercialExamples": [
+					"The Bruery White Oak",
+					"Castelain Winter Ale",
+					"Perennial Heart of Gold",
+					"Two Brothers Bare Tree"
+				],
+				"tags": [
+					"very-high-strength",
+					"amber-color",
+					"top-fermented",
+					"northamerica",
+					"craft-style",
+					"strong-ale-family",
+					"wheat-beer-family",
+					"balanced",
+					"hoppy"
+				]
+			}
+		]
+	},
+	{
+		"number": 23,
+		"name": "European Sour Ale",
+		"styles": [
+			{
+				"code": "23A",
+				"slug": "berliner-weisse",
+				"name": "Berliner Weisse",
+				"overallImpression": "A very pale, refreshing, low-alcohol German wheat beer with a clean lactic sourness and a very high carbonation level. A light bread dough malt flavor supports the sourness, which shouldn't seem artificial. A gentle fruitiness is found in the best examples.",
+				"vitalStatistics": {
+					"og": "1.028 - 1.032",
+					"fg": "1.003 - 1.006",
+					"abv": "2.8 - 3.8%",
+					"ibu": "3 - 8",
+					"srm": "2 - 3"
+				},
+				"commercialExamples": [
+					"Bayerischer Bahnhof Berliner Style Weisse",
+					"Berliner Berg Berliner Weisse",
+					"Brauerei Meierei Weiße",
+					"Lemke Berlin Budike Weisse",
+					"Schell's Brewing Company Schelltheiss",
+					"Urban Chestnut Ku'damm"
+				],
+				"tags": [
+					"session-strength",
+					"pale-color",
+					"top-fermented",
+					"centraleurope",
+					"traditional-style",
+					"wheat-beer-family",
+					"sour"
+				]
+			},
+			{
+				"code": "23B",
+				"slug": "flanders-red-ale",
+				"name": "Flanders Red Ale",
+				"overallImpression": "A sour and fruity oak-aged reddish-brown Belgian-style ale with supportive toasty malt flavors and fruit complexity. The dry, tannic finish supports the suggestion of a vintage red wine.",
+				"vitalStatistics": {
+					"og": "1.048 - 1.057",
+					"fg": "1.002 - 1.012",
+					"abv": "4.6 - 6.5%",
+					"ibu": "10 - 25",
+					"srm": "10 - 17"
+				},
+				"commercialExamples": [
+					"Cuvée des Jacobins",
+					"Duchesse de Bourgogne",
+					"New Belgium La Folie",
+					"Rodenbach Classic",
+					"Rodenbach Grand Cru",
+					"Vichtenaar Flemish Ale"
+				],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"western-europe",
+					"traditional-style",
+					"balanced",
+					"sour",
+					"wood"
+				]
+			},
+			{
+				"code": "23C",
+				"slug": "oud-bruin",
+				"name": "Oud Bruin",
+				"overallImpression": "A malty, fruity, aged, somewhat sour Belgian-style brown ale with a caramel-chocolate malt flavor, and often substantial alcohol.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.074",
+					"fg": "1.008 - 1.012",
+					"abv": "4.0 - 8.0%",
+					"ibu": "20 - 25",
+					"srm": "17 - 22"
+				},
+				"commercialExamples": [
+					"Ichtegem Oud Bruin",
+					"Liefmans Goudenband",
+					"Liefmans Oud Bruin",
+					"Petrus Roodbruin",
+					"pFriem Oud Bruin",
+					"VanderGhinste Roodbruin"
+				],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"top-fermented",
+					"westerneurope",
+					"traditional-style",
+					"malty",
+					"sour"
+				]
+			},
+			{
+				"code": "23D",
+				"slug": "lambic",
+				"name": "Lambic",
+				"overallImpression": "A fairly sour, often moderately funky, wild Belgian wheat beer with sourness taking the place of hop bitterness in the balance. Traditionally served uncarbonated as a café drink.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.054",
+					"fg": "1.001 - 1.010",
+					"abv": "5.0 - 6.5%",
+					"ibu": "0 - 10",
+					"srm": "3 - 6"
+				},
+				"commercialExamples": [
+					"Cantillon Grand Cru Bruocsella. In the Brussels area",
+					"many specialty cafés have draught lambic from Boon",
+					"De Cam",
+					"Cantillon",
+					"Drie Fonteinen",
+					"Lindemans",
+					"Timmermans",
+					"Girardin and others."
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"wild-fermented",
+					"westerneurope",
+					"traditional-style",
+					"wheat-beer-family",
+					"sour"
+				]
+			},
+			{
+				"code": "23E",
+				"slug": "gueuze",
+				"name": "Gueuze",
+				"overallImpression": "A very refreshing, highly carbonated, pleasantly sour but balanced wild Belgian wheat beer. The wild beer character can be complex and varied, combining sour, funky, and fruity flavors.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.054",
+					"fg": "1.000 - 1.006",
+					"abv": "5.0 - 8.0%",
+					"ibu": "0 - 10",
+					"srm": "5 - 6"
+				},
+				"commercialExamples": [
+					"3 Fonteinen Oud Gueuze",
+					"Cantillon Classic Gueuze 100% Lambic",
+					"Girardin Gueuze 1882 (Black label)",
+					"Hanssens Oude Gueuze",
+					"Lindemans Gueuze Cuvée René",
+					"Oude Gueuze Boon"
+				],
+				"tags": [
+					"high-strength",
+					"pale-color",
+					"wild-fermented",
+					"westerneurope",
+					"traditional-style",
+					"wheat-beer-family",
+					"aged",
+					"sour"
+				]
+			},
+			{
+				"code": "23F",
+				"slug": "fruit-lambic",
+				"name": "Fruit Lambic",
+				"overallImpression": "A complex, refreshing, pleasantly sour Belgian wheat beer blending a complementary fermented fruit character with a sour, funky Gueuze.",
+				"vitalStatistics": {
+					"og": "1.040 - 1.060",
+					"fg": "1.000 - 1.010",
+					"abv": "5.0 - 7.0%",
+					"ibu": "0 - 10",
+					"srm": "3 - 7"
+				},
+				"commercialExamples": [
+					"3 Fonteinen Schaerbeekse Kriek",
+					"Cantillon Fou' Foune",
+					"Cantillon Lou Pepe Framboise",
+					"Cantillon Vigneronne",
+					"Hanssens Oude Kriek",
+					"Oude Kriek Boon"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"wild-fermented",
+					"westerneurope",
+					"traditional-style",
+					"wheat-beer-family",
+					"sour",
+					"fruit"
+				]
+			},
+			{
+				"code": "23G",
+				"slug": "gose",
+				"name": "Gose",
+				"overallImpression": "A tart, lightly-bittered historical central European wheat beer with a distinctive but restrained salt and coriander character. Very refreshing, with a dry finish, high carbonation, and bright flavors.",
+				"vitalStatistics": {
+					"og": "1.036 - 1.056",
+					"fg": "1.006 - 1.010",
+					"abv": "4.2 - 4.8%",
+					"ibu": "5 - 12",
+					"srm": "3 - 4"
+				},
+				"commercialExamples": [
+					"Anderson Valley Gose",
+					"Bayerisch Bahnhof Leipziger Gose",
+					"Original Ritterguts Gose",
+					"Westbrook Gose"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"centraleurope",
+					"historical-style",
+					"wheat-beer-family",
+					"sour",
+					"spice"
+				]
+			}
+		]
+	},
+	{
+		"number": 24,
+		"name": "Belgian Ale",
+		"styles": [
+			{
+				"code": "24A",
+				"slug": "witbier",
+				"name": "Witbier",
+				"overallImpression": "A pale, hazy Belgian wheat beer with spices accentuating the yeast character. A delicate, lightly spiced, moderate-strength ale that is a refreshing summer drink with its high carbonation, dry finish, and light hopping.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.052",
+					"fg": "1.008 - 1.012",
+					"abv": "4.5 - 5.5%",
+					"ibu": "8 - 20",
+					"srm": "2 - 4"
+				},
+				"commercialExamples": [
+					"Allagash White",
+					"Blanche de Bruxelles",
+					"Celis White",
+					"Hoegaarden White",
+					"Ommegang Witte",
+					"St. Bernardus Wit"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"westerneurope",
+					"traditional-style",
+					"wheat-beer-family",
+					"spice"
+				]
+			},
+			{
+				"code": "24B",
+				"slug": "belgian-pale-ale",
+				"name": "Belgian Pale Ale",
+				"overallImpression": "A top-fermented, all malt, average strength Belgian ale that is moderately bitter, not dry-hopped, and without strong flavors. The copper-colored beer lacks the aggressive yeast character or sourness of many Belgian beers, but has a well-balanced, malty, fruity, and often bready and toasty profile.",
+				"vitalStatistics": {
+					"og": "1.048 - 1.054",
+					"fg": "1.010 - 1.014",
+					"abv": "4.8 - 5.5%",
+					"ibu": "20 - 30",
+					"srm": "8 - 14"
+				},
+				"commercialExamples": ["De Koninck Bolleke", "De Ryck Special", "Palm", "Palm Dobble"],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"western-europe",
+					"traditional-style",
+					"pale-ale-family",
+					"balanced"
+				]
+			},
+			{
+				"code": "24C",
+				"slug": "biere-de-garde",
+				"name": "Bière de Garde",
+				"overallImpression": "A family of smooth, fairly strong, malty, lagered artisanal French beer with a range of malt flavors appropriate for the blond, amber, or brown color. All are malty yet dry, with clean flavors. Darker versions have more malt character, while paler versions can have more hops while still remaining malt-focused beers.",
+				"vitalStatistics": {
+					"og": "1.060 - 1.080",
+					"fg": "1.008 - 1.016",
+					"abv": "6.0 - 8.5%",
+					"ibu": "18 - 28",
+					"srm": "6 - 19"
+				},
+				"commercialExamples": [
+					"Ch'Ti Blonde",
+					"Jenlain Ambrée",
+					"La Choulette Brune",
+					"Russian River Perdition",
+					"Saint Sylvestre 3 Monts Blonde",
+					"Two Brothers Domaine Dupage"
+				],
+				"tags": [
+					"high-strength",
+					"pale-color",
+					"amber-color",
+					"any fermentation",
+					"lagered",
+					"western-europe",
+					"traditional-style",
+					"amber-ale-family",
+					"malty"
+				]
+			}
+		]
+	},
+	{
+		"number": 25,
+		"name": "Strong Belgian Ale",
+		"styles": [
+			{
+				"code": "25A",
+				"slug": "belgian-blond-ale",
+				"name": "Belgian Blond Ale",
+				"overallImpression": "A golden, moderately-strong Belgian ale with a pleasantly subtle citrusy-spicy yeast complexity, smooth malty palate, and dry, soft finish.",
+				"vitalStatistics": {
+					"og": "1.062 - 1.075",
+					"fg": "1.008 - 1.018",
+					"abv": "6.0 - 7.5%",
+					"ibu": "15 - 30",
+					"srm": "4 - 6"
+				},
+				"commercialExamples": [
+					"Affligem Blond",
+					"Corsendonk Blond",
+					"Grimbergen Blonde",
+					"La Trappe Blond",
+					"Leffe Blond",
+					"Val-Dieu Blonde"
+				],
+				"tags": [
+					"high-strength",
+					"pale-color",
+					"top-fermented",
+					"western europe",
+					"traditional-style",
+					"balanced"
+				]
+			},
+			{
+				"code": "25B",
+				"slug": "saison",
+				"name": "Saison",
+				"overallImpression": "A family of refreshing, highly attenuated, hoppy, and fairly bitter Belgian ales with a very dry finish and high carbonation. Characterized by a fruity, spicy, sometimes phenolic fermentation profile, and the use of cereal grains and sometimes spices for complexity. Several variations in strength and color exist.",
+				"vitalStatistics": {
+					"og": "1.048 - 1.065",
+					"fg": "1.002 - 1.008",
+					"abv": "3.5 - 9.5%",
+					"ibu": "20 - 35",
+					"srm": "5 - 22"
+				},
+				"commercialExamples": [
+					"Ellezelloise Saison 2000",
+					"Lefebvre Saison 1900",
+					"Saison Dupont",
+					"Saison de Pipaix",
+					"Saison Voisin",
+					"Boulevard Tank 7"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"westerneurope",
+					"traditional-style",
+					"bitter"
+				]
+			},
+			{
+				"code": "25C",
+				"slug": "belgian-golden-strong-ale",
+				"name": "Belgian Golden Strong Ale",
+				"overallImpression": "A very pale, highly attenuated, strong Belgian ale that is more fruity and hoppy than spicy. Complex and delicate, the dry finish, light body, and high carbonation accentuate the yeast and hop character. Sparkling carbonation and effervescent, forming a rocky white head.",
+				"vitalStatistics": {
+					"og": "1.070 - 1.095",
+					"fg": "1.005 - 1.016",
+					"abv": "7.5 - 10.5%",
+					"ibu": "22 - 35",
+					"srm": "3 - 6"
+				},
+				"commercialExamples": [
+					"Brigand",
+					"Delirium Tremens",
+					"Duvel",
+					"Judas",
+					"Lucifer",
+					"Russian River Damnation"
+				],
+				"tags": [
+					"very-high-strength",
+					"pale-color",
+					"top-fermented",
+					"westerneurope",
+					"traditional-style",
+					"bitter"
+				]
+			}
+		]
+	},
+	{
+		"number": 26,
+		"name": "Monastic Ale",
+		"styles": [
+			{
+				"code": "26A",
+				"slug": "belgian-single",
+				"name": "Belgian Single",
+				"overallImpression": "A blond, bitter, hoppy table beer that is very dry and highly carbonated. The aggressive fruity-spicy Belgian yeast character and high bitterness is forward in the balance, with a soft, supportive grainy-sweet malt palate, and a spicy-floral hop profile.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.054",
+					"fg": "1.004 - 1.010",
+					"abv": "4.8 - 6.0%",
+					"ibu": "25 - 45",
+					"srm": "3 - 5"
+				},
+				"commercialExamples": [
+					"Chimay Gold",
+					"La Trappe Puur",
+					"Russian River Redemption",
+					"St. Bernardus Extra 4",
+					"Westmalle Extra",
+					"Westvleteren Blond"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"westerneurope",
+					"craft-style",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "26B",
+				"slug": "belgian-dubbel",
+				"name": "Belgian Dubbel",
+				"overallImpression": "A deep reddish-copper, moderately strong, malty, complex Belgian ale with rich malty flavors, dark or dried fruit esters, and light alcohol blended together in a malty presentation that still finishes fairly dry.",
+				"vitalStatistics": {
+					"og": "1.062 - 1.075",
+					"fg": "1.008 - 1.018",
+					"abv": "6.0 - 7.6%",
+					"ibu": "15 - 25",
+					"srm": "10 - 17"
+				},
+				"commercialExamples": [
+					"Chimay Red",
+					"Corsendonk Bruin",
+					"La Trappe Dubbel",
+					"Rochefort 6",
+					"St. Bernardus Pater 6",
+					"Westmalle Dubbel"
+				],
+				"tags": [
+					"high-strength",
+					"amber-color",
+					"top-fermented",
+					"westerneurope",
+					"traditional-style",
+					"malty"
+				]
+			},
+			{
+				"code": "26C",
+				"slug": "belgian-tripel",
+				"name": "Belgian Tripel",
+				"overallImpression": "A strong, pale, somewhat spicy Belgian ale with a pleasant rounded malt flavor, firm bitterness, and dry finish. Quite aromatic, with spicy, fruity, and light alcohol notes combining with the supportive clean malt character to produce a surprisingly drinkable beverage considering the high alcohol content.",
+				"vitalStatistics": {
+					"og": "1.075 - 1.085",
+					"fg": "1.008 - 1.014",
+					"abv": "7.5 - 9.5%",
+					"ibu": "20 - 40",
+					"srm": "4.5 - 7"
+				},
+				"commercialExamples": [
+					"Chimay Tripel",
+					"La Rulles Tripel",
+					"La Trappe Tripel",
+					"St. Bernardus Tripel",
+					"Val-Dieu Triple",
+					"Westmalle Tripel"
+				],
+				"tags": [
+					"high-strength",
+					"pale-color",
+					"top-fermented",
+					"westerneurope",
+					"traditional-style",
+					"bitter"
+				]
+			},
+			{
+				"code": "26D",
+				"slug": "belgian-dark-strong-ale",
+				"name": "Belgian Dark Strong Ale",
+				"overallImpression": "A dark, complex, very strong Belgian ale with a delicious blend of malt richness, dark fruit flavors, and spicy notes. Complex, rich, smooth, and dangerous.",
+				"vitalStatistics": {
+					"og": "1.075 - 1.110",
+					"fg": "1.010 - 1.024",
+					"abv": "8.0 - 12.0%",
+					"ibu": "20 - 35",
+					"srm": "12 - 22"
+				},
+				"commercialExamples": [
+					"Achel Extra Bruin",
+					"Boulevard The Sixth Glass",
+					"Chimay Blue",
+					"Rochefort 10",
+					"St. Bernardus Abt 12",
+					"Westvleteren 12"
+				],
+				"tags": [
+					"very-high-strength",
+					"amber-color",
+					"top-fermented",
+					"western-europe",
+					"traditional-style",
+					"malty"
+				]
+			}
+		]
+	},
+	{
+		"number": 27,
+		"name": "Historical Beer",
+		"styles": [
+			{
+				"code": "27A",
+				"slug": "historical-beer-kellerbier",
+				"name": "Historical Beer: Kellerbier",
+				"overallImpression": "An unfiltered, unpasteurized, fully-attenuated German lager traditionally served from lagering vessels. May be a little richer, more robust, and rustic than the base styles. A fresh beer without fermentation defects associated with young, green (unfinished) beer.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Märzen – Faust Kräusen Naturtrüb",
+					"Mahrs Bräu aU Ungespundet Kellerbier; Dunkel – Engel Kellerbier Dunkel",
+					"Paulaner Ur-Dunkel Naturtrüb; Helles – ABK Kellerbier Naturtrüb",
+					"Löwenbräu 1747 Original; Pils – Giesinger Feines Pilschen",
+					"Ketterer Zwickel-Pils"
+				],
+				"tags": [
+					"standard-strength",
+					"bottom-fermented",
+					"central-europe",
+					"traditional-style",
+					"balanced"
+				]
+			},
+			{
+				"code": "27B",
+				"slug": "historical-beer-kentucky-common",
+				"name": "Historical Beer: Kentucky Common",
+				"overallImpression": "A clean, dry, refreshing, slightly malty dark beer with high carbonation. Mild-tasting, with light toast and caramel flavors, served very fresh as a sessionable saloon beer.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.055",
+					"fg": "1.010 - 1.018",
+					"abv": "4.0 - 5.5%",
+					"ibu": "15 - 30",
+					"srm": "11 - 20"
+				},
+				"commercialExamples": ["Apocalypse Brew Works 1912"],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"northamerica",
+					"historical-style",
+					"balanced"
+				]
+			},
+			{
+				"code": "27C",
+				"slug": "historical-beer-lichtenhainer",
+				"name": "Historical Beer: Lichtenhainer",
+				"overallImpression": "A sour, smoked, lower-gravity historical central European wheat beer. Complex yet refreshing character due to high attenuation and carbonation, along with low bitterness and moderate sourness.",
+				"vitalStatistics": {
+					"og": "1.032 - 1.040",
+					"fg": "1.004 - 1.008",
+					"abv": "3.5 - 4.7%",
+					"ibu": "5 - 12",
+					"srm": "3 - 6"
+				},
+				"commercialExamples": ["Live Oak Lichtenhainer", "Wöllnitzer Weissbier"],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"top-fermented",
+					"centraleurope",
+					"historical-style",
+					"wheat-beer-family",
+					"sour",
+					"smoke"
+				]
+			},
+			{
+				"code": "27D",
+				"slug": "historical-beer-london-brown-ale",
+				"name": "Historical Beer: London Brown Ale",
+				"overallImpression": "A luscious, sweet, malty, low-alcohol dark brown ale, with caramel and toffee malt complexity and a sweet-tasting finish.",
+				"vitalStatistics": {
+					"og": "1.033 - 1.038",
+					"fg": "1.012 - 1.015",
+					"abv": "2.8 - 3.6%",
+					"ibu": "15 - 20",
+					"srm": "22 - 35"
+				},
+				"commercialExamples": ["Harveys Bloomsbury Brown Ale", "Mann's Brown Ale"],
+				"tags": [
+					"session-strength",
+					"dark-color",
+					"top-fermented",
+					"britishisles",
+					"historical-style",
+					"brown-ale-family",
+					"malty",
+					"sweet"
+				]
+			},
+			{
+				"code": "27E",
+				"slug": "historical-beer-piwo-grodziskie",
+				"name": "Historical Beer: Piwo Grodziskie",
+				"overallImpression": "A low-gravity, bitter, oak-smoked historical central European wheat beer with a clean fermentation profile and no sourness. Highly carbonated, dry, crisp, and refreshing.",
+				"vitalStatistics": {
+					"og": "1.028 - 1.032",
+					"fg": "1.006 - 1.012",
+					"abv": "2.5 - 3.3%",
+					"ibu": "20 - 35",
+					"srm": "3 - 6"
+				},
+				"commercialExamples": ["Live Oak Grodziskie"],
+				"tags": [
+					"session-strength",
+					"pale-color",
+					"top-fermented",
+					"centraleurope",
+					"historical-style",
+					"wheat-beer-family",
+					"bitter",
+					"smoke"
+				]
+			},
+			{
+				"code": "27F",
+				"slug": "historical-beer-pre-prohibition-lager",
+				"name": "Historical Beer: Pre-Prohibition Lager",
+				"overallImpression": "A bitter and hoppy pale American adjunct lager, often with a robust, corny flavor profile, although more crisp and neutral-tasting versions exist.",
+				"vitalStatistics": {
+					"og": "1.044 - 1.060",
+					"fg": "1.010 - 1.015",
+					"abv": "4.5 - 6.0%",
+					"ibu": "25 - 40",
+					"srm": "3 - 6"
+				},
+				"commercialExamples": [
+					"Capital Supper Club",
+					"Coors Batch 19",
+					"Little Harpeth Chicken Scratch",
+					"Schell Deer Brand",
+					"Urban Chestnut Forest Park Pilsner"
+				],
+				"tags": [
+					"standard-strength",
+					"pale-color",
+					"bottom-fermented",
+					"lagered",
+					"north-america",
+					"historical-style",
+					"pilsner-family",
+					"bitter",
+					"hoppy"
+				]
+			},
+			{
+				"code": "27G",
+				"slug": "historical-beer-pre-prohibition-porter",
+				"name": "Historical Beer: Pre-Prohibition Porter",
+				"overallImpression": "A historical American adaptation of English Porter by German immigrants using American ingredients, including adjuncts.",
+				"vitalStatistics": {
+					"og": "1.046 - 1.060",
+					"fg": "1.010 - 1.016",
+					"abv": "4.5 - 6.0%",
+					"ibu": "20 - 30",
+					"srm": "20 - 30"
+				},
+				"commercialExamples": ["Stegmaier Porter", "Yuengling Porter"],
+				"tags": [
+					"standard-strength",
+					"dark-color",
+					"any-fermentation",
+					"northamerica",
+					"historical-style",
+					"porter-family",
+					"malty"
+				]
+			},
+			{
+				"code": "27H",
+				"slug": "historical-beer-roggenbier",
+				"name": "Historical Beer: Roggenbier",
+				"overallImpression": "A Dunkles Weissbier made with rye rather than wheat, but with a greater body and light finishing hops. The rye gives a bready and peppery flavor, a creamy body, and a dry, grainy finish that blends with the distinctive banana-and-clove weizen yeast character.",
+				"vitalStatistics": {
+					"og": "1.046 - 1.056",
+					"fg": "1.010 - 1.014",
+					"abv": "4.5 - 6.0%",
+					"ibu": "10 - 20",
+					"srm": "14 - 19"
+				},
+				"commercialExamples": ["Thurn und Taxis Roggen"],
+				"tags": [
+					"standard-strength",
+					"amber-color",
+					"top-fermented",
+					"centraleurope",
+					"historical-style",
+					"wheat-beer-family"
+				]
+			},
+			{
+				"code": "27I",
+				"slug": "historical-beer-sahti",
+				"name": "Historical Beer: Sahti",
+				"overallImpression": "A sweet, heavy, strong traditional Finnish farmhouse beer usually with rye and juniper, and a banana-clove yeast character.",
+				"vitalStatistics": {
+					"og": "1.076 - 1.120",
+					"fg": "1.016 - 1.038",
+					"abv": "7.0 - 11.0%",
+					"ibu": "0 - 15",
+					"srm": "4 - 22"
+				},
+				"commercialExamples": ["Now made year-round by several breweries in Finland."],
+				"tags": [
+					"high-strength",
+					"amber-color",
+					"top-fermented",
+					"centraleurope",
+					"historical-style",
+					"spice"
+				]
+			}
+		]
+	},
+	{
+		"number": 28,
+		"name": "American Wild Ale",
+		"styles": [
+			{
+				"code": "28A",
+				"slug": "brett-beer",
+				"name": "Brett Beer",
+				"overallImpression": "Most often drier and fruitier than the base style suggests. Fruity or funky notes range from low to high, depending on the age of the beer and strains of Brett used. May possess a light non-lactic acidity.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Boulevard Saison Brett",
+					"Hill Farmstead Arthur",
+					"Logsdon Seizoen Bretta",
+					"Lost Abbey Brett Devo",
+					"Russian River Sanctification",
+					"The Bruery Saison Rue"
+				],
+				"tags": ["wild-fermentation", "north-america", "craft-style", "specialtybeer"]
+			},
+			{
+				"code": "28B",
+				"slug": "mixed-fermentation-sour-beer",
+				"name": "Mixed-Fermentation Sour Beer",
+				"overallImpression": "A sour and funky version of a base style of beer.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Boulevard Love Child",
+					"Jester King Le Petit Prince",
+					"Jolly Pumpkin Oro de Calabaza",
+					"Lost Abbey Ghosts in the Forest",
+					"New Belgium Le Terroir",
+					"Russian River Temptation"
+				],
+				"tags": ["wild-fermentation", "north-america", "craft-style", "specialtybeer", "sour"]
+			},
+			{
+				"code": "28C",
+				"slug": "wild-specialty-beer",
+				"name": "Wild Specialty Beer",
+				"overallImpression": "An American Wild Ale with fruit, herbs, spices, or other Specialty-Type Ingredients.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Cascade Bourbonic Plague",
+					"Jester King Atrial Rubicite",
+					"New Belgium Dominga Mimosa Sour",
+					"New Glarus Wisconsin Belgian Red",
+					"Russian River Supplication",
+					"The Lost Abbey Cuvee de Tomme"
+				],
+				"tags": [
+					"wild-fermentation",
+					"north-america",
+					"craft-style",
+					"specialtybeer",
+					"sour",
+					"fruit"
+				]
+			},
+			{
+				"code": "28D",
+				"slug": "straight-sour-beer",
+				"name": "Straight Sour Beer",
+				"overallImpression": "A pale, refreshing, sour beer with a clean lactic sourness. A gentle, pale malt flavor supports the lemony sourness with moderate fruity esters.",
+				"vitalStatistics": {
+					"og": "1.048 - 1.065",
+					"fg": "1.006 - 1.013",
+					"abv": "4.5 - 7.0%",
+					"ibu": "3 - 8",
+					"srm": "2 - 3"
+				},
+				"commercialExamples": [
+					"Rarely found",
+					"as this style is typically the base for other Specialty-Type Beers."
+				],
+				"tags": ["pale-color", "top-fermented", "sour"]
+			}
+		]
+	},
+	{
+		"number": 29,
+		"name": "Fruit Beer",
+		"styles": [
+			{
+				"code": "29A",
+				"slug": "fruit-beer",
+				"name": "Fruit Beer",
+				"overallImpression": "A pleasant integration of fruit with beer, but still recognizable as beer. The fruit character should be evident but in balance with the beer, not so forward as to suggest an artificial product.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"21st Amendment Hell or High Watermelon",
+					"Anderson Valley Blood Orange Gose",
+					"Avery Liliko'i Kepolo",
+					"Ballast Point Grapefruit Sculpin",
+					"Bell's Cherry Stout",
+					"Founders Rübæus"
+				],
+				"tags": ["specialty-beer", "fruit"]
+			},
+			{
+				"code": "29B",
+				"slug": "fruit-and-spice-beer",
+				"name": "Fruit and Spice Beer",
+				"overallImpression": "A tasteful union of fruit, spice, and beer, but still recognizable as beer. The fruit and spice character should each be evident but in balance with the beer, not so forward as to suggest an artificial product.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Cigar City Margarita Gose",
+					"Firestone Walker Chocolate Cherry Stout",
+					"Golden Road Spicy Mango Cart",
+					"Kona Island Colada Cream Ale",
+					"New Glarus Blueberry Cocoa Stout",
+					"Sun King Orange Vanilla Sunlight"
+				],
+				"tags": ["specialty-beer", "fruit", "spice"]
+			},
+			{
+				"code": "29C",
+				"slug": "specialty-fruit-beer",
+				"name": "Specialty Fruit Beer",
+				"overallImpression": "A appealing combination of fruit, sugar, and beer, but still recognizable as a beer. The fruit and sugar character should both be evident but in balance with the beer, not so forward as to suggest an artificial product.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"The Bruery Goses are Red",
+					"New Planet Raspberry Ale",
+					"Tired Hands Strawberry Milkshake IPA",
+					"WeldWerks Piña Colada IPA"
+				],
+				"tags": ["specialty-beer", "fruit"]
+			},
+			{
+				"code": "29D",
+				"slug": "grape-ale",
+				"name": "Grape Ale",
+				"overallImpression": "Combines the profile of a sparkling wine and a relatively neutral base beer allowing the aromatic qualities of the grape to blend pleasantly with hop and yeast aromatics. Can be in a range from refreshing to complex.",
+				"vitalStatistics": {
+					"og": "1.059 - 1.075",
+					"fg": "1.004 - 1.013",
+					"abv": "6.0 - 8.5%",
+					"ibu": "10 - 30",
+					"srm": "4 - 8"
+				},
+				"commercialExamples": [
+					"Montegioco Open Mind",
+					"Birrificio del Forte Il Tralcio",
+					"Luppolajo Mons Rubus",
+					"Firestone Walker Feral Vinifera",
+					"pFriem Family Brewers Druif",
+					"4 Árvores Abbondanza"
+				],
+				"tags": ["specialty-beer", "fruit"]
+			}
+		]
+	},
+	{
+		"number": 30,
+		"name": "Spiced Beer",
+		"styles": [
+			{
+				"code": "30A",
+				"slug": "spice-herb-or-vegetable-beer",
+				"name": "Spice, Herb, or Vegetable Beer",
+				"overallImpression": "An appealing fusion of spices, herbs, or vegetables (SHVs) and beer, but still recognizable as beer. The SHV character should be evident but in balance with the beer, not so forward as to suggest an artificial product.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Alesmith Speedway Stout",
+					"Elysian Avatar Jasmine IPA",
+					"Founders Breakfast Stout",
+					"Rogue Yellow Snow Pilsner",
+					"Traquair Jacobite Ale",
+					"Young's Double Chocolate Stout"
+				],
+				"tags": ["specialty-beer", "spice"]
+			},
+			{
+				"code": "30B",
+				"slug": "autumn-seasonal-beer",
+				"name": "Autumn Seasonal Beer",
+				"overallImpression": "A malty, spiced beer that often has a moderately rich body and slightly warming finish suggesting a good accompaniment for the cool fall season, and often evocative of harvest or Thanksgiving traditions.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Dogfish Head Punkin Ale",
+					"Elysian Punkuccino",
+					"Rogue Pumpkin Patch Ale",
+					"Schlafly Pumpkin Ale",
+					"UFO Pumpkin",
+					"Weyerbacher Imperial Pumpkin"
+				],
+				"tags": ["specialty-beer", "spice"]
+			},
+			{
+				"code": "30C",
+				"slug": "winter-seasonal-beer",
+				"name": "Winter Seasonal Beer",
+				"overallImpression": "A stronger, darker, spiced beer that often has a rich body and warming finish suggesting a good accompaniment for the cold winter season.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Anchor Christmas Ale",
+					"Great Lakes Christmas Ale",
+					"Harpoon Winter Warmer",
+					"Rogue Santa's Private Reserve",
+					"Schlafly Christmas Ale",
+					"Troeg's The Mad Elf"
+				],
+				"tags": ["specialty-beer", "spice"]
+			},
+			{
+				"code": "30D",
+				"slug": "specialty-spice-beer",
+				"name": "Specialty Spice Beer",
+				"overallImpression": "An appealing combination of spices, herbs, or vegetables (SHVs), sugars, and beer, but still recognizable as beer. The SHV and sugar character should both be evident but in balance with the beer, not so forward as to suggest an artificial product.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": ["New Belgium Honey Orange Tripel", "Westbrook It's Tiki Time"],
+				"tags": ["specialty-beer", "spice"]
+			}
+		]
+	},
+	{
+		"number": 31,
+		"name": "Alternative Fermentables Beer",
+		"styles": [
+			{
+				"code": "31A",
+				"slug": "alternative-grain-beer",
+				"name": "Alternative Grain Beer",
+				"overallImpression": "A base beer enhanced by or featuring the character of additional grains. The specific character depends greatly on the added grains.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Blue/Point Rastafarye Ale",
+					"Green's India Pale Ale",
+					"Lakefront New Grist",
+					"New Planet Pale Ale",
+					"Rogue Morimoto Soba Ale",
+					"Voodoo Swimming Jeans"
+				],
+				"tags": ["specialty-beer"]
+			},
+			{
+				"code": "31B",
+				"slug": "alternative-sugar-beer",
+				"name": "Alternative Sugar Beer",
+				"overallImpression": "A tasteful integration of sugar and beer, but still recognizable as beer. The sugar character should both be evident and in balance with the beer, not so forward as to suggest an artificial product.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Bell's Hopslam",
+					"Cervejaria Colorado Appia",
+					"Fifth Hammer Break of Jawn",
+					"Groundswell Piloncillo",
+					"Long Trail Harvest",
+					"New Glarus Cabin Fever"
+				],
+				"tags": ["specialty-beer"]
+			}
+		]
+	},
+	{
+		"number": 32,
+		"name": "Smoked Beer",
+		"styles": [
+			{
+				"code": "32A",
+				"slug": "classic-style-smoked-beer",
+				"name": "Classic Style Smoked Beer",
+				"overallImpression": "A well-balanced fusion of the malt and hops of the base beer style with a pleasant and agreeable smoke character.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Alaskan Smoked Porter",
+					"Schlenkerla Oak Smoke Doppelbock",
+					"Schlenkerla Rauchbier Weizen",
+					"Schlenkerla Rauchbier Ur-Bock",
+					"O'Fallon Smoked Porter",
+					"Spezial Rauchbier Lagerbier"
+				],
+				"tags": ["specialty-beer", "smoke"]
+			},
+			{
+				"code": "32B",
+				"slug": "specialty-smoked-beer",
+				"name": "Specialty Smoked Beer",
+				"overallImpression": "A well-balanced fusion of the malt and hops of the base specialty beer style with a pleasant and agreeable smoke character.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Fat Head's Up in Smoke",
+					"Ommegang Bourbon Barrel Vanilla Smoked Porter"
+				],
+				"tags": ["specialty-beer", "smoke"]
+			}
+		]
+	},
+	{
+		"number": 33,
+		"name": "Wood Beer",
+		"styles": [
+			{
+				"code": "33A",
+				"slug": "wood-aged-beer",
+				"name": "Wood-Aged Beer",
+				"overallImpression": "A pleasant enhancement of the base beer style with the characteristics from aging in contact with wood. The best examples will be smooth, flavorful, well-balanced, and well-aged.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Bush Prestige",
+					"Cigar City Spanish Cedar Jai Alai",
+					"Firestone Walker Double Barrel Ale",
+					"Midnight Sun Arctic Devil",
+					"Petrus Aged Pale",
+					"Samuel Smith Yorkshire Stingo"
+				],
+				"tags": ["specialty-beer", "wood"]
+			},
+			{
+				"code": "33B",
+				"slug": "specialty-wood-aged-beer",
+				"name": "Specialty Wood-Aged Beer",
+				"overallImpression": "An elevation of the base beer style with characteristics from aging in contact with wood, including alcoholic products previously in contact with the wood. The best examples will be smooth, flavorful, well-balanced, and well-aged.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"AleSmith Barrel-Aged Old Numbskull",
+					"Founders Kentucky Breakfast Stout",
+					"Firestone Walker Parabola",
+					"Goose Island Bourbon County Stout",
+					"Great Divide Barrel Aged Yeti",
+					"The Lost Abbey Angel's Share Ale"
+				],
+				"tags": ["specialty-beer", "wood"]
+			}
+		]
+	},
+	{
+		"number": 34,
+		"name": "Specialty Beer",
+		"styles": [
+			{
+				"code": "34A",
+				"slug": "commercial-specialty-beer",
+				"name": "Commercial Specialty Beer",
+				"overallImpression": "Based on declared beer.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": ["Orval", "La Chouffe"],
+				"tags": ["specialty-beer"]
+			},
+			{
+				"code": "34B",
+				"slug": "mixed-style-beer",
+				"name": "Mixed-Style Beer",
+				"overallImpression": "Based on the declared Base Styles, methods, and ingredients. As with all Specialty-Type Beers, the resulting combination of beer styles needs to be harmonious and balanced, and be pleasant to drink.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": [
+					"Birrificio Italiano Tipopils",
+					"Firestone Walker Pivo Pils",
+					"Jack's Abby Hoponius Union",
+					"Ommegang Helles Superior"
+				],
+				"tags": ["specialty-beer"]
+			},
+			{
+				"code": "34C",
+				"slug": "experimental-beer",
+				"name": "Experimental Beer",
+				"overallImpression": "Varies, but should be a unique experience.",
+				"vitalStatistics": {
+					"og": "Varies with the base style",
+					"fg": "Varies with the base style",
+					"abv": "Varies with the base style",
+					"ibu": "Varies with the base style",
+					"srm": "Varies with the base style"
+				},
+				"commercialExamples": ["None"],
+				"tags": ["specialty-beer"]
+			}
+		]
+	}
+]

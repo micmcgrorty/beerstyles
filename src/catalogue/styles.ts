@@ -1,4 +1,4 @@
-import { BJCP_2015 } from "./bjcp-2015/edition.ts";
+import { BJCP_2021 } from "./bjcp-2021/edition.ts";
 import { createCatalogue } from "./catalogue.ts";
 
 /**
@@ -6,4 +6,4 @@ import { createCatalogue } from "./catalogue.ts";
  * Edition here; nothing else in the app names one.
  */
 export const { edition, allStyles, getStyle, searchStyles, loadGuideline } =
-	createCatalogue(BJCP_2015);
+	createCatalogue(BJCP_2021);

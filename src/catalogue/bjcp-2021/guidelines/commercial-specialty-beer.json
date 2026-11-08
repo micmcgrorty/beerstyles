@@ -1,0 +1,11 @@
+{
+	"aroma": "Based on declared beer.",
+	"appearance": "Based on declared beer.",
+	"flavor": "Based on declared beer.",
+	"mouthfeel": "Based on declared beer.",
+	"comments": "Intended as a catch-all location for specific beers that are based on unique commercial examples that don't fit existing styles. Past versions of the Style Guidelines included a Belgian Specialty Ale style; this style fits that general purpose, as well as allowing non-Belgian entries of similar intent.",
+	"history": "-",
+	"ingredients": "-",
+	"comparison": "-",
+	"entryInstructions": "The entrant must specify the name of the commercial beer, specifications (vital statistics) for the beer, and either a brief sensory description or a list of ingredients used in making the beer. Without this information, judges who are unfamiliar with the beer will have no basis for comparison."
+}
