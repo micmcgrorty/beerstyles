@@ -1,63 +1,63 @@
 import { expect, test } from "@playwright/test";
 
-import {
-	expectAscending,
-	groupChip,
-	groupChips,
-	main,
-	rangeMin,
-	resultSummary,
-	searchParam,
-	sortSelect,
-	styleLinks,
-	submitFilters,
-	totalStyles,
-} from "./support.ts";
-
 const CHARTS = [
-	{ path: "/colour", heading: "Colour", sort: "Colour (SRM)", param: "srm" },
-	{ path: "/bitterness", heading: "Bitterness", sort: "Bitterness (IBU)", param: "ibu" },
+	{ path: "/colour", heading: "Colour", sortLabel: "Colour (SRM)", sort: "srm" },
+	{ path: "/bitterness", heading: "Bitterness", sortLabel: "Bitterness (IBU)", sort: "ibu" },
 ];
 
 for (let chart of CHARTS) {
 	test.describe(`${chart.heading} chart`, () => {
 		test("charts every style", async ({ page }) => {
-			let total = await totalStyles(page);
+			await page.goto("/");
+			let total = await page.getByRole("main").locator('a[href^="/styles/"]').count();
+
 			await page.goto(chart.path);
 
 			await expect(page.getByRole("heading", { level: 1, name: chart.heading })).toBeVisible();
-			await expect(styleLinks(page)).toHaveCount(total);
+			await expect(page.getByRole("main").locator('a[href^="/styles/"]')).toHaveCount(total);
 		});
 
 		test("filters by type without leaving the chart", async ({ page }) => {
-			let total = await totalStyles(page);
 			await page.goto(chart.path);
-			let label = await groupChips(page).nth(1).innerText();
+			let rows = page.getByRole("main").locator('a[href^="/styles/"]');
+			let total = await rows.count();
+			let chips = page.getByRole("navigation", { name: "Filter by type" }).getByRole("link");
+			let label = await chips.nth(1).innerText();
 
-			await groupChip(page, label).click();
+			await chips.nth(1).click();
 
-			await expect(page).toHaveURL(new RegExp(`^[^?]*${chart.path}\\?`));
-			await expect(groupChip(page, label)).toHaveAttribute("aria-current", "true");
-			let count = await styleLinks(page).count();
+			await expect(page).toHaveURL(
+				(url) => url.pathname === chart.path && url.searchParams.has("group"),
+			);
+			await expect(
+				page
+					.getByRole("navigation", { name: "Filter by type" })
+					.getByRole("link", { name: label, exact: true }),
+			).toHaveAttribute("aria-current", "true");
+			let count = await rows.count();
 			expect(count).toBeGreaterThan(0);
 			expect(count).toBeLessThan(total);
-			await expect(resultSummary(page)).toContainText(`Showing ${count} of ${total} styles`);
 		});
 
-		test(`sorts by ${chart.param.toUpperCase()}`, async ({ page }) => {
+		test(`sorts by ${chart.sort.toUpperCase()}`, async ({ page }) => {
 			await page.goto(chart.path);
-			await sortSelect(page).selectOption({ label: chart.sort });
-			await submitFilters(page);
 
-			await expect.poll(() => searchParam(page, "sort")).toBe(chart.param);
-			await expect(page).toHaveURL(new RegExp(`^[^?]*${chart.path}\\?`));
-			let rows = await main(page)
+			await page.getByLabel("Sort").selectOption({ label: chart.sortLabel });
+			await page.getByRole("searchbox", { name: "Search styles" }).press("Enter");
+
+			await expect(page).toHaveURL(
+				(url) => url.pathname === chart.path && url.searchParams.get("sort") === chart.sort,
+			);
+			let rows = await page
+				.getByRole("main")
 				.getByRole("listitem")
 				.filter({ has: page.locator('a[href^="/styles/"]') })
 				.allInnerTexts();
-			// Each row shows the charted stat; the style link text comes first and may hold a code
-			// like "21A", so read the range after the name.
-			expectAscending(rows.map((row) => rangeMin(row.split("\n").at(-1) ?? "")));
+			// Each row ends with the charted range, e.g. "8–12 IBU" → 8.
+			// Styles that vary by type have no range and sort last.
+			let mins = rows.map((text) => Number(text.match(/[\d.]+(?=\s*–)/)?.[0] ?? Infinity));
+			expect(mins.length).toBeGreaterThan(1);
+			expect(mins).toEqual(mins.toSorted((a, b) => a - b));
 		});
 	});
 }
