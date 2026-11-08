@@ -6,7 +6,7 @@ publish = "dist"
 [build.environment]
 NODE_VERSION = "24"
 
-# Routing rules are generated into dist/_redirects at build time (src/app/redirects.ts):
+# Routing rules are generated into dist/_redirects at build time from the route table (src/app/routes.ts):
 # every page serves index.html with 200, anything else with 404.
 
 # Vite fingerprints everything in /assets, so it can be cached forever.

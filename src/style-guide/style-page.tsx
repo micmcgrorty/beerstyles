@@ -4,7 +4,7 @@ import { loadGuideline } from "../catalogue/guidelines.ts";
 import { DEFAULT_QUERY, getStyle, groupLabel, queryHref } from "../catalogue/styles.ts";
 import { CHARTED_STATS, STATS, formatStat, scaleOf, statGradient } from "../catalogue/stats.ts";
 import type { Guideline } from "../catalogue/types.ts";
-import { paths } from "../app/paths.ts";
+import { paths } from "../app/routes.ts";
 import { PageMeta } from "../app/layout.tsx";
 import { RangeTrack } from "../ui/range-track.tsx";
 import { StatList } from "../ui/stat-list.tsx";
