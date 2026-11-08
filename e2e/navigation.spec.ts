@@ -4,6 +4,7 @@ const PAGES = [
 	{ nav: "Styles", path: "/", heading: "Beer styles" },
 	{ nav: "Colour", path: "/colour", heading: "Colour" },
 	{ nav: "Bitterness", path: "/bitterness", heading: "Bitterness" },
+	{ nav: "Compare", path: "/compare", heading: "Compare styles" },
 ];
 
 test("the main nav reaches every page and marks the current one", async ({ page }) => {

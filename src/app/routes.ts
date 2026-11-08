@@ -33,8 +33,7 @@ export function route(id: RouteId): RouteDefinition {
 		case "home":
 			return { path: "/", nav: "Styles" };
 		case "compare":
-			// Not in the nav until the page is complete; reachable by URL meanwhile.
-			return { path: COMPARE_PATH };
+			return { path: COMPARE_PATH, nav: "Compare" };
 		case "style":
 			return { path: STYLE_PATH, urls: () => allStyles.map((style) => paths.style(style.slug)) };
 		default:

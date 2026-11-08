@@ -79,6 +79,12 @@ export function StylePage() {
 				</div>
 			</div>
 
+			<p className={styles.compare}>
+				<Link to={paths.compare(style.slug)} className={styles.compareLink}>
+					{`Compare ${style.name} with another style →`}
+				</Link>
+			</p>
+
 			<div className={styles.body}>
 				{edition.sections.map((section) => {
 					let text = guideline[section.key];

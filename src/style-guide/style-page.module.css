@@ -171,3 +171,24 @@
 	text-align: right;
 	grid-column: -2;
 }
+
+/* Link to the compare page with this style already chosen as A. */
+.compare {
+	margin: 16px 0 0;
+}
+
+.compareLink {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 0 16px;
+	border-radius: 999px;
+	border: 1px solid var(--rule);
+	background: var(--surface);
+	font-weight: 600;
+	text-decoration: none;
+
+	&:hover {
+		border-color: var(--muted);
+	}
+}

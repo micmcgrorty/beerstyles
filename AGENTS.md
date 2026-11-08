@@ -36,7 +36,8 @@ Netlify builds and hosts the site (`netlify.toml`): `npm run build` publishes `d
 - `browse/`: the home page and its style cards.
 - `charts/`: `charts.ts` defines one chart per charted stat (path and copy, plain data), plus the chart page and the range chart.
 - `search/`: the URL-driven search shared by browse and charts. `useStyleSearch` is the one way a page reads its search: the query from the URL, the results already laid out as sections, and `linkTo(changes)` for links that change the query. Pages render `sections` and never decide grouping themselves. `StyleFilters` and `EmptyResults` take its result as their only prop.
-- `style-guide/`: the style page and its route `loader`.
+- `compare/`: the compare page (`/compare?a=&b=`). `compare-query.ts` reads and builds the two choices (unknown slugs are dropped and reported), the page's `loader` loads both styles with `loadStyle`, and `comparison.tsx` draws them side by side.
+- `style-guide/`: the style page and its route `loader`. Its loader is `loadStyle`, the same as the compare page's.
 - `ui/`: components used by more than one feature: `StatList`, `RangeTrack` (charts and style page), `ResultSections` (search results as category sections or one flat list; pages pass how to draw a list), and `theme.module.css` for shared classes such as `pageTitle` and `pill`.
 - Root `public/` contains static files served unchanged from the app root.
 
