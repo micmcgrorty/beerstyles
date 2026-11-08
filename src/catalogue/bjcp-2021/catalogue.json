@@ -498,7 +498,7 @@
 			{
 				"code": "5B",
 				"slug": "kolsch",
-				"name": "Kolsch",
+				"name": "Kölsch",
 				"overallImpression": "A subtle, brilliantly clear, pale beer with a delicate balance of malt, fruit, and hop character, moderate bitterness, and a well-attenuated but soft finish. Freshness makes a huge difference with this beer, as the delicate character can fade quickly with age.",
 				"vitalStatistics": {
 					"og": "1.044 - 1.050",
@@ -511,7 +511,7 @@
 					"Früh Kölsch",
 					"Gaffel Kölsch",
 					"Mühlen Kölsch",
-					"Päffgen Kolsch",
+					"Päffgen Kölsch",
 					"Reissdorf Kölsch",
 					"Sion Kölsch",
 					"Sünner Kölsch"
@@ -601,7 +601,7 @@
 			{
 				"code": "6A",
 				"slug": "marzen",
-				"name": "Marzen",
+				"name": "Märzen",
 				"overallImpression": "An amber, malty German lager with a clean, rich, toasty, bready malt flavor, restrained bitterness, and a well-attenuated finish. The overall malt impression is soft, elegant, and complex, with a rich malty aftertaste that is never cloying or heavy.",
 				"vitalStatistics": {
 					"og": "1.054 - 1.060",
@@ -3054,7 +3054,7 @@
 					"New Belgium Dominga Mimosa Sour",
 					"New Glarus Wisconsin Belgian Red",
 					"Russian River Supplication",
-					"The Lost Abbey Cuvee de Tomme"
+					"The Lost Abbey Cuvée de Tomme"
 				],
 				"tags": [
 					"wild-fermentation",
