@@ -9,7 +9,8 @@ Live at [beer.micmcgrorty.dev](https://beer.micmcgrorty.dev).
 - `/` lists every style, grouped by BJCP category. Search by name, code, category, description or commercial example (accents optional, so "kolsch" finds Kölsch), filter by type (pale lagers, IPAs, sours…) and sort by name, ABV, IBU or SRM.
 - `/colour` charts each style's colour range on the SRM scale, against the beer colour spectrum.
 - `/bitterness` charts each style's bitterness range in IBUs.
-- `/styles/:slug` shows one style's full guideline: vital statistics, colour and bitterness bars, aroma, flavour, history, commercial examples, links to similar styles, and previous/next styles.
+- `/styles/:slug` shows one style's full guideline: vital statistics, colour and bitterness bars, aroma, flavour, history, commercial examples, links to similar styles, previous/next styles, and a link to compare it with another style.
+- `/compare?a=:slug&b=:slug` compares any two styles side by side: their statistics, colour and bitterness bars on one scale, and each guideline section. Choosing a style updates the URL, so every comparison can be shared.
 
 Search, filters and sort live in the URL query string (`?q=stout&group=porters-stouts&sort=abv`), so every view has a URL you can share, and back and forward work as expected. Unknown URLs show a not-found page with a real 404 status.
 
@@ -40,6 +41,7 @@ src/
 ├── browse/       the style list
 ├── charts/       the chart definitions, chart page and range chart
 ├── search/       the URL-driven search and filters shared by the list and the charts
+├── compare/      the comparison of two styles
 ├── style-guide/  a single style's page
 └── ui/           components shared by several features
 ```

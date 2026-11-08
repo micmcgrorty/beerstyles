@@ -32,13 +32,14 @@
 	display: none;
 }
 
-@media (min-width: 400px) {
+/* With four nav links, phones show just the glass (the link keeps its accessible name). */
+@media (min-width: 600px) {
 	.brandShort {
 		display: inline;
 	}
 }
 
-@media (min-width: 560px) {
+@media (min-width: 760px) {
 	.brandFull {
 		display: inline;
 	}
@@ -60,9 +61,20 @@
 	display: inline-flex;
 	align-items: center;
 	min-height: 44px;
-	padding: 0 10px;
+	padding: 0 4px;
 	border-radius: 8px;
+	font-size: 14px;
 	font-weight: 600;
+
+	@media (min-width: 360px) {
+		padding: 0 6px;
+		font-size: 15px;
+	}
+
+	@media (min-width: 420px) {
+		padding: 0 10px;
+		font-size: 16px;
+	}
 	text-decoration: none;
 	color: var(--muted);
 

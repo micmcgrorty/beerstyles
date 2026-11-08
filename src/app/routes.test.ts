@@ -25,11 +25,12 @@ describe("chart routes", () => {
 });
 
 describe("main nav", () => {
-	it("lists the style list, then each chart in charted order", () => {
+	it("lists the style list, each chart in charted order, then Compare", () => {
 		expect(NAV).toEqual([
 			{ label: "Styles", to: "/" },
 			{ label: "Colour", to: "/colour" },
 			{ label: "Bitterness", to: "/bitterness" },
+			{ label: "Compare", to: "/compare" },
 		]);
 	});
 });

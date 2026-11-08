@@ -179,3 +179,19 @@ test.describe("compare: the comparison", () => {
 		await expect(page.getByText(`You're comparing ${a.name} with itself.`)).toBeVisible();
 	});
 });
+
+test("a style page links to a comparison with that style chosen", async ({ page }) => {
+	await page.goto("/");
+	let style = page.getByRole("main").locator('a[href^="/styles/"]').first();
+	let name = await style.innerText();
+	let slug = (await style.getAttribute("href"))!.split("/").pop()!;
+	await style.click();
+
+	await page.getByRole("link", { name: `Compare ${name} with another style` }).click();
+
+	await expect(page).toHaveURL(
+		(url) => url.pathname === "/compare" && url.searchParams.get("a") === slug,
+	);
+	await expect(page.getByLabel("First style")).toHaveValue(slug);
+	await expect(page.getByText("Choose a second style")).toBeVisible();
+});
