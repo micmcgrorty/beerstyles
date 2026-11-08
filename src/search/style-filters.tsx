@@ -1,7 +1,15 @@
 import { useId } from "react";
 import { Form, Link } from "react-router";
 
-import { GROUPS, SORTS, groupLabel } from "../catalogue/query.ts";
+import {
+	GROUPS,
+	SORTS,
+	clearFilters,
+	formKey,
+	groupLabel,
+	hiddenFields,
+	isFiltered,
+} from "../catalogue/query.ts";
 import type { StyleSearch } from "./use-style-search.ts";
 import styles from "./style-filters.module.css";
 import theme from "../ui/theme.module.css";
@@ -9,7 +17,7 @@ import theme from "../ui/theme.module.css";
 /** Search, sort and group chips. All state lives in the URL query string. */
 export function StyleFilters({ search }: { search: StyleSearch }) {
 	let { path, query, count, total, linkTo } = search;
-	let filtered = Boolean(query.q || query.group);
+	let filtered = isFiltered(query);
 	let searchId = useId();
 	let sortId = useId();
 
@@ -19,13 +27,7 @@ export function StyleFilters({ search }: { search: StyleSearch }) {
 			 * A GET form: submitting navigates to `path?q=…&sort=…`, like a plain HTML form.
 			 * The key remounts the uncontrolled inputs when the URL changes (back, clear filters).
 			 */}
-			<Form
-				key={`${query.q}|${query.sort}|${query.group}`}
-				method="get"
-				action={path}
-				role="search"
-				className={styles.form}
-			>
+			<Form key={formKey(query)} method="get" action={path} role="search" className={styles.form}>
 				<label htmlFor={searchId} className={theme.srOnly}>
 					Search styles
 				</label>
@@ -47,7 +49,9 @@ export function StyleFilters({ search }: { search: StyleSearch }) {
 						))}
 					</select>
 				</span>
-				{query.group ? <input type="hidden" name="group" value={query.group} /> : null}
+				{hiddenFields(query).map(([name, value]) => (
+					<input key={name} type="hidden" name={name} value={value} />
+				))}
 				<button type="submit">Apply</button>
 			</Form>
 
@@ -80,7 +84,7 @@ export function StyleFilters({ search }: { search: StyleSearch }) {
 				{filtered ? `Showing ${count} of ${total} styles` : `${total} styles`}
 				{query.group ? ` in ${groupLabel(query.group)}` : ""}
 				{query.q ? ` matching “${query.q}”` : ""}
-				{filtered ? <Link to={linkTo({ q: "", group: null })}>Clear filters</Link> : null}
+				{filtered ? <Link to={linkTo(clearFilters(query))}>Clear filters</Link> : null}
 			</p>
 		</div>
 	);
@@ -90,7 +94,7 @@ export function EmptyResults({ search }: { search: StyleSearch }) {
 	return (
 		<div className={styles.empty}>
 			<p>No styles match those filters.</p>
-			<Link to={search.linkTo({ q: "", group: null })}>Show all styles</Link>
+			<Link to={search.linkTo(clearFilters(search.query))}>Show all styles</Link>
 		</div>
 	);
 }
