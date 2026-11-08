@@ -58,6 +58,15 @@ export interface Catalogue {
 	/** Search, filter and sort the styles, and lay the results out for display. */
 	searchStyles: (query: StyleQuery) => SearchResult;
 	loadGuideline: Edition["loadGuideline"];
+	/** A style, its neighbours and its guideline text (empty when it has none), or null for an unknown slug. */
+	loadStyle: (slug: string) => Promise<LoadedStyle | null>;
+}
+
+export interface LoadedStyle {
+	style: BeerStyle;
+	previous: BeerStyle | null;
+	next: BeerStyle | null;
+	guideline: Guideline;
 }
 
 function normalise(text: string): string {
@@ -115,17 +124,25 @@ export function createCatalogue(edition: Edition): Catalogue {
 		return results.toSorted(compareBy(query.sort));
 	}
 
+	function getStyle(slug: string) {
+		let style = bySlug.get(slug);
+		if (!style) return null;
+		return {
+			style,
+			previous: allStyles[style.order - 1] ?? null,
+			next: allStyles[style.order + 1] ?? null,
+		};
+	}
+
 	return {
 		edition: { name: edition.name, sections: edition.sections },
 		allStyles,
-		getStyle(slug) {
-			let style = bySlug.get(slug);
-			if (!style) return null;
-			return {
-				style,
-				previous: allStyles[style.order - 1] ?? null,
-				next: allStyles[style.order + 1] ?? null,
-			};
+		getStyle,
+		async loadStyle(slug) {
+			let found = getStyle(slug);
+			if (!found) return null;
+			let guideline = await edition.loadGuideline(found.style.slug);
+			return { ...found, guideline: guideline ?? {} };
 		},
 		searchStyles(query) {
 			let styles = matchingStyles(query);

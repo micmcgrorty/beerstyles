@@ -1,42 +1,63 @@
 import { useId, useMemo } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router";
+import {
+	Link,
+	useLoaderData,
+	useNavigate,
+	useNavigation,
+	useSearchParams,
+	type LoaderFunctionArgs,
+} from "react-router";
 
 import { PageMeta } from "../app/layout.tsx";
 import { paths } from "../app/routes.ts";
 import { DEFAULT_QUERY } from "../catalogue/query.ts";
-import { edition, getStyle, searchStyles } from "../catalogue/styles.ts";
+import { edition, getStyle, loadStyle, searchStyles } from "../catalogue/styles.ts";
 import theme from "../ui/theme.module.css";
 import { parseComparison, swapped, type Comparison } from "./compare-query.ts";
 import styles from "./compare-page.module.css";
+import { ComparisonView } from "./comparison.tsx";
 
 const isKnown = (slug: string) => getStyle(slug) !== null;
 
+/** Loads both chosen styles, with their guideline text, in parallel. */
+export async function compareLoader({ request }: LoaderFunctionArgs) {
+	let { a, b, ignored } = parseComparison(new URL(request.url).searchParams, isKnown);
+	let [styleA, styleB] = await Promise.all([a ? loadStyle(a) : null, b ? loadStyle(b) : null]);
+	return { a: styleA, b: styleB, ignored };
+}
+
 export function ComparePage() {
-	let [searchParams] = useSearchParams();
-	let { a, b, ignored } = useMemo(() => parseComparison(searchParams, isKnown), [searchParams]);
+	let { a, b, ignored } = useLoaderData<typeof compareLoader>();
+	let title = a && b ? `${a.style.name} vs ${b.style.name}` : "Compare styles";
 
 	return (
 		<>
 			<PageMeta
-				title="Compare styles"
-				description={`Compare any two ${edition.name} beer styles side by side.`}
+				title={title}
+				description={
+					a && b
+						? `${a.style.name} and ${b.style.name} compared side by side: statistics and ${edition.name} guidelines.`
+						: `Compare any two ${edition.name} beer styles side by side.`
+				}
 			/>
 
 			<div className={styles.intro}>
-				<h1 className={theme.pageTitle}>Compare styles</h1>
+				<h1 className={theme.pageTitle}>{title}</h1>
 				<p className={theme.lede}>
 					Pick any two styles to compare their statistics and guidelines side by side. The link
 					updates as you choose, so you can share it.
 				</p>
 			</div>
 
-			<StylePickers comparison={{ a, b }} />
+			<StylePickers />
 
 			{ignored.length > 0 ? (
 				<p className={styles.notice} role="status">
 					{`We couldn't find ${ignored.map((slug) => `“${slug}”`).join(" or ")}, so that choice was left empty.`}
 				</p>
 			) : null}
+
+			<ComparisonView a={a} b={b} />
 		</>
 	);
 }
@@ -56,7 +77,23 @@ function useStyleOptions() {
 	);
 }
 
-function StylePickers({ comparison }: { comparison: Comparison }) {
+/**
+ * The comparison the pickers show: the one being navigated to while its styles load,
+ * otherwise the one in the URL. So a choice shows at once, not when its text arrives.
+ */
+function useShownComparison(): Comparison {
+	let [searchParams] = useSearchParams();
+	let navigation = useNavigation();
+	let pending =
+		navigation.location?.pathname === paths.compare()
+			? new URLSearchParams(navigation.location.search)
+			: null;
+	let { a, b } = parseComparison(pending ?? searchParams, isKnown);
+	return { a, b };
+}
+
+function StylePickers() {
+	let comparison = useShownComparison();
 	let { a, b } = comparison;
 	let navigate = useNavigate();
 	let groups = useStyleOptions();
@@ -68,9 +105,8 @@ function StylePickers({ comparison }: { comparison: Comparison }) {
 			<label htmlFor={id} className={styles.pickerLabel}>
 				<span className={styles.badge}>{side.toUpperCase()}</span> {label}
 			</label>
-			{/* Controlled by the URL, so it always shows what the URL says (after back, forward,
-			    swap). flushSync renders the new URL straight away instead of in a transition,
-			    so the select never briefly shows its old value. */}
+			{/* Controlled by the URL (or the URL being navigated to), so it always shows the
+			    current choice, including after back, forward and swap. */}
 			<select
 				id={id}
 				value={value ?? ""}

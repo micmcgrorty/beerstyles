@@ -1,6 +1,6 @@
 import { Link, useLoaderData, type LoaderFunctionArgs } from "react-router";
 
-import { edition, getStyle, loadGuideline } from "../catalogue/styles.ts";
+import { edition, loadStyle } from "../catalogue/styles.ts";
 import { DEFAULT_QUERY, groupLabel, queryHref } from "../catalogue/query.ts";
 import { CHARTED_STATS, STATS, formatStat, scaleOf, statGradient } from "../catalogue/stats.ts";
 import { paths } from "../app/routes.ts";
@@ -13,10 +13,7 @@ import styles from "./style-page.module.css";
 
 /** Finds the style in the catalogue and loads its guideline text. Null when the slug is unknown. */
 export async function styleLoader({ params }: LoaderFunctionArgs) {
-	let result = getStyle(params.slug ?? "");
-	if (!result) return null;
-	let guideline = await loadGuideline(result.style.slug);
-	return { ...result, guideline: guideline ?? {} };
+	return loadStyle(params.slug ?? "");
 }
 
 export function StylePage() {

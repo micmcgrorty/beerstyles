@@ -2,7 +2,7 @@ import { createBrowserRouter, type RouteObject } from "react-router";
 
 import { HomePage } from "../browse/home-page.tsx";
 import { ChartPage } from "../charts/chart-page.tsx";
-import { ComparePage } from "../compare/compare-page.tsx";
+import { ComparePage, compareLoader } from "../compare/compare-page.tsx";
 import { StylePage, styleLoader } from "../style-guide/style-page.tsx";
 import { Layout, LayoutFallback } from "./layout.tsx";
 import { NotFoundPage } from "./not-found-page.tsx";
@@ -16,7 +16,7 @@ function page(id: RouteId): Omit<RouteObject, "path" | "index" | "children"> {
 		case "style":
 			return { loader: styleLoader, Component: StylePage };
 		case "compare":
-			return { Component: ComparePage };
+			return { loader: compareLoader, Component: ComparePage };
 		default:
 			return { element: <ChartPage kind={id} /> };
 	}

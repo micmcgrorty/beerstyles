@@ -41,7 +41,7 @@ const fakeEdition: Edition = {
 		...(category.number === 2 ? (["pale-ales"] as const) : []),
 	],
 	sections: [{ key: "aroma", heading: "Aroma" }],
-	loadGuideline: async (slug) => (slug === "kolsch" ? { aroma: "Bready" } : null),
+	loadGuideline: async (slug) => (slug === "k-lsch" ? { aroma: "Bready" } : null),
 };
 
 const catalogue = createCatalogue(fakeEdition);
@@ -71,8 +71,18 @@ describe("createCatalogue", () => {
 	});
 
 	it("loads guideline text through the edition", async () => {
-		expect(await catalogue.loadGuideline("kolsch")).toEqual({ aroma: "Bready" });
+		expect(await catalogue.loadGuideline("k-lsch")).toEqual({ aroma: "Bready" });
 		expect(await catalogue.loadGuideline("nope")).toBeNull();
+	});
+
+	it("loads a style with its neighbours and guideline text in one call", async () => {
+		let kolsch = await catalogue.loadStyle("k-lsch");
+		expect(kolsch?.style.name).toBe("Kölsch");
+		expect(kolsch?.previous).toBeNull();
+		expect(kolsch?.next?.slug).toBe("dunkel");
+		expect(kolsch?.guideline).toEqual({ aroma: "Bready" });
+		expect((await catalogue.loadStyle("dunkel"))?.guideline).toEqual({});
+		expect(await catalogue.loadStyle("nope")).toBeNull();
 	});
 
 	it("exposes the edition's name and guideline sections", () => {
