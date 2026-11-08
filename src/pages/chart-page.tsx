@@ -1,13 +1,14 @@
 import { paths } from "../paths.ts";
 import { PageMeta } from "../ui/layout.tsx";
-import { RangeChart, type ChartKind } from "../ui/range-chart.tsx";
+import type { ScaleKey } from "../data/scales.ts";
+import { RangeChart } from "../ui/range-chart.tsx";
 import { EmptyResults, StyleFilters } from "../ui/style-filters.tsx";
 import theme from "../ui/theme.module.css";
 import styles from "./chart-page.module.css";
 import { useStyleSearch } from "./use-style-search.ts";
 
 const PAGES: Record<
-	ChartKind,
+	ScaleKey,
 	{
 		title: string;
 		heading: string;
@@ -37,7 +38,7 @@ const PAGES: Record<
 	},
 };
 
-export function ChartPage({ kind }: { kind: ChartKind }) {
+export function ChartPage({ kind }: { kind: ScaleKey }) {
 	let search = useStyleSearch();
 	let page = PAGES[kind];
 

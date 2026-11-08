@@ -1,4 +1,5 @@
 import catalogue from "./bjcp-2015/catalogue.json";
+import { SCALES } from "./scales.ts";
 import type { RawCategory, RawStyle } from "./types.ts";
 
 const categories: RawCategory[] = catalogue;
@@ -73,24 +74,31 @@ export function formatRange(key: StatKey, r: Range): string {
 	return `${formatNumber(key, r.min)}–${formatNumber(key, r.max)}${STAT_FORMAT[key].unit}`;
 }
 
-/**
- * A short display form of a stat, e.g. "4.2–5.3%".
- * Multi-range values (Saison) collapse to their overall span.
- */
-export function formatStat(key: StatKey, stat: Stat): string {
+export interface FormatOptions {
+	/**
+	 * "short" (default) collapses multi-range values to their overall span: "5–22".
+	 * "full" lists each published range: "5–14 (pale), 15–22 (dark)".
+	 */
+	form?: "short" | "full";
+	/** Append the scale's unit for colour and bitterness: "8–12 IBU". Values that vary by type never get one. */
+	unit?: boolean;
+}
+
+/** A stat for display, e.g. "4.2–5.3%". Values that vary by type read "Varies" (short) or "Varies by type" (full). */
+export function formatStat(
+	key: StatKey,
+	stat: Stat,
+	{ form = "short", unit = false }: FormatOptions = {},
+): string {
 	let extent = span(stat.ranges);
-	return extent ? formatRange(key, extent) : "Varies";
-}
-
-/** Each published range on its own, e.g. ["5–14 (pale)", "15–22 (dark)"]. */
-export function formatStatLines(key: StatKey, stat: Stat): string[] {
-	if (stat.ranges.length === 0) return ["Varies by type"];
-	return stat.ranges.map((r) => `${formatRange(key, r)}${r.label ? ` (${r.label})` : ""}`);
-}
-
-/** The full published form with en dashes, e.g. "5–14 (pale), 15–22 (dark)". */
-export function formatStatFull(key: StatKey, stat: Stat): string {
-	return formatStatLines(key, stat).join(", ");
+	if (!extent) return form === "short" ? "Varies" : "Varies by type";
+	let text =
+		form === "short"
+			? formatRange(key, extent)
+			: stat.ranges
+					.map((r) => `${formatRange(key, r)}${r.label ? ` (${r.label})` : ""}`)
+					.join(", ");
+	return unit && (key === "srm" || key === "ibu") ? `${text} ${SCALES[key].unit}` : text;
 }
 
 // ---------------------------------------------------------------------------

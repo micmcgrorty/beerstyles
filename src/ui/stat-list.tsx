@@ -43,7 +43,7 @@ export function StatList({ style, full = false }: { style: BeerStyle; full?: boo
 function StatValue({ style, stat, full }: { style: BeerStyle; stat: StatKey; full: boolean }) {
 	if (!full) return <dd>{formatStat(stat, style.stats[stat])}</dd>;
 	let { ranges } = style.stats[stat];
-	if (ranges.length === 0) return <dd>Varies by type</dd>;
+	if (ranges.length === 0) return <dd>{formatStat(stat, style.stats[stat], { form: "full" })}</dd>;
 	return (
 		<dd>
 			{ranges.map((range) => (

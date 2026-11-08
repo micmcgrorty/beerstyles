@@ -1,7 +1,7 @@
 import type { Range } from "./styles.ts";
 
-export const SRM_MAX = 40;
-export const IBU_MAX = 120;
+const SRM_MAX = 40;
+const IBU_MAX = 120;
 
 // Approximate display colour for each whole SRM value.
 const SRM_HEX: Record<number, string> = {
@@ -73,10 +73,33 @@ export function srmColour(srm: number): string {
 }
 
 /** Colour for a bitterness value: pale hop green to deep green. */
-export function ibuColour(ibu: number): string {
+function ibuColour(ibu: number): string {
 	let t = Math.min(1, Math.max(0, ibu / 100));
 	return mix("#C9DC8A", "#3E6418", t).toUpperCase();
 }
+
+export type ScaleKey = "srm" | "ibu";
+
+export interface Scale {
+	/** What the scale measures, e.g. "Colour". */
+	label: string;
+	unit: string;
+	/** The scale runs from 0 to max. */
+	max: number;
+	/** Gap between gridlines and axis ticks. */
+	step: number;
+	/** Display colour for a value on this scale. */
+	colourAt: (value: number) => string;
+}
+
+/** The two stats drawn as bars: colour (SRM) and bitterness (IBU). */
+export const SCALES: Record<ScaleKey, Scale> = {
+	srm: { label: "Colour", unit: "SRM", max: SRM_MAX, step: 5, colourAt: srmColour },
+	ibu: { label: "Bitterness", unit: "IBU", max: IBU_MAX, step: 20, colourAt: ibuColour },
+};
+
+/** The scales in display order. */
+export const SCALE_KEYS: ScaleKey[] = ["srm", "ibu"];
 
 /** Gradient across one range, with a stop for every whole step so it follows the scale. */
 export function rangeGradient(

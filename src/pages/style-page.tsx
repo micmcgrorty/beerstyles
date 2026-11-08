@@ -1,8 +1,8 @@
 import { Link, useLoaderData, type LoaderFunctionArgs } from "react-router";
 
 import { loadGuideline } from "../data/guidelines.ts";
-import { IBU_MAX, SRM_MAX, styleSwatch } from "../data/srm.ts";
-import { DEFAULT_QUERY, formatStatFull, getStyle, groupLabel, queryHref } from "../data/styles.ts";
+import { SCALE_KEYS, SCALES, styleSwatch } from "../data/scales.ts";
+import { DEFAULT_QUERY, formatStat, getStyle, groupLabel, queryHref } from "../data/styles.ts";
 import type { Guideline } from "../data/types.ts";
 import { paths } from "../paths.ts";
 import { PageMeta } from "../ui/layout.tsx";
@@ -41,8 +41,6 @@ export function StylePage() {
 
 	let { style, previous, next, guideline } = data;
 	let swatch = styleSwatch(style.stats.srm.ranges, "180deg");
-	let ibu = formatStatFull("ibu", style.stats.ibu);
-	let srm = formatStatFull("srm", style.stats.srm);
 
 	return (
 		<>
@@ -72,34 +70,25 @@ export function StylePage() {
 				<div
 					className={styles.glass}
 					role="img"
-					aria-label={`Colour: ${srm} SRM`}
+					aria-label={`Colour: ${formatStat("srm", style.stats.srm, { form: "full", unit: true })}`}
 					style={{ background: swatch ?? undefined }}
 				/>
 				<div>
 					<StatList style={style} full />
 					<div className={styles.tracks}>
-						<div>
-							<div className={styles.trackHead}>
-								<strong>Colour</strong>
-								<span>{srm === "Varies by type" ? srm : `${srm} SRM`}</span>
+						{SCALE_KEYS.map((key) => (
+							<div key={key}>
+								<div className={styles.trackHead}>
+									<strong>{SCALES[key].label}</strong>
+									<span>{formatStat(key, style.stats[key], { form: "full", unit: true })}</span>
+								</div>
+								<RangeTrack kind={key} stat={style.stats[key]} large />
+								<div className={styles.scale} aria-hidden="true">
+									<span>0</span>
+									<span>{SCALES[key].max}</span>
+								</div>
 							</div>
-							<RangeTrack kind="srm" stat={style.stats.srm} large />
-							<div className={styles.scale} aria-hidden="true">
-								<span>0</span>
-								<span>{SRM_MAX}</span>
-							</div>
-						</div>
-						<div>
-							<div className={styles.trackHead}>
-								<strong>Bitterness</strong>
-								<span>{ibu === "Varies by type" ? ibu : `${ibu} IBU`}</span>
-							</div>
-							<RangeTrack kind="ibu" stat={style.stats.ibu} large />
-							<div className={styles.scale} aria-hidden="true">
-								<span>0</span>
-								<span>{IBU_MAX}</span>
-							</div>
-						</div>
+						))}
 					</div>
 				</div>
 			</div>

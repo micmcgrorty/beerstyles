@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-import { styleSwatch } from "../data/srm.ts";
+import { styleSwatch } from "../data/scales.ts";
 import type { BeerStyle } from "../data/styles.ts";
 import { paths } from "../paths.ts";
 import { PageMeta } from "../ui/layout.tsx";

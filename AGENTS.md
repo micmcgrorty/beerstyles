@@ -34,7 +34,7 @@ Netlify builds and hosts the site (`netlify.toml`): `npm run build` publishes `d
 - `src/pages/` holds one component per route (`home-page.tsx`, `chart-page.tsx`, `style-page.tsx`, `not-found-page.tsx`), each with a CSS module beside it. `use-style-search.ts` (`useStyleSearch`) is the one way a page reads its search: the query from the URL, the results already laid out as sections, and `linkTo(changes)` for links that change the query. Pages render `sections` and never decide grouping themselves.
 - `src/ui/` holds UI shared by several pages: `layout.tsx` (header, nav, footer, `PageMeta`), filters, range chart and stat list. `theme.module.css` has shared classes such as `pageTitle` and `pill`.
 - `src/styles/global.css` holds the design tokens (light and dark) and base element styles.
-- `src/data/` holds the BJCP 2015 style data in `bjcp-2015/` (see its README), parsing/search/sort (`styles.ts`), guideline loading (`guidelines.ts`) and colour scales (`srm.ts`), with tests beside them. It has no React dependencies.
+- `src/data/` holds the BJCP 2015 style data in `bjcp-2015/` (see its README), parsing/search/sort (`styles.ts`), guideline loading (`guidelines.ts`) and scales and colours for SRM and IBU (`scales.ts`), with tests beside them. It has no React dependencies.
 - Root `public/` contains static files served unchanged from the app root.
 
 ## Conventions
