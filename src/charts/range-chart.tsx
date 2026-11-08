@@ -4,7 +4,7 @@ import { paths } from "../app/routes.ts";
 import { type BeerStyle, type ResultSection } from "../catalogue/catalogue.ts";
 import { STATS, formatStat, scaleOf, scalePercent, type ChartedStat } from "../catalogue/stats.ts";
 import { RangeTrack } from "../ui/range-track.tsx";
-import theme from "../ui/theme.module.css";
+import { ResultSections } from "../ui/result-sections.tsx";
 import styles from "./range-chart.module.css";
 
 /** Labelled ticks across a whole scale, e.g. 0, 5 … 40 for SRM. */
@@ -51,31 +51,17 @@ export function RangeChart({ kind, sections }: { kind: ChartedStat; sections: Re
 				<RangeAxis kind={kind} />
 			</div>
 
-			{sections.map(({ category, styles: sectionStyles }) =>
-				category ? (
-					<section
-						key={category.number}
-						className={styles.section}
-						aria-labelledby={`cat-${category.number}`}
-					>
-						<h2 id={`cat-${category.number}`} className={theme.categoryHeading}>
-							<span className={theme.categoryNumber}>{category.number}</span>
-							{category.name}
-						</h2>
-						<ol className={styles.rows}>
-							{sectionStyles.map((style) => (
-								<ChartRow key={style.slug} kind={kind} style={style} />
-							))}
-						</ol>
-					</section>
-				) : (
-					<ol key="all" className={`${styles.rows} ${styles.ungrouped}`}>
+			<ResultSections
+				sections={sections}
+				sectionClassName={styles.section}
+				renderList={(sectionStyles, grouped) => (
+					<ol className={grouped ? styles.rows : `${styles.rows} ${styles.ungrouped}`}>
 						{sectionStyles.map((style) => (
 							<ChartRow key={style.slug} kind={kind} style={style} />
 						))}
 					</ol>
-				),
-			)}
+				)}
+			/>
 		</div>
 	);
 }

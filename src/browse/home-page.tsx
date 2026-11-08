@@ -4,6 +4,7 @@ import { statGradient } from "../catalogue/stats.ts";
 import type { BeerStyle } from "../catalogue/catalogue.ts";
 import { paths } from "../app/routes.ts";
 import { PageMeta } from "../app/layout.tsx";
+import { ResultSections } from "../ui/result-sections.tsx";
 import { StatList } from "../ui/stat-list.tsx";
 import { EmptyResults, StyleFilters } from "../search/style-filters.tsx";
 import theme from "../ui/theme.module.css";
@@ -37,34 +38,18 @@ export function HomePage() {
 				</div>
 			) : null}
 
-			{search.sections.map(({ category, styles: sectionStyles }) =>
-				category ? (
-					<section
-						key={category.number}
-						className={styles.section}
-						aria-labelledby={`cat-${category.number}`}
-					>
-						<h2
-							id={`cat-${category.number}`}
-							className={`${theme.categoryHeading} ${styles.stickyHeading}`}
-						>
-							<span className={theme.categoryNumber}>{category.number}</span>
-							{category.name}
-						</h2>
-						<ul className={styles.cards}>
-							{sectionStyles.map((style) => (
-								<StyleCard key={style.slug} style={style} />
-							))}
-						</ul>
-					</section>
-				) : (
-					<ul key="all" className={`${styles.cards} ${styles.spaced}`}>
+			<ResultSections
+				sections={search.sections}
+				sectionClassName={styles.section}
+				headingClassName={styles.stickyHeading}
+				renderList={(sectionStyles, grouped) => (
+					<ul className={grouped ? styles.cards : `${styles.cards} ${styles.spaced}`}>
 						{sectionStyles.map((style) => (
 							<StyleCard key={style.slug} style={style} />
 						))}
 					</ul>
-				),
-			)}
+				)}
+			/>
 		</>
 	);
 }
