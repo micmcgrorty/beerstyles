@@ -94,6 +94,19 @@ describe("srmColour", () => {
 	});
 });
 
+describe("bitterness colour", () => {
+	let colourAt = SCALES.ibu.colourAt;
+
+	it("keeps deepening all the way to the top of the scale", () => {
+		expect(colourAt(100)).not.toBe(colourAt(SCALES.ibu.max));
+	});
+
+	it("clamps beyond the scale", () => {
+		expect(colourAt(SCALES.ibu.max * 2)).toBe(colourAt(SCALES.ibu.max));
+		expect(colourAt(-10)).toBe(colourAt(0));
+	});
+});
+
 describe("scalePercent", () => {
 	it("places a value along its scale and clamps to 0–100", () => {
 		expect(scalePercent("srm", 0)).toBe(0);

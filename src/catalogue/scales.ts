@@ -72,9 +72,9 @@ export function srmColour(srm: number): string {
 	return mix(SRM_HEX[lo], SRM_HEX[hi], v - lo).toUpperCase();
 }
 
-/** Colour for a bitterness value: pale hop green to deep green. */
+/** Colour for a bitterness value: pale hop green at 0 to deep green at the top of the scale. */
 function ibuColour(ibu: number): string {
-	let t = Math.min(1, Math.max(0, ibu / 100));
+	let t = Math.min(1, Math.max(0, ibu / IBU_MAX));
 	return mix("#C9DC8A", "#3E6418", t).toUpperCase();
 }
 
