@@ -14,6 +14,7 @@ Source: the [BJCP 2021 Beer Style Guidelines](https://www.bjcp.org/beer-styles/)
 - Vital statistics are written as ranges ("4.4 - 5.2%"). Styles with no statistics of their own (Kellerbier and most specialty-type styles in 28–34, which vary with their base beer) read "Varies with the base style".
 - Category names are re-cased ("Ipa" → "IPA", "Amber And Brown American Beer" → "Amber and Brown American Beer").
 - Two misspelled tags are fixed: `bockfamily` → `bock-family`, `dark-lagerfamily` → `dark-lager-family`.
+- Accents the source dropped are restored: Kolsch → Kölsch, Marzen → Märzen, and the commercial examples Päffgen Kölsch and The Lost Abbey Cuvée de Tomme. Slugs are unchanged (`kolsch`, `marzen`).
 - Runs of whitespace in the text are collapsed.
 - Saison's colour is the single range 5–22 SRM given in the source, rather than separate pale and dark ranges.
 
