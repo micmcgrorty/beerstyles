@@ -1,8 +1,20 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite-plus";
 
+import { netlifyRedirects } from "./src/redirects.ts";
+
 export default defineConfig({
-	plugins: [react()],
+	plugins: [
+		react(),
+		{
+			// Writes dist/_redirects, so Netlify returns 404 for URLs that aren't pages.
+			name: "netlify-redirects",
+			apply: "build",
+			generateBundle() {
+				this.emitFile({ type: "asset", fileName: "_redirects", source: netlifyRedirects() });
+			},
+		},
+	],
 	preview: {
 		port: 4173,
 		strictPort: true,
