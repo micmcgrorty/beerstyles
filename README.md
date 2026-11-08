@@ -30,8 +30,11 @@ Search, filters and sort are plain `GET` query parameters (`?q=stout&group=porte
 npm i
 npm run dev        # watch and restart the server
 npm run start      # production mode
-npm test           # data and route tests
+npm test           # data tests (Vitest)
+npm run test:routes  # route smoke tests (remix test)
 npm run typecheck
+npm run lint       # oxlint
+npm run format     # oxfmt (format:check in CI)
 ```
 
 Requires Node 24.3 or later. The server listens on `PORT` (default 44100).
