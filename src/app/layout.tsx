@@ -29,6 +29,21 @@ export function LayoutFallback() {
 	);
 }
 
+/** Shown when a page throws or fails to load, such as a stale tab missing a chunk after a deploy. */
+export function LayoutError() {
+	return (
+		<AppShell>
+			<PageMeta title="Something went wrong" description="This page failed to load." />
+			<meta name="robots" content="noindex" />
+			<h1 className={theme.pageTitle}>Something went wrong</h1>
+			<p className={theme.lede}>This page failed to load. Reloading usually fixes it.</p>
+			<p>
+				<Link to={paths.home}>Browse all beer styles</Link>
+			</p>
+		</AppShell>
+	);
+}
+
 /** The header, main nav and footer around every page. */
 function AppShell({ children }: { children?: ReactNode }) {
 	return (

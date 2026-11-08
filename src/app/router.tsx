@@ -4,7 +4,7 @@ import { HomePage } from "../browse/home-page.tsx";
 import { ChartPage } from "../charts/chart-page.tsx";
 import { ComparePage, compareLoader } from "../compare/compare-page.tsx";
 import { StylePage, styleLoader } from "../style-guide/style-page.tsx";
-import { Layout, LayoutFallback } from "./layout.tsx";
+import { Layout, LayoutError, LayoutFallback } from "./layout.tsx";
 import { NotFoundPage } from "./not-found-page.tsx";
 import { ROUTE_IDS, route, type RouteId } from "./routes.ts";
 
@@ -26,6 +26,7 @@ export const router = createBrowserRouter([
 	{
 		Component: Layout,
 		HydrateFallback: LayoutFallback,
+		ErrorBoundary: LayoutError,
 		children: [
 			...ROUTE_IDS.map((id) => ({ path: route(id).path, ...page(id) })),
 			{ path: "*", Component: NotFoundPage },
