@@ -19,7 +19,7 @@ Search, filters and sort live in the URL query string (`?q=stout&group=porters-s
 - CSS modules, with design tokens as CSS custom properties for light and dark themes
 - [Vite+](https://viteplus.dev): Vite for dev and build, Vitest for unit tests, Oxlint and Oxfmt for linting and formatting
 - Playwright for end-to-end tests on desktop and mobile Chromium
-- GitHub Actions CI
+- GitHub Actions CI, and Netlify hosting with deploy previews tested by the same e2e suite
 
 ## Shape
 

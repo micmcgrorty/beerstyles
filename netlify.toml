@@ -1,0 +1,20 @@
+[build]
+# version.txt lets CI tell when a deploy preview is serving a given commit.
+command = "npm run build && echo $COMMIT_REF > dist/version.txt"
+publish = "dist"
+
+[build.environment]
+NODE_VERSION = "24"
+
+# Single-page app: serve index.html for every route. Real files (assets,
+# favicon, version.txt) are served first because this rule isn't forced.
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+# Vite fingerprints everything in /assets, so it can be cached forever.
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
