@@ -49,6 +49,7 @@ jobs:
           check / 200
           check /colour 200
           check "/bitterness?group=sour" 200
+          check "/compare?a=$slug" 200
           check "/styles/$slug" 200
           check /favicon.svg 200
           check /styles/not-a-real-style 404
