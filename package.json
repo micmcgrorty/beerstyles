@@ -4,10 +4,10 @@
 	"type": "module",
 	"scripts": {
 		"dev": "node --watch --import remix/node-tsx server.ts",
-		"start": "NODE_ENV=production node --import remix/node-tsx server.ts",
+		"start": "node --env-file=.env.production --import remix/node-tsx server.ts",
 		"test": "vitest run",
 		"test:watch": "vitest",
-		"test:routes": "remix test app/actions/**/*.test.ts",
+		"test:e2e": "playwright test",
 		"typecheck": "tsc",
 		"lint": "oxlint --deny-warnings",
 		"format": "oxfmt",
@@ -17,6 +17,7 @@
 		"remix": "^3.1.0"
 	},
 	"devDependencies": {
+		"@playwright/test": "1.65.0",
 		"@types/node": "26.6.6",
 		"oxfmt": "0.77.0",
 		"oxlint": "1.92.0",
