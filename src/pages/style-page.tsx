@@ -1,14 +1,9 @@
-import { Link, useParams } from "react-router";
+import { Link, useLoaderData, type LoaderFunctionArgs } from "react-router";
 
+import { loadGuideline } from "../data/guidelines.ts";
 import { IBU_MAX, SRM_MAX, styleSwatch } from "../data/srm.ts";
-import {
-	DEFAULT_QUERY,
-	formatStatFull,
-	getStyle,
-	groupLabel,
-	queryHref,
-	type BeerStyle,
-} from "../data/styles.ts";
+import { DEFAULT_QUERY, formatStatFull, getStyle, groupLabel, queryHref } from "../data/styles.ts";
+import type { Guideline } from "../data/types.ts";
 import { paths } from "../paths.ts";
 import { PageMeta } from "../ui/layout.tsx";
 import { RangeTrack } from "../ui/range-chart.tsx";
@@ -17,7 +12,7 @@ import theme from "../ui/theme.module.css";
 import { NotFoundPage } from "./not-found-page.tsx";
 import styles from "./style-page.module.css";
 
-const SECTIONS: { key: keyof BeerStyle; heading: string }[] = [
+const SECTIONS: { key: keyof Guideline; heading: string }[] = [
 	{ key: "aroma", heading: "Aroma" },
 	{ key: "appearance", heading: "Appearance" },
 	{ key: "flavor", heading: "Flavour" },
@@ -29,15 +24,22 @@ const SECTIONS: { key: keyof BeerStyle; heading: string }[] = [
 	{ key: "entryInstructions", heading: "Entry instructions" },
 ];
 
-export function StylePage() {
-	let { slug = "" } = useParams();
-	let result = getStyle(slug);
+/** Finds the style in the catalogue and loads its guideline text. Null when the slug is unknown. */
+export async function styleLoader({ params }: LoaderFunctionArgs) {
+	let result = getStyle(params.slug ?? "");
+	if (!result) return null;
+	let guideline = await loadGuideline(result.style.slug);
+	return { ...result, guideline: guideline ?? {} };
+}
 
-	if (!result) {
+export function StylePage() {
+	let data = useLoaderData<typeof styleLoader>();
+
+	if (!data) {
 		return <NotFoundPage message="We couldn't find that beer style. It may have been renamed." />;
 	}
 
-	let { style, previous, next } = result;
+	let { style, previous, next, guideline } = data;
 	let swatch = styleSwatch(style.stats.srm.ranges, "180deg");
 	let ibu = formatStatFull("ibu", style.stats.ibu);
 	let srm = formatStatFull("srm", style.stats.srm);
@@ -104,8 +106,8 @@ export function StylePage() {
 
 			<div className={styles.body}>
 				{SECTIONS.map((section) => {
-					let text = style[section.key];
-					if (typeof text !== "string" || !text) return null;
+					let text = guideline[section.key];
+					if (!text) return null;
 					return (
 						<section key={section.key}>
 							<h2>{section.heading}</h2>

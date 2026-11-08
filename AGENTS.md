@@ -34,7 +34,7 @@ Netlify builds and hosts the site (`netlify.toml`): `npm run build` publishes `d
 - `src/pages/` holds one component per route (`home-page.tsx`, `chart-page.tsx`, `style-page.tsx`, `not-found-page.tsx`), each with a CSS module beside it. `use-style-query.ts` reads search, filter and sort from the URL.
 - `src/ui/` holds UI shared by several pages: `layout.tsx` (header, nav, footer, `PageMeta`), filters, range chart and stat list. `theme.module.css` has shared classes such as `pageTitle` and `pill`.
 - `src/styles/global.css` holds the design tokens (light and dark) and base element styles.
-- `src/data/` holds the BJCP 2015 style data (`bjcp-2015.ts`), parsing/search/sort (`styles.ts`) and colour scales (`srm.ts`), with tests in `styles.test.ts`. It has no React or browser dependencies.
+- `src/data/` holds the BJCP 2015 style data in `bjcp-2015/` (see its README), parsing/search/sort (`styles.ts`), guideline loading (`guidelines.ts`) and colour scales (`srm.ts`), with tests beside them. It has no React dependencies.
 - Root `public/` contains static files served unchanged from the app root.
 
 ## Conventions
@@ -45,4 +45,4 @@ Netlify builds and hosts the site (`netlify.toml`): `npm run build` publishes `d
 - E2E tests are the behaviour contract, so they must not depend on the framework or the data. Locate by role, label and `/styles/:slug` href, never by class or DOM shape. Read expected values from the page, never hard-code BJCP style names, counts or stats, so a data update (BJCP 2021) leaves them green. Don't assert HTTP status codes.
 - In e2e tests, the URL changes a moment before React re-renders. Before reading a value off the page after a navigation, wait for a rendered signal (`toBeVisible`, `toHaveAttribute`) or wrap the read in `expect(...).toPass()`.
 - Write each e2e test with plain Playwright calls; don't add shared helper modules. Test user flows, not CSS. Accessibility testing is deliberately out of scope for now.
-- Keep data corrections in `src/data/bjcp-2015.ts` and note them in its header comment.
+- Style data is split in two: `bjcp-2015/catalogue.json` (bundled; everything the list, search and charts need) and `bjcp-2015/guidelines/<slug>.json` (long-form text, loaded on demand by the style route's `loader`). Don't import guideline text anywhere that runs on the list or chart pages, or it lands back in the main bundle. Note data corrections in `src/data/bjcp-2015/README.md`.
