@@ -1,7 +1,29 @@
 import react from "@vitejs/plugin-react";
+import { REACT_DOCTOR_RULES, RECOMMENDED_RULES } from "oxlint-plugin-react-doctor";
 import { defineConfig } from "vite-plus";
 
 import { netlifyRedirects } from "./src/app/redirects.ts";
+
+// React Doctor re-implements Oxlint's react and jsx-a11y rules, which run natively here, so its
+// ports of other plugins' rules are dropped, except these, which Oxlint has no equivalent of.
+const REACT_DOCTOR_PORTS_TO_KEEP = new Set([
+	"no-adjust-state-on-prop-change",
+	"no-chain-state-updates",
+	"no-derived-state",
+	"no-event-handler",
+	"no-initialize-state",
+	"no-pass-data-to-parent",
+	"no-pass-live-state-to-parent",
+	"no-reset-all-state-on-prop-change",
+]);
+const reactDoctorPorts = new Set(
+	REACT_DOCTOR_RULES.filter(
+		(rule) => rule.originallyExternal && !REACT_DOCTOR_PORTS_TO_KEEP.has(rule.id),
+	).map((rule) => rule.key),
+);
+const reactDoctorRules = Object.fromEntries(
+	Object.entries(RECOMMENDED_RULES).filter(([key]) => !reactDoctorPorts.has(key)),
+);
 
 export default defineConfig({
 	plugins: [
@@ -29,11 +51,13 @@ export default defineConfig({
 	},
 	lint: {
 		plugins: ["typescript", "unicorn", "oxc", "import", "react", "jsx-a11y", "vitest"],
+		jsPlugins: [{ name: "react-doctor", specifier: "oxlint-plugin-react-doctor" }],
 		categories: {
 			correctness: "error",
 			suspicious: "warn",
 		},
 		rules: {
+			...reactDoctorRules,
 			"react/react-in-jsx-scope": "off",
 			// Flags the colour swatch's role="img", which has no tag equivalent.
 			"jsx-a11y/prefer-tag-over-role": "off",
