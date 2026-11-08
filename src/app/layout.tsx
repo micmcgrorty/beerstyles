@@ -1,17 +1,11 @@
 import type { ReactNode } from "react";
 import { Link, NavLink, Outlet, ScrollRestoration } from "react-router";
 
-import { paths } from "./paths.ts";
 import styles from "./layout.module.css";
+import { NAV, paths } from "./routes.ts";
 import theme from "../ui/theme.module.css";
 
 export const SITE_NAME = "BJCP Beer Styles";
-
-const NAV = [
-	{ label: "Styles", to: paths.home },
-	{ label: "Colour", to: paths.colour },
-	{ label: "Bitterness", to: paths.bitterness },
-];
 
 /** The root route: every page renders inside the shell. */
 export function Layout() {

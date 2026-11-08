@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 import { statGradient } from "../catalogue/stats.ts";
 import type { BeerStyle } from "../catalogue/styles.ts";
-import { paths } from "../app/paths.ts";
+import { paths } from "../app/routes.ts";
 import { PageMeta } from "../app/layout.tsx";
 import { StatList } from "../ui/stat-list.tsx";
 import { EmptyResults, StyleFilters } from "../search/style-filters.tsx";
