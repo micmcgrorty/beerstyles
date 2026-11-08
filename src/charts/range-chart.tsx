@@ -1,68 +1,21 @@
 import { Link } from "react-router";
 
-import { SCALES, SRM_SPECTRUM, rangeGradient, type ScaleKey } from "../catalogue/scales.ts";
-import { formatStat, type BeerStyle, type ResultSection, type Stat } from "../catalogue/styles.ts";
 import { paths } from "../app/paths.ts";
-import styles from "./range-chart.module.css";
+import { SCALES, scalePercent, type ScaleKey } from "../catalogue/scales.ts";
+import { formatStat, type BeerStyle, type ResultSection } from "../catalogue/styles.ts";
+import { RangeTrack } from "../ui/range-track.tsx";
 import theme from "../ui/theme.module.css";
-
-function pct(value: number, max: number): number {
-	return Math.min(100, Math.max(0, (value / max) * 100));
-}
-
-/** The bar(s) for one stat on a 0–max scale. */
-export function RangeTrack({
-	kind,
-	stat,
-	large = false,
-}: {
-	kind: ScaleKey;
-	stat: Stat;
-	large?: boolean;
-}) {
-	let config = SCALES[kind];
-	let className = [styles.track, large && styles.large, stat.ranges.length === 0 && styles.varies]
-		.filter(Boolean)
-		.join(" ");
-
-	return (
-		<div className={className} aria-hidden="true">
-			{kind === "srm" ? (
-				<div className={styles.spectrum} style={{ background: SRM_SPECTRUM }} />
-			) : null}
-			<div
-				className={styles.grid}
-				style={{ backgroundSize: `${(config.step / config.max) * 100}% 100%` }}
-			/>
-			{stat.ranges.map((range) => {
-				let left = pct(range.min, config.max);
-				let width = pct(range.max, config.max) - left;
-				return (
-					<div
-						key={`${range.min}-${range.max}`}
-						className={styles.bar}
-						title={range.label}
-						style={{
-							left: `${left}%`,
-							width: `max(8px, ${width}%)`,
-							background: rangeGradient(range, config.colourAt),
-						}}
-					/>
-				);
-			})}
-		</div>
-	);
-}
+import styles from "./range-chart.module.css";
 
 /** Labelled ticks across a whole scale, e.g. 0, 5 … 40 for SRM. */
-export function RangeAxis({ kind }: { kind: ScaleKey }) {
-	let config = SCALES[kind];
+function RangeAxis({ kind }: { kind: ScaleKey }) {
+	let scale = SCALES[kind];
 	let ticks: number[] = [];
-	for (let v = 0; v <= config.max; v += config.step) ticks.push(v);
+	for (let v = 0; v <= scale.max; v += scale.step) ticks.push(v);
 	return (
 		<div className={styles.axis} aria-hidden="true">
 			{ticks.map((tick) => (
-				<span key={tick} style={{ left: `${pct(tick, config.max)}%` }}>
+				<span key={tick} style={{ left: `${scalePercent(kind, tick)}%` }}>
 					{tick}
 				</span>
 			))}

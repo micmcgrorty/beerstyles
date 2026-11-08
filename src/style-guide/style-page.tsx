@@ -6,7 +6,7 @@ import { DEFAULT_QUERY, formatStat, getStyle, groupLabel, queryHref } from "../c
 import type { Guideline } from "../catalogue/types.ts";
 import { paths } from "../app/paths.ts";
 import { PageMeta } from "../app/layout.tsx";
-import { RangeTrack } from "../charts/range-chart.tsx";
+import { RangeTrack } from "../ui/range-track.tsx";
 import { StatList } from "../ui/stat-list.tsx";
 import theme from "../ui/theme.module.css";
 import { NotFoundPage } from "../app/not-found-page.tsx";

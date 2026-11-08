@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vite-plus/test";
 
-import { srmColour } from "./scales.ts";
+import { SCALES, scalePercent, srmColour } from "./scales.ts";
 import {
 	allStyles,
 	formatStat,
@@ -91,6 +91,16 @@ describe("srmColour", () => {
 	it("clamps out-of-range values", () => {
 		expect(srmColour(0)).toBe(srmColour(1));
 		expect(srmColour(99)).toBe(srmColour(40));
+	});
+});
+
+describe("scalePercent", () => {
+	it("places a value along its scale and clamps to 0–100", () => {
+		expect(scalePercent("srm", 0)).toBe(0);
+		expect(scalePercent("srm", SCALES.srm.max / 2)).toBe(50);
+		expect(scalePercent("ibu", SCALES.ibu.max)).toBe(100);
+		expect(scalePercent("ibu", SCALES.ibu.max * 2)).toBe(100);
+		expect(scalePercent("ibu", -5)).toBe(0);
 	});
 });
 

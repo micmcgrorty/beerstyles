@@ -23,12 +23,20 @@ Search, filters and sort live in the URL query string (`?q=stout&group=porters-s
 
 ## Shape
 
-- `src/router.tsx` defines the routes. `src/paths.ts` builds every internal URL.
-- `src/pages/` holds one component per route, each with a CSS module.
-- `src/ui/` holds shared UI: the layout (header, nav, footer), filters, range chart and stat list.
-- `src/styles/global.css` holds the design tokens (light and dark).
-- `src/data/bjcp-2015/` is the style data: a catalogue bundled with the app, and each style's guideline text loaded on demand. `src/data/styles.ts` parses and formats the stats and handles search, filter and sort. `src/data/scales.ts` defines the colour (SRM) and bitterness (IBU) scales.
-- `e2e/` holds the Playwright tests.
+`src/` is organised by feature:
+
+```text
+src/
+├── app/          entry, routes, URL builders, Netlify redirects, layout, design tokens
+├── catalogue/    the BJCP data and everything computed from it: search, sort, formatting, scales
+├── browse/       the style list
+├── charts/       the colour and bitterness charts
+├── search/       the URL-driven search and filters shared by the list and charts
+├── style-guide/  a single style's page
+└── ui/           components shared by several features
+```
+
+The style data in `src/catalogue/bjcp-2015/` is split in two: a catalogue bundled with the app, and each style's guideline text, loaded on demand. `e2e/` holds the Playwright tests.
 
 ## Commands
 
