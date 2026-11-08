@@ -256,11 +256,11 @@ export function findStyles(query: StyleQuery): BeerStyle[] {
 
 	switch (query.sort) {
 		case "name":
-			return results.sort((a, b) => a.name.localeCompare(b.name, "en"));
+			return results.toSorted((a, b) => a.name.localeCompare(b.name, "en"));
 		case "abv":
 		case "ibu":
 		case "srm":
-			return results.sort(compareBy(query.sort));
+			return results.toSorted(compareBy(query.sort));
 		default:
 			return results;
 	}

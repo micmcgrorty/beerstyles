@@ -14,6 +14,10 @@ import {
 	DEFAULT_QUERY,
 } from "./styles.ts";
 
+function abv(slug: string) {
+	return formatStat("abv", getStyle(slug)!.style.stats.abv);
+}
+
 describe("parseRanges", () => {
 	it("parses a simple range", () => {
 		assert.deepEqual(parseRanges("4.2 - 5.3%"), [{ min: 4.2, max: 5.3 }]);
@@ -43,7 +47,6 @@ describe("style data", () => {
 	});
 
 	it("uses the published ABV figures for corrected styles", () => {
-		let abv = (slug: string) => formatStat("abv", getStyle(slug)!.style.stats.abv);
 		assert.equal(abv("international-pale-lager"), "4.6–6.0%");
 		assert.equal(abv("british-golden-ale"), "3.8–5.0%");
 		assert.equal(abv("australian-sparkling-ale"), "4.5–6.0%");
@@ -95,7 +98,7 @@ describe("findStyles", () => {
 		let mins = sours.map((s) => s.stats.ibu.ranges[0].min);
 		assert.deepEqual(
 			mins,
-			[...mins].sort((a, b) => a - b),
+			mins.toSorted((a, b) => a - b),
 		);
 	});
 
