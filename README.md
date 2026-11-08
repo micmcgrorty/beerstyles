@@ -44,6 +44,8 @@ npm run test:e2e   # end-to-end tests (builds and serves the app first)
 
 Requires Node 24.3 or later. Before the first `npm run test:e2e`, install the browser with `npx playwright install chromium`.
 
+To run the end-to-end tests against a deployed site instead of a local build, set `E2E_BASE_URL`, for example to `https://beer.micmcgrorty.dev`. CI does this for every pull request's Netlify deploy preview.
+
 ## Data
 
 The style text and vital statistics come from the [BJCP 2015 Beer Style Guidelines](https://www.bjcp.org/beer-styles/), © Beer Judge Certification Program. These corrections were made to the original dataset:
