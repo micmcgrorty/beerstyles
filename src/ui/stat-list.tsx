@@ -1,4 +1,4 @@
-import { type BeerStyle } from "../catalogue/styles.ts";
+import { type BeerStyle } from "../catalogue/catalogue.ts";
 import { STATS, formatRange, formatStat, type StatKey } from "../catalogue/stats.ts";
 import styles from "./stat-list.module.css";
 

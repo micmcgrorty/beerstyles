@@ -4,6 +4,7 @@ import { Link, NavLink, Outlet, ScrollRestoration } from "react-router";
 import styles from "./layout.module.css";
 import { NAV, paths } from "./routes.ts";
 import theme from "../ui/theme.module.css";
+import { edition } from "../catalogue/styles.ts";
 
 export const SITE_NAME = "BJCP Beer Styles";
 
@@ -60,8 +61,8 @@ function AppShell({ children }: { children?: ReactNode }) {
 				<div className={theme.container}>
 					<p>
 						Style descriptions and vital statistics are from the{" "}
-						<a href="https://www.bjcp.org/beer-styles/">BJCP 2015 Beer Style Guidelines</a>, © Beer
-						Judge Certification Program. Colours are approximate.
+						<a href="https://www.bjcp.org/beer-styles/">{`${edition.name} Beer Style Guidelines`}</a>
+						, © Beer Judge Certification Program. Colours are approximate.
 					</p>
 					<p>
 						Built by <a href="https://www.micmcgrorty.dev/">Michael McGrorty</a>.

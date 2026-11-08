@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 
 import { paths } from "../app/routes.ts";
-import { type BeerStyle, type ResultSection } from "../catalogue/styles.ts";
+import { type BeerStyle, type ResultSection } from "../catalogue/catalogue.ts";
 import { STATS, formatStat, scaleOf, scalePercent, type ChartedStat } from "../catalogue/stats.ts";
 import { RangeTrack } from "../ui/range-track.tsx";
 import theme from "../ui/theme.module.css";

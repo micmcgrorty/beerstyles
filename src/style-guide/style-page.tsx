@@ -1,9 +1,8 @@
 import { Link, useLoaderData, type LoaderFunctionArgs } from "react-router";
 
-import { loadGuideline } from "../catalogue/guidelines.ts";
-import { DEFAULT_QUERY, getStyle, groupLabel, queryHref } from "../catalogue/styles.ts";
+import { edition, getStyle, loadGuideline } from "../catalogue/styles.ts";
+import { DEFAULT_QUERY, groupLabel, queryHref } from "../catalogue/query.ts";
 import { CHARTED_STATS, STATS, formatStat, scaleOf, statGradient } from "../catalogue/stats.ts";
-import type { Guideline } from "../catalogue/types.ts";
 import { paths } from "../app/routes.ts";
 import { PageMeta } from "../app/layout.tsx";
 import { RangeTrack } from "../ui/range-track.tsx";
@@ -11,18 +10,6 @@ import { StatList } from "../ui/stat-list.tsx";
 import theme from "../ui/theme.module.css";
 import { NotFoundPage } from "../app/not-found-page.tsx";
 import styles from "./style-page.module.css";
-
-const SECTIONS: { key: keyof Guideline; heading: string }[] = [
-	{ key: "aroma", heading: "Aroma" },
-	{ key: "appearance", heading: "Appearance" },
-	{ key: "flavor", heading: "Flavour" },
-	{ key: "mouthfeel", heading: "Mouthfeel" },
-	{ key: "comments", heading: "Comments" },
-	{ key: "history", heading: "History" },
-	{ key: "ingredients", heading: "Characteristic ingredients" },
-	{ key: "comparison", heading: "Style comparison" },
-	{ key: "entryInstructions", heading: "Entry instructions" },
-];
 
 /** Finds the style in the catalogue and loads its guideline text. Null when the slug is unknown. */
 export async function styleLoader({ params }: LoaderFunctionArgs) {
@@ -46,7 +33,9 @@ export function StylePage() {
 		<>
 			<PageMeta
 				title={`${style.name} (${style.code})`}
-				description={style.overallImpression ?? `BJCP 2015 style guidelines for ${style.name}.`}
+				description={
+					style.overallImpression ?? `${edition.name} style guidelines for ${style.name}.`
+				}
 			/>
 
 			<Link to={paths.home} className={styles.backLink}>
@@ -94,7 +83,7 @@ export function StylePage() {
 			</div>
 
 			<div className={styles.body}>
-				{SECTIONS.map((section) => {
+				{edition.sections.map((section) => {
 					let text = guideline[section.key];
 					if (!text) return null;
 					return (

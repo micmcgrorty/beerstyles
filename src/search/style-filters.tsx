@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { Form, Link } from "react-router";
 
-import { GROUPS, SORTS, groupLabel } from "../catalogue/styles.ts";
+import { GROUPS, SORTS, groupLabel } from "../catalogue/query.ts";
 import type { StyleSearch } from "./use-style-search.ts";
 import styles from "./style-filters.module.css";
 import theme from "../ui/theme.module.css";

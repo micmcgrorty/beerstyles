@@ -6,10 +6,13 @@ import {
 	STAT_KEYS,
 	formatStat,
 	isCharted,
+	parseRanges,
+	scaleOf,
+	scalePercent,
 	type Stat,
 	type StatKey,
 } from "./stats.ts";
-import { SORTS } from "./styles.ts";
+import { SORTS } from "./query.ts";
 
 const oneRange: Stat = { text: "1 - 2", ranges: [{ min: 1, max: 2 }] };
 const varies: Stat = { text: "Variable by type", ranges: [] };
@@ -63,5 +66,57 @@ describe("formatStat", () => {
 	it("never adds a unit to a value that varies", () => {
 		expect(formatStat("srm", varies, { unit: true })).toBe("Varies");
 		expect(formatStat("ibu", varies, { form: "full", unit: true })).toBe("Varies by type");
+	});
+	it("formats multi-range stats as their span, or each range in full", () => {
+		let saisonColour: Stat = {
+			text: "5 - 14 (pale), 15 - 22 (dark)",
+			ranges: parseRanges("5 - 14 (pale), 15 - 22 (dark)"),
+		};
+		expect(formatStat("srm", saisonColour)).toBe("5–22");
+		expect(formatStat("srm", saisonColour, { form: "full" })).toBe("5–14 (pale), 15–22 (dark)");
+		expect(formatStat("srm", saisonColour, { form: "full", unit: true })).toBe(
+			"5–14 (pale), 15–22 (dark) SRM",
+		);
+	});
+});
+
+describe("parseRanges", () => {
+	it("parses a simple range", () => {
+		expect(parseRanges("4.2 - 5.3%")).toEqual([{ min: 4.2, max: 5.3 }]);
+	});
+
+	it("parses fractional and labelled ranges", () => {
+		expect(parseRanges("2.5 - 5")).toEqual([{ min: 2.5, max: 5 }]);
+		expect(parseRanges("5 - 14(pale), 15 - 22(dark)")).toEqual([
+			{ min: 5, max: 14, label: "pale" },
+			{ min: 15, max: 22, label: "dark" },
+		]);
+	});
+
+	it("returns no ranges when the value varies by type", () => {
+		expect(parseRanges("Variable by type")).toEqual([]);
+	});
+});
+
+describe("bitterness scale", () => {
+	let { colourAt, max } = scaleOf("ibu");
+
+	it("keeps deepening all the way to the top of the scale", () => {
+		expect(colourAt(100)).not.toBe(colourAt(max));
+	});
+
+	it("clamps beyond the scale", () => {
+		expect(colourAt(max * 2)).toBe(colourAt(max));
+		expect(colourAt(-10)).toBe(colourAt(0));
+	});
+});
+
+describe("scalePercent", () => {
+	it("places a value along its scale and clamps to 0–100", () => {
+		expect(scalePercent("srm", 0)).toBe(0);
+		expect(scalePercent("srm", scaleOf("srm").max / 2)).toBe(50);
+		expect(scalePercent("ibu", scaleOf("ibu").max)).toBe(100);
+		expect(scalePercent("ibu", scaleOf("ibu").max * 2)).toBe(100);
+		expect(scalePercent("ibu", -5)).toBe(0);
 	});
 });

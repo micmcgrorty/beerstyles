@@ -5,17 +5,18 @@ import { EmptyResults, StyleFilters } from "../search/style-filters.tsx";
 import theme from "../ui/theme.module.css";
 import styles from "./chart-page.module.css";
 import { useStyleSearch } from "../search/use-style-search.ts";
+import { edition } from "../catalogue/styles.ts";
 
 const PAGES: Record<ChartedStat, { title: string; description: string; intro: string }> = {
 	srm: {
 		title: "Colour guide",
-		description: "The colour range of every BJCP 2015 beer style, on the SRM scale.",
+		description: `The colour range of every ${edition.name} beer style, on the SRM scale.`,
 		intro:
 			"Each bar shows a style's colour range on the SRM scale, from pale straw at the left to black at the right.",
 	},
 	ibu: {
 		title: "Bitterness guide",
-		description: "The bitterness range of every BJCP 2015 beer style, in IBUs.",
+		description: `The bitterness range of every ${edition.name} beer style, in IBUs.`,
 		intro:
 			"Each bar shows a style's bitterness range in International Bitterness Units, from barely bitter at the left to intensely bitter at the right.",
 	},
