@@ -221,16 +221,17 @@ export function queryHref(path: string, query: StyleQuery, changes: Partial<Styl
 }
 
 function normalise(text: string): string {
-	return text
-		.toLowerCase()
-		.normalize("NFD")
-		.replace(/[̀-ͯ]/g, "");
+	return text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
 const searchText = new Map(
 	allStyles.map((s) => [
 		s,
-		normalise([s.name, s.code, s.category.name, s.overallImpression ?? "", ...s.commercialExamples].join(" ")),
+		normalise(
+			[s.name, s.code, s.category.name, s.overallImpression ?? "", ...s.commercialExamples].join(
+				" ",
+			),
+		),
 	]),
 );
 

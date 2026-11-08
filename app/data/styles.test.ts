@@ -93,7 +93,10 @@ describe("findStyles", () => {
 		assert.ok(sours.length > 0);
 		assert.ok(sours.every((s) => s.groups.includes("sour")));
 		let mins = sours.map((s) => s.stats.ibu.ranges[0].min);
-		assert.deepEqual(mins, [...mins].sort((a, b) => a - b));
+		assert.deepEqual(
+			mins,
+			[...mins].sort((a, b) => a - b),
+		);
 	});
 
 	it("sorts styles that cannot be measured last", () => {

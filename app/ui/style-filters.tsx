@@ -161,7 +161,9 @@ export function StyleFilters(handle: Handle<StyleFiltersProps>) {
 					{filtered ? `Showing ${count} of ${total} styles` : `${total} styles`}
 					{query.group ? ` in ${groupLabel(query.group)}` : ""}
 					{query.q ? ` matching “${query.q}”` : ""}
-					{filtered ? <a href={queryHref(path, query, { q: "", group: null })}>Clear filters</a> : null}
+					{filtered ? (
+						<a href={queryHref(path, query, { q: "", group: null })}>Clear filters</a>
+					) : null}
 				</p>
 			</div>
 		);

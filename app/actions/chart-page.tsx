@@ -17,7 +17,14 @@ export interface ChartPageProps {
 
 const PAGES: Record<
 	ChartKind,
-	{ title: string; heading: string; description: string; intro: string; label: string; path: string }
+	{
+		title: string;
+		heading: string;
+		description: string;
+		intro: string;
+		label: string;
+		path: string;
+	}
 > = {
 	srm: {
 		title: "Colour guide",

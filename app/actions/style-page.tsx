@@ -2,7 +2,13 @@ import type { Handle } from "remix/component";
 import { css } from "remix/component";
 
 import { IBU_MAX, SRM_MAX, styleSwatch } from "../data/srm.ts";
-import { formatStatFull, groupLabel, queryHref, DEFAULT_QUERY, type BeerStyle } from "../data/styles.ts";
+import {
+	formatStatFull,
+	groupLabel,
+	queryHref,
+	DEFAULT_QUERY,
+	type BeerStyle,
+} from "../data/styles.ts";
 import { routes } from "../routes.ts";
 import { Layout } from "../ui/layout.tsx";
 import { RangeTrack } from "../ui/range-chart.tsx";

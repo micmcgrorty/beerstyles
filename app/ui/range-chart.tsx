@@ -1,13 +1,15 @@
 import type { Handle } from "remix/component";
 import { css } from "remix/component";
 
-import { IBU_MAX, SRM_MAX, SRM_SPECTRUM, ibuColour, rangeGradient, srmColour } from "../data/srm.ts";
 import {
-	formatStatFull,
-	groupByCategory,
-	type BeerStyle,
-	type Stat,
-} from "../data/styles.ts";
+	IBU_MAX,
+	SRM_MAX,
+	SRM_SPECTRUM,
+	ibuColour,
+	rangeGradient,
+	srmColour,
+} from "../data/srm.ts";
+import { formatStatFull, groupByCategory, type BeerStyle, type Stat } from "../data/styles.ts";
 import { routes } from "../routes.ts";
 import { categoryHeading } from "./theme.ts";
 
@@ -66,8 +68,7 @@ const srmTrack = css({
 });
 
 const variesTrack = css({
-	backgroundImage:
-		"repeating-linear-gradient(135deg, var(--grid) 0 6px, transparent 6px 12px)",
+	backgroundImage: "repeating-linear-gradient(135deg, var(--grid) 0 6px, transparent 6px 12px)",
 });
 
 export function RangeTrack(handle: Handle<{ kind: ChartKind; stat: Stat; large?: boolean }>) {
@@ -81,10 +82,7 @@ export function RangeTrack(handle: Handle<{ kind: ChartKind; stat: Stat; large?:
 
 		return (
 			<div mix={mixes} aria-hidden="true">
-				<div
-					class="grid"
-					style={{ backgroundSize: `${(config.step / config.max) * 100}% 100%` }}
-				/>
+				<div class="grid" style={{ backgroundSize: `${(config.step / config.max) * 100}% 100%` }} />
 				{stat.ranges.map((range) => {
 					let left = pct(range.min, config.max);
 					let width = pct(range.max, config.max) - left;
