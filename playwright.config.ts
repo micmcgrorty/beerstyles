@@ -11,6 +11,8 @@ export default defineConfig({
 	fullyParallel: true,
 	forbidOnly: Boolean(process.env.CI),
 	retries: process.env.CI ? 2 : 0,
+	// expect(...).toPass() retries for up to 5s, like other assertions, instead of until the test times out.
+	expect: { toPass: { timeout: 5_000 } },
 	reporter: process.env.CI
 		? [["github"], ["html", { open: "never" }]]
 		: [["list"], ["html", { open: "never" }]],
@@ -28,6 +30,7 @@ export default defineConfig({
 				// Test the production build, as deployed.
 				command: "npm run build && npm run preview",
 				url: `http://localhost:${PORT}`,
-				reuseExistingServer: !process.env.CI,
+				// Always build and serve fresh code; fail if the port is taken rather than test a stale server.
+				reuseExistingServer: false,
 			},
 });

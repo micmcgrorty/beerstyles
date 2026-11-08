@@ -85,10 +85,6 @@
 /* Rows */
 .section {
 	margin-top: 28px;
-
-	& h2 {
-		margin-bottom: 6px;
-	}
 }
 
 .rows {
