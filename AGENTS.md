@@ -23,6 +23,10 @@ npm scripts must not use `&&` or inline env vars, because they need to run under
 
 `package.json` `overrides` alias `vite` to the Vite+ core and pin `vitest` to the version Vite+ bundles. Keep them in step with the `vite-plus` version when upgrading.
 
+## Deploying
+
+Netlify builds and hosts the site (`netlify.toml`): `npm run build` publishes `dist/`, every route falls back to `index.html`, and the build writes the commit SHA to `/version.txt`. Each PR gets a deploy preview, and the "Deploy preview" workflow waits for the preview to serve the PR's commit, then runs the e2e suite against it. It needs the repository variable `NETLIFY_SITE_NAME`.
+
 ## Layout
 
 - `src/main.tsx` mounts the app. `src/router.tsx` defines the routes.
