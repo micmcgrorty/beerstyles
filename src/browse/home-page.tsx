@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-import { styleSwatch } from "../catalogue/scales.ts";
+import { statGradient } from "../catalogue/stats.ts";
 import type { BeerStyle } from "../catalogue/styles.ts";
 import { paths } from "../app/paths.ts";
 import { PageMeta } from "../app/layout.tsx";
@@ -69,7 +69,7 @@ export function HomePage() {
 }
 
 function StyleCard({ style }: { style: BeerStyle }) {
-	let swatch = styleSwatch(style.stats.srm.ranges);
+	let swatch = statGradient("srm", style.stats.srm);
 
 	return (
 		<li>

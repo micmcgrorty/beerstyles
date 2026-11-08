@@ -1,7 +1,7 @@
-import type { Range } from "./styles.ts";
+import type { Range } from "./stats.ts";
 
-const SRM_MAX = 40;
-const IBU_MAX = 120;
+export const SRM_MAX = 40;
+export const IBU_MAX = 120;
 
 // Approximate display colour for each whole SRM value.
 const SRM_HEX: Record<number, string> = {
@@ -73,37 +73,9 @@ export function srmColour(srm: number): string {
 }
 
 /** Colour for a bitterness value: pale hop green at 0 to deep green at the top of the scale. */
-function ibuColour(ibu: number): string {
+export function ibuColour(ibu: number): string {
 	let t = Math.min(1, Math.max(0, ibu / IBU_MAX));
 	return mix("#C9DC8A", "#3E6418", t).toUpperCase();
-}
-
-export type ScaleKey = "srm" | "ibu";
-
-export interface Scale {
-	/** What the scale measures, e.g. "Colour". */
-	label: string;
-	unit: string;
-	/** The scale runs from 0 to max. */
-	max: number;
-	/** Gap between gridlines and axis ticks. */
-	step: number;
-	/** Display colour for a value on this scale. */
-	colourAt: (value: number) => string;
-}
-
-/** The two stats drawn as bars: colour (SRM) and bitterness (IBU). */
-export const SCALES: Record<ScaleKey, Scale> = {
-	srm: { label: "Colour", unit: "SRM", max: SRM_MAX, step: 5, colourAt: srmColour },
-	ibu: { label: "Bitterness", unit: "IBU", max: IBU_MAX, step: 20, colourAt: ibuColour },
-};
-
-/** The scales in display order. */
-export const SCALE_KEYS: ScaleKey[] = ["srm", "ibu"];
-
-/** How far along its scale a value sits, as a percentage clamped to 0–100. */
-export function scalePercent(key: ScaleKey, value: number): number {
-	return Math.min(100, Math.max(0, (value / SCALES[key].max) * 100));
 }
 
 /** Gradient across one range, with a stop for every whole step so it follows the scale. */
@@ -123,11 +95,3 @@ export function rangeGradient(
 
 /** The whole 0–40 SRM spectrum, used as a faint track behind colour bars. */
 export const SRM_SPECTRUM = rangeGradient({ min: 1, max: SRM_MAX }, srmColour);
-
-/** A swatch gradient covering every colour range a style allows. */
-export function styleSwatch(ranges: Range[], direction = "180deg"): string | null {
-	if (ranges.length === 0) return null;
-	let min = Math.min(...ranges.map((r) => r.min));
-	let max = Math.max(...ranges.map((r) => r.max));
-	return rangeGradient({ min, max }, srmColour, direction);
-}

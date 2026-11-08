@@ -1,8 +1,8 @@
 import { Link, useLoaderData, type LoaderFunctionArgs } from "react-router";
 
 import { loadGuideline } from "../catalogue/guidelines.ts";
-import { SCALE_KEYS, SCALES, styleSwatch } from "../catalogue/scales.ts";
-import { DEFAULT_QUERY, formatStat, getStyle, groupLabel, queryHref } from "../catalogue/styles.ts";
+import { DEFAULT_QUERY, getStyle, groupLabel, queryHref } from "../catalogue/styles.ts";
+import { CHARTED_STATS, STATS, formatStat, scaleOf, statGradient } from "../catalogue/stats.ts";
 import type { Guideline } from "../catalogue/types.ts";
 import { paths } from "../app/paths.ts";
 import { PageMeta } from "../app/layout.tsx";
@@ -40,7 +40,7 @@ export function StylePage() {
 	}
 
 	let { style, previous, next, guideline } = data;
-	let swatch = styleSwatch(style.stats.srm.ranges, "180deg");
+	let swatch = statGradient("srm", style.stats.srm);
 
 	return (
 		<>
@@ -76,16 +76,16 @@ export function StylePage() {
 				<div>
 					<StatList style={style} full />
 					<div className={styles.tracks}>
-						{SCALE_KEYS.map((key) => (
+						{CHARTED_STATS.map((key) => (
 							<div key={key}>
 								<div className={styles.trackHead}>
-									<strong>{SCALES[key].label}</strong>
+									<strong>{STATS[key].label}</strong>
 									<span>{formatStat(key, style.stats[key], { form: "full", unit: true })}</span>
 								</div>
 								<RangeTrack kind={key} stat={style.stats[key]} large />
 								<div className={styles.scale} aria-hidden="true">
 									<span>0</span>
-									<span>{SCALES[key].max}</span>
+									<span>{scaleOf(key).max}</span>
 								</div>
 							</div>
 						))}
