@@ -15,13 +15,13 @@ npm test           # Vitest unit tests in src/
 npm run test:e2e   # Playwright suite in e2e/
 ```
 
-Run `npm run check` and `npm test` before committing. `check` must pass with no warnings. Lint, format and test settings live in `vite.config.ts` (`lint`, `fmt` and `test` blocks); there are no separate `.oxlintrc` or `.oxfmtrc` files.
+Run `npm run check` and `npm test` before committing. `check` must pass with no warnings. Lint, format and test settings live in `vite.config.ts` (`lint`, `fmt` and `test` blocks); there are no separate `.oxlintrc` or `.oxfmtrc` files. The `lint` block also loads React Doctor (`oxlint-plugin-react-doctor`) as a JS plugin with its recommended rules, minus its copies of Oxlint's native `react` and `jsx-a11y` rules. Fix what it reports; if a rule is wrong for this codebase, turn it off in the `lint` block with a comment saying why, never with an inline disable comment.
 
 `npm run test:e2e` builds the app, serves it with `vp preview` on port 4173, and runs on desktop and mobile Chromium. Set `E2E_BASE_URL` to run it against a deployed site instead. Install the browser once with `npx playwright install chromium`.
 
 npm scripts must not use `&&` or inline env vars, because they need to run under any `script-shell`, including Windows PowerShell.
 
-`package.json` `overrides` alias `vite` to the Vite+ core and pin `vitest` to the version Vite+ bundles. Keep them in step with the `vite-plus` version when upgrading.
+`package.json` `overrides` alias `vite` to the Vite+ core and pin `vitest` to the version Vite+ bundles. Keep them in step with the `vite-plus` version when upgrading. `oxlint-plugin-react-doctor` is pinned exactly; after upgrading either it or `vite-plus`, check that the Oxlint bundled with Vite+ still loads it (`npm run check` reports `react-doctor(...)` findings on code that breaks its rules).
 
 ## Deploying
 
