@@ -9,10 +9,16 @@ npm i
 npm run dev
 npm run start
 npm test
+npm run test:routes
 npm run typecheck
+npm run lint
+npm run format
+npm run format:check
 ```
 
 `npm run dev` watches and restarts the server. `npm run start` runs in production mode without a separate build step.
+
+`npm test` runs the Vitest data tests in `app/data/`. `npm run test:routes` runs the router smoke test with `remix test`. Lint with oxlint (`.oxlintrc.json`) and format with oxfmt (`.oxfmtrc.json`). Run `npm run format` and `npm run lint` before committing; both must pass with no warnings. npm scripts must not use `&&` or inline env vars, because they need to run under any `script-shell`, including Windows PowerShell.
 
 ## Building Features
 

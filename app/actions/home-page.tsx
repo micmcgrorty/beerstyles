@@ -142,8 +142,8 @@ export function HomePage(handle: Handle<HomePageProps>) {
 				<div mix={intro}>
 					<h1 mix={pageTitle}>Beer styles</h1>
 					<p mix={lede}>
-						All {total} styles from the BJCP 2015 guidelines, with their strength,
-						bitterness, colour and gravity ranges.
+						All {total} styles from the BJCP 2015 guidelines, with their strength, bitterness,
+						colour and gravity ranges.
 					</p>
 				</div>
 

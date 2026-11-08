@@ -157,10 +157,8 @@ export function Layout(handle: Handle<LayoutProps>) {
 					<div mix={container}>
 						<p>
 							Style descriptions and vital statistics are from the{" "}
-							<a href="https://www.bjcp.org/beer-styles/">
-								BJCP 2015 Beer Style Guidelines
-							</a>
-							, © Beer Judge Certification Program. Colours are approximate.
+							<a href="https://www.bjcp.org/beer-styles/">BJCP 2015 Beer Style Guidelines</a>, ©
+							Beer Judge Certification Program. Colours are approximate.
 						</p>
 						<p>
 							Built by <a href="https://www.micmcgrorty.dev/">Michael McGrorty</a>.
