@@ -4,7 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "node --watch --import remix/node-tsx server.ts",
-		"start": "NODE_ENV=production node --import remix/node-tsx server.ts",
+		"start": "node --env-file=.env.production --import remix/node-tsx server.ts",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:routes": "remix test app/actions/**/*.test.ts",
