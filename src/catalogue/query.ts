@@ -51,22 +51,53 @@ export interface StyleQuery {
 
 export const DEFAULT_QUERY: StyleQuery = { q: "", group: null, sort: "bjcp" };
 
+/** Read a query from URL params. Missing or unknown values fall back to the defaults. */
 export function parseQuery(params: URLSearchParams): StyleQuery {
-	let q = (params.get("q") ?? "").trim().slice(0, 100);
+	let q = (params.get("q") ?? DEFAULT_QUERY.q).trim().slice(0, 100);
 	let groupParam = params.get("group");
-	let group = GROUPS.find((g) => g.id === groupParam)?.id ?? null;
+	let group = GROUPS.find((g) => g.id === groupParam)?.id ?? DEFAULT_QUERY.group;
 	let sortParam = params.get("sort");
-	let sort = SORTS.find((s) => s.id === sortParam)?.id ?? "bjcp";
+	let sort = SORTS.find((s) => s.id === sortParam)?.id ?? DEFAULT_QUERY.sort;
 	return { q, group, sort };
 }
 
-/** Build `path?…` for a query, leaving out defaults so URLs stay clean. */
-export function queryHref(path: string, query: StyleQuery, changes: Partial<StyleQuery> = {}) {
-	let next = { ...query, ...changes };
+/** The URL params for a query, leaving out defaults so URLs stay clean. */
+function toParams(query: StyleQuery): URLSearchParams {
 	let params = new URLSearchParams();
-	if (next.q) params.set("q", next.q);
-	if (next.group) params.set("group", next.group);
-	if (next.sort !== "bjcp") params.set("sort", next.sort);
-	let search = params.toString();
+	if (query.q !== DEFAULT_QUERY.q) params.set("q", query.q);
+	if (query.group !== DEFAULT_QUERY.group && query.group) params.set("group", query.group);
+	if (query.sort !== DEFAULT_QUERY.sort) params.set("sort", query.sort);
+	return params;
+}
+
+/** Build `path?…` for a query, with optional changes applied. */
+export function queryHref(path: string, query: StyleQuery, changes: Partial<StyleQuery> = {}) {
+	let search = toParams({ ...query, ...changes }).toString();
 	return search ? `${path}?${search}` : path;
+}
+
+/** Search and group filter the list; sort only orders it. */
+export function isFiltered(query: StyleQuery): boolean {
+	return query.q !== DEFAULT_QUERY.q || query.group !== DEFAULT_QUERY.group;
+}
+
+/** The query with search and group cleared, keeping the sort. */
+export function clearFilters(query: StyleQuery): StyleQuery {
+	return { ...query, q: DEFAULT_QUERY.q, group: DEFAULT_QUERY.group };
+}
+
+// ---------------------------------------------------------------------------
+// The filter form: a GET form whose inputs are named after the query params.
+
+/** The params the filter form has inputs for. */
+const FORM_FIELDS = new Set(["q", "sort"]);
+
+/** Changes whenever any part of the query changes. Key the form with it, so its uncontrolled inputs reset. */
+export function formKey(query: StyleQuery): string {
+	return toParams(query).toString();
+}
+
+/** Params the form has no input for, as [name, value] pairs for hidden inputs, so submitting keeps them. */
+export function hiddenFields(query: StyleQuery): [string, string][] {
+	return [...toParams(query)].filter(([name]) => !FORM_FIELDS.has(name));
 }
