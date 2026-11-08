@@ -34,4 +34,8 @@ export interface Guideline {
 	ingredients?: string;
 	comparison?: string;
 	entryInstructions?: string;
+	/** Named sub-types a style covers, e.g. the kinds of Specialty IPA. */
+	currentlyDefinedTypes?: string;
+	/** How a style is split by strength, e.g. table, standard and super Saisons. */
+	strengthClassifications?: string;
 }

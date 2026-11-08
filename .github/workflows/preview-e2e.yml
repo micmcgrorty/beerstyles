@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@v7
       - name: Check HTTP status codes
         run: |
-          slug=$(node -p 'require("./src/catalogue/bjcp-2015/catalogue.json")[0].styles[0].slug')
+          slug=$(node -p 'require("./src/catalogue/bjcp-2021/catalogue.json")[0].styles[0].slug')
           failed=0
           check() {
             got=$(curl -s -o /dev/null -w "%{http_code}" "$E2E_BASE_URL$1")

@@ -16,6 +16,7 @@ export const GROUPS = [
 	{ id: "sour", label: "Sours" },
 	{ id: "strong", label: "Strong ales" },
 	{ id: "historical", label: "Historical" },
+	{ id: "specialty", label: "Specialty beers" },
 ] as const;
 
 export type GroupId = (typeof GROUPS)[number]["id"];

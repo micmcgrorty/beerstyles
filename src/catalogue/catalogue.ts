@@ -5,10 +5,10 @@ import type { Guideline, RawCategory, RawStyle } from "./types.ts";
 /**
  * Everything specific to one edition of the BJCP guidelines. The rest of the
  * app reads styles through a catalogue built from an edition, so swapping
- * editions (2015 → 2021) means writing a new Edition, not editing pages.
+ * editions means writing a new Edition, not editing pages.
  */
 export interface Edition {
-	/** e.g. "BJCP 2015". */
+	/** e.g. "BJCP 2021". */
 	name: string;
 	categories: RawCategory[];
 	/** The browsing groups a style belongs to, from its tags and category. Every style needs one. */
