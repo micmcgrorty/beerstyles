@@ -38,7 +38,8 @@ test.describe("search", () => {
 			.nth(1)
 			.getAttribute("href");
 		await page.goto(href!);
-		// Style page titles read "Name (code) – BJCP Beer Styles".
+		// Style page titles read "Name (code) – BJCP Beer Styles". Wait for the page to set it.
+		await expect(page).toHaveTitle(/\(.+\)/);
 		let code = (await page.title()).match(/\(([^)]+)\)/)![1];
 
 		await page.goto("/");
