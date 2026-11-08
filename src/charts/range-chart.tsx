@@ -1,15 +1,15 @@
 import { Link } from "react-router";
 
 import { paths } from "../app/paths.ts";
-import { SCALES, scalePercent, type ScaleKey } from "../catalogue/scales.ts";
-import { formatStat, type BeerStyle, type ResultSection } from "../catalogue/styles.ts";
+import { type BeerStyle, type ResultSection } from "../catalogue/styles.ts";
+import { STATS, formatStat, scaleOf, scalePercent, type ChartedStat } from "../catalogue/stats.ts";
 import { RangeTrack } from "../ui/range-track.tsx";
 import theme from "../ui/theme.module.css";
 import styles from "./range-chart.module.css";
 
 /** Labelled ticks across a whole scale, e.g. 0, 5 … 40 for SRM. */
-function RangeAxis({ kind }: { kind: ScaleKey }) {
-	let scale = SCALES[kind];
+function RangeAxis({ kind }: { kind: ChartedStat }) {
+	let scale = scaleOf(kind);
 	let ticks: number[] = [];
 	for (let v = 0; v <= scale.max; v += scale.step) ticks.push(v);
 	return (
@@ -23,7 +23,7 @@ function RangeAxis({ kind }: { kind: ScaleKey }) {
 	);
 }
 
-function ChartRow({ kind, style }: { kind: ScaleKey; style: BeerStyle }) {
+function ChartRow({ kind, style }: { kind: ChartedStat; style: BeerStyle }) {
 	let stat = style.stats[kind];
 	return (
 		<li className={styles.row}>
@@ -40,21 +40,13 @@ function ChartRow({ kind, style }: { kind: ScaleKey; style: BeerStyle }) {
 }
 
 /** One row per style, in the sections given, under a sticky axis. */
-export function RangeChart({
-	kind,
-	sections,
-	label,
-}: {
-	kind: ScaleKey;
-	sections: ResultSection[];
-	label: string;
-}) {
+export function RangeChart({ kind, sections }: { kind: ChartedStat; sections: ResultSection[] }) {
 	return (
 		<div>
 			<div className={styles.stickyAxis}>
 				<div className={styles.axisLabel}>
 					<span>Style</span>
-					<span>{label}</span>
+					<span>{`${STATS[kind].label} (${STATS[kind].abbr})`}</span>
 				</div>
 				<RangeAxis kind={kind} />
 			</div>

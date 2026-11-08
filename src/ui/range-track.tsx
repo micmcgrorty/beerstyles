@@ -1,11 +1,6 @@
-import {
-	SCALES,
-	SRM_SPECTRUM,
-	rangeGradient,
-	scalePercent,
-	type ScaleKey,
-} from "../catalogue/scales.ts";
-import type { Stat } from "../catalogue/styles.ts";
+import { rangeGradient } from "../catalogue/colours.ts";
+import { scaleOf, scalePercent, type ChartedStat } from "../catalogue/stats.ts";
+import type { Stat } from "../catalogue/stats.ts";
 import styles from "./range-track.module.css";
 
 /** The bar(s) for one stat on its scale. Used by the charts and the style page. */
@@ -14,19 +9,19 @@ export function RangeTrack({
 	stat,
 	large = false,
 }: {
-	kind: ScaleKey;
+	kind: ChartedStat;
 	stat: Stat;
 	large?: boolean;
 }) {
-	let scale = SCALES[kind];
+	let scale = scaleOf(kind);
 	let className = [styles.track, large && styles.large, stat.ranges.length === 0 && styles.varies]
 		.filter(Boolean)
 		.join(" ");
 
 	return (
 		<div className={className} aria-hidden="true">
-			{kind === "srm" ? (
-				<div className={styles.spectrum} style={{ background: SRM_SPECTRUM }} />
+			{scale.spectrum ? (
+				<div className={styles.spectrum} style={{ background: scale.spectrum }} />
 			) : null}
 			<div
 				className={styles.grid}

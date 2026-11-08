@@ -32,7 +32,7 @@ Netlify builds and hosts the site (`netlify.toml`): `npm run build` publishes `d
 `src/` is organised by feature. Code used by one feature lives in that feature's folder; code used by several lives in `ui/` (components) or `catalogue/` (data and logic). Each component has its CSS module beside it, and tests sit beside the code they test.
 
 - `app/`: the shell. `main.tsx` mounts the app, `router.tsx` defines the routes, `paths.ts` builds every internal URL (use it instead of hand-writing paths), `redirects.ts` generates Netlify's routing rules, `layout.tsx` is the header, nav, footer and `PageMeta`, `not-found-page.tsx`, and `global.css` holds the design tokens (light and dark) and base element styles.
-- `catalogue/`: the style data and everything computed from it, with no React. `bjcp-2015/` is the data (see its README), `styles.ts` parses, formats and searches it (`searchStyles`), `scales.ts` defines the SRM and IBU scales and colours, and `guidelines.ts` loads a style's text on demand.
+- `catalogue/`: the style data and everything computed from it, with no React. `bjcp-2015/` is the data (see its README), `stats.ts` defines every vital statistic once in `STATS` (label, abbreviation, format, unit, whether it's sortable, and its scale if it's charted) and parses and formats them; `styles.ts` builds the styles and searches them (`searchStyles`); `colours.ts` holds the SRM and IBU colour maths; and `guidelines.ts` loads a style's text on demand.
 - `browse/`: the home page and its style cards.
 - `charts/`: the colour and bitterness chart page and the range chart.
 - `search/`: the URL-driven search shared by browse and charts. `useStyleSearch` is the one way a page reads its search: the query from the URL, the results already laid out as sections, and `linkTo(changes)` for links that change the query. Pages render `sections` and never decide grouping themselves. `StyleFilters` and `EmptyResults` take its result as their only prop.
@@ -43,6 +43,7 @@ Netlify builds and hosts the site (`netlify.toml`): `npm run build` publishes `d
 ## Conventions
 
 - Search, filter and sort are `GET` query params parsed by `parseQuery` and built with `queryHref`. Every filtered view must have a shareable URL. The filter form is a React Router `<Form method="get">`.
+- To change how a stat is labelled, formatted, sorted or charted, edit its entry in `STATS`; don't hard-code stat names, units or labels in components. Giving a stat a `scale` charts it and adds its bar to every style page; add it to `CHARTED_STATS` (tests enforce this) and give its chart page copy in `charts/chart-page.tsx`.
 - Each page renders a `<PageMeta>` for its title and description. React hoists these into `<head>`.
 - Style with CSS modules and the tokens in `global.css` (`var(--bg)`, `var(--accent)` and so on). Use the `style` prop only for per-item values such as bar positions and colours.
 - E2E tests are the behaviour contract, so they must not depend on the framework or the data. Locate by role, label and `/styles/:slug` href, never by class or DOM shape. Read expected values from the page, never hard-code BJCP style names, counts or stats, so a data update (BJCP 2021) leaves them green. Don't assert HTTP status codes.

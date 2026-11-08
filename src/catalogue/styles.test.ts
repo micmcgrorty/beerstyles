@@ -1,16 +1,16 @@
 import { describe, expect, it } from "vite-plus/test";
 
-import { SCALES, scalePercent, srmColour } from "./scales.ts";
+import { srmColour } from "./colours.ts";
+import { scaleOf, scalePercent } from "./stats.ts";
 import {
 	allStyles,
-	formatStat,
 	getStyle,
 	parseQuery,
-	parseRanges,
 	queryHref,
 	searchStyles,
 	DEFAULT_QUERY,
 } from "./styles.ts";
+import { formatStat, parseRanges } from "./stats.ts";
 
 function abv(slug: string) {
 	return formatStat("abv", getStyle(slug)!.style.stats.abv);
@@ -95,14 +95,14 @@ describe("srmColour", () => {
 });
 
 describe("bitterness colour", () => {
-	let colourAt = SCALES.ibu.colourAt;
+	let { colourAt, max } = scaleOf("ibu");
 
 	it("keeps deepening all the way to the top of the scale", () => {
-		expect(colourAt(100)).not.toBe(colourAt(SCALES.ibu.max));
+		expect(colourAt(100)).not.toBe(colourAt(max));
 	});
 
 	it("clamps beyond the scale", () => {
-		expect(colourAt(SCALES.ibu.max * 2)).toBe(colourAt(SCALES.ibu.max));
+		expect(colourAt(max * 2)).toBe(colourAt(max));
 		expect(colourAt(-10)).toBe(colourAt(0));
 	});
 });
@@ -110,9 +110,9 @@ describe("bitterness colour", () => {
 describe("scalePercent", () => {
 	it("places a value along its scale and clamps to 0–100", () => {
 		expect(scalePercent("srm", 0)).toBe(0);
-		expect(scalePercent("srm", SCALES.srm.max / 2)).toBe(50);
-		expect(scalePercent("ibu", SCALES.ibu.max)).toBe(100);
-		expect(scalePercent("ibu", SCALES.ibu.max * 2)).toBe(100);
+		expect(scalePercent("srm", scaleOf("srm").max / 2)).toBe(50);
+		expect(scalePercent("ibu", scaleOf("ibu").max)).toBe(100);
+		expect(scalePercent("ibu", scaleOf("ibu").max * 2)).toBe(100);
 		expect(scalePercent("ibu", -5)).toBe(0);
 	});
 });

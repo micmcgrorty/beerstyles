@@ -1,16 +1,9 @@
-import { formatRange, formatStat, type BeerStyle, type StatKey } from "../catalogue/styles.ts";
+import { type BeerStyle } from "../catalogue/styles.ts";
+import { STATS, formatRange, formatStat, type StatKey } from "../catalogue/stats.ts";
 import styles from "./stat-list.module.css";
 
-const PRIMARY: { key: StatKey; label: string; title: string }[] = [
-	{ key: "abv", label: "ABV", title: "Alcohol by volume" },
-	{ key: "ibu", label: "IBU", title: "International Bitterness Units" },
-	{ key: "srm", label: "SRM", title: "Standard Reference Method (colour)" },
-];
-
-const SECONDARY: { key: StatKey; label: string; title: string }[] = [
-	{ key: "og", label: "OG", title: "Original gravity" },
-	{ key: "fg", label: "FG", title: "Final gravity" },
-];
+const PRIMARY: StatKey[] = ["abv", "ibu", "srm"];
+const SECONDARY: StatKey[] = ["og", "fg"];
 
 /**
  * Vital statistics as a definition list.
@@ -20,20 +13,20 @@ const SECONDARY: { key: StatKey; label: string; title: string }[] = [
 export function StatList({ style, full = false }: { style: BeerStyle; full?: boolean }) {
 	return (
 		<dl className={`${styles.list} ${full ? styles.full : styles.compact}`}>
-			{PRIMARY.map((stat) => (
-				<div key={stat.key} className={styles.primary}>
+			{PRIMARY.map((key) => (
+				<div key={key} className={styles.primary}>
 					<dt>
-						<abbr title={stat.title}>{stat.label}</abbr>
+						<abbr title={STATS[key].title}>{STATS[key].abbr}</abbr>
 					</dt>
-					<StatValue style={style} stat={stat.key} full={full} />
+					<StatValue style={style} stat={key} full={full} />
 				</div>
 			))}
-			{SECONDARY.map((stat) => (
-				<div key={stat.key} className={styles.secondary}>
+			{SECONDARY.map((key) => (
+				<div key={key} className={styles.secondary}>
 					<dt>
-						<abbr title={stat.title}>{stat.label}</abbr>
+						<abbr title={STATS[key].title}>{STATS[key].abbr}</abbr>
 					</dt>
-					<StatValue style={style} stat={stat.key} full={full} />
+					<StatValue style={style} stat={key} full={full} />
 				</div>
 			))}
 		</dl>

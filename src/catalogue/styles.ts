@@ -1,23 +1,8 @@
 import catalogue from "./bjcp-2015/catalogue.json";
-import { SCALES } from "./scales.ts";
+import { STATS, STAT_KEYS, parseStats, span, type Stat, type StatKey } from "./stats.ts";
 import type { RawCategory, RawStyle } from "./types.ts";
 
 const categories: RawCategory[] = catalogue;
-
-export interface Range {
-	min: number;
-	max: number;
-	label?: string;
-}
-
-export interface Stat {
-	/** The figure as published, e.g. "4.2 - 5.3%". */
-	text: string;
-	/** Parsed ranges. Empty when the guidelines say the value varies by type. */
-	ranges: Range[];
-}
-
-export type StatKey = "abv" | "og" | "fg" | "ibu" | "srm";
 
 export interface Category {
 	number: number;
@@ -30,75 +15,6 @@ export interface BeerStyle extends RawStyle {
 	order: number;
 	stats: Record<StatKey, Stat>;
 	groups: GroupId[];
-}
-
-// ---------------------------------------------------------------------------
-// Parsing
-
-const RANGE_PATTERN = /(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*%?\s*(?:\(([^)]+)\))?/g;
-
-/** Parse "5 - 14 (pale), 15 - 22 (dark)" into ranges. Returns [] for "Variable by type". */
-export function parseRanges(text: string): Range[] {
-	let ranges: Range[] = [];
-	for (let match of text.matchAll(RANGE_PATTERN)) {
-		let range: Range = { min: Number(match[1]), max: Number(match[2]) };
-		if (match[3]) range.label = match[3].trim();
-		ranges.push(range);
-	}
-	return ranges;
-}
-
-/** The overall extent of a set of ranges. */
-export function span(ranges: Range[]): Range | null {
-	if (ranges.length === 0) return null;
-	return {
-		min: Math.min(...ranges.map((r) => r.min)),
-		max: Math.max(...ranges.map((r) => r.max)),
-	};
-}
-
-const STAT_FORMAT: Record<StatKey, { decimals?: number; unit: string }> = {
-	abv: { decimals: 1, unit: "%" },
-	og: { decimals: 3, unit: "" },
-	fg: { decimals: 3, unit: "" },
-	ibu: { unit: "" },
-	srm: { unit: "" },
-};
-
-function formatNumber(key: StatKey, n: number): string {
-	let { decimals } = STAT_FORMAT[key];
-	return decimals === undefined ? String(n) : n.toFixed(decimals);
-}
-
-export function formatRange(key: StatKey, r: Range): string {
-	return `${formatNumber(key, r.min)}–${formatNumber(key, r.max)}${STAT_FORMAT[key].unit}`;
-}
-
-export interface FormatOptions {
-	/**
-	 * "short" (default) collapses multi-range values to their overall span: "5–22".
-	 * "full" lists each published range: "5–14 (pale), 15–22 (dark)".
-	 */
-	form?: "short" | "full";
-	/** Append the scale's unit for colour and bitterness: "8–12 IBU". Values that vary by type never get one. */
-	unit?: boolean;
-}
-
-/** A stat for display, e.g. "4.2–5.3%". Values that vary by type read "Varies" (short) or "Varies by type" (full). */
-export function formatStat(
-	key: StatKey,
-	stat: Stat,
-	{ form = "short", unit = false }: FormatOptions = {},
-): string {
-	let extent = span(stat.ranges);
-	if (!extent) return form === "short" ? "Varies" : "Varies by type";
-	let text =
-		form === "short"
-			? formatRange(key, extent)
-			: stat.ranges
-					.map((r) => `${formatRange(key, r)}${r.label ? ` (${r.label})` : ""}`)
-					.join(", ");
-	return unit && (key === "srm" || key === "ibu") ? `${text} ${SCALES[key].unit}` : text;
 }
 
 // ---------------------------------------------------------------------------
@@ -163,13 +79,7 @@ export const allStyles: BeerStyle[] = categories.flatMap((category) =>
 		...style,
 		category: { number: category.number, name: category.name },
 		order: 0,
-		stats: {
-			abv: { text: style.vitalStatistics.abv, ranges: parseRanges(style.vitalStatistics.abv) },
-			og: { text: style.vitalStatistics.og, ranges: parseRanges(style.vitalStatistics.og) },
-			fg: { text: style.vitalStatistics.fg, ranges: parseRanges(style.vitalStatistics.fg) },
-			ibu: { text: style.vitalStatistics.ibu, ranges: parseRanges(style.vitalStatistics.ibu) },
-			srm: { text: style.vitalStatistics.srm, ranges: parseRanges(style.vitalStatistics.srm) },
-		},
+		stats: parseStats(style.vitalStatistics),
 		groups: groupsFor(style, category.number),
 	})),
 );
@@ -192,15 +102,18 @@ export function getStyle(slug: string) {
 // ---------------------------------------------------------------------------
 // Search, filter and sort (driven by URL search params)
 
-export const SORTS = [
+/** BJCP order, name, or any stat. Only stats marked sortable are offered as options. */
+export type SortId = "bjcp" | "name" | StatKey;
+
+/** The sort options, e.g. "Bitterness (IBU)". */
+export const SORTS: { id: SortId; label: string }[] = [
 	{ id: "bjcp", label: "BJCP order" },
 	{ id: "name", label: "Name" },
-	{ id: "abv", label: "Strength (ABV)" },
-	{ id: "ibu", label: "Bitterness (IBU)" },
-	{ id: "srm", label: "Colour (SRM)" },
-] as const;
-
-export type SortId = (typeof SORTS)[number]["id"];
+	...STAT_KEYS.filter((key) => STATS[key].sortable).map((key) => ({
+		id: key,
+		label: `${STATS[key].label} (${STATS[key].abbr})`,
+	})),
+];
 
 export interface StyleQuery {
 	q: string;
@@ -264,16 +177,9 @@ function matchingStyles(query: StyleQuery): BeerStyle[] {
 		return terms.every((term) => haystack.includes(term));
 	});
 
-	switch (query.sort) {
-		case "name":
-			return results.toSorted((a, b) => a.name.localeCompare(b.name, "en"));
-		case "abv":
-		case "ibu":
-		case "srm":
-			return results.toSorted(compareBy(query.sort));
-		default:
-			return results;
-	}
+	if (query.sort === "bjcp") return results;
+	if (query.sort === "name") return results.toSorted((a, b) => a.name.localeCompare(b.name, "en"));
+	return results.toSorted(compareBy(query.sort));
 }
 
 /** A run of results to render together: one BJCP category, or (category null) one flat list. */
