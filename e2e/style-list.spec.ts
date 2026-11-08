@@ -19,7 +19,8 @@ test.describe("search", () => {
 	test("finds a style by name", async ({ page }) => {
 		await page.goto("/");
 		let style = page.getByRole("main").locator('a[href^="/styles/"]').last();
-		let name = await style.innerText();
+		// textContent, not innerText: the browser skips rendering off-screen cards, and innerText is empty for those.
+		let name = (await style.textContent())!;
 		let href = await style.getAttribute("href");
 
 		await page.getByRole("searchbox", { name: "Search styles" }).fill(name);
@@ -54,7 +55,7 @@ test.describe("search", () => {
 		await page.goto("/");
 		let styles = page.getByRole("main").locator('a[href^="/styles/"]');
 		await expect(styles.first()).toBeVisible();
-		let names = await styles.allInnerTexts();
+		let names = await styles.allTextContents();
 		let unaccented = names.map((name) => name.normalize("NFD").replace(/\p{Diacritic}/gu, ""));
 		let index = names.findIndex((name, i) => unaccented[i] !== name);
 		test.skip(index === -1, "no style names with accents in the data");
@@ -167,7 +168,7 @@ test.describe("sort", () => {
 		await expect(page.getByLabel("Sort")).toHaveValue("name");
 		// Retry: the list can re-render a moment after the URL changes.
 		await expect(async () => {
-			let names = await page.getByRole("main").locator('a[href^="/styles/"]').allInnerTexts();
+			let names = await page.getByRole("main").locator('a[href^="/styles/"]').allTextContents();
 			expect(names).toEqual(names.toSorted((a, b) => a.localeCompare(b, "en")));
 		}).toPass();
 	});
@@ -185,7 +186,7 @@ test.describe("sort", () => {
 				.getByRole("main")
 				.locator("dt", { hasText: /^ABV$/ })
 				.locator("xpath=following-sibling::dd[1]")
-				.allInnerTexts();
+				.allTextContents();
 			// "4.2–5.3%" → 4.2; styles that vary by type have no range and sort last.
 			let mins = abv.map((text) => Number(text.match(/[\d.]+(?=\s*–)/)?.[0] ?? Infinity));
 			expect(mins.length).toBeGreaterThan(1);
@@ -219,7 +220,7 @@ test("restores filters from a shared URL", async ({ page, browser }) => {
 	let results: string[] = [];
 	// Retry: the list can re-render a moment after the URL changes.
 	await expect(async () => {
-		results = await page.getByRole("main").locator('a[href^="/styles/"]').allInnerTexts();
+		results = await page.getByRole("main").locator('a[href^="/styles/"]').allTextContents();
 		expect(results).toEqual(results.toSorted((a, b) => a.localeCompare(b, "en")));
 	}).toPass();
 

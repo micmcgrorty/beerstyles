@@ -27,6 +27,13 @@
 	@media (min-width: 720px) {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
+
+	/* The browser skips layout and paint for cards off screen, so a long list renders as fast as a short one.
+	   The intrinsic size is a guess until a card first renders; "auto" then remembers its real height. */
+	& > li {
+		content-visibility: auto;
+		contain-intrinsic-size: auto 260px;
+	}
 }
 
 .card {

@@ -36,7 +36,7 @@ test("back and forward restore the filtered list", async ({ page }) => {
 	await page.getByRole("searchbox", { name: "Search styles" }).press("Enter");
 	await expect(page).toHaveURL((url) => url.searchParams.get("q") === name);
 	await expect(page.getByText(`matching “${name}”`)).toBeVisible();
-	let results = await styles.allInnerTexts();
+	let results = await styles.allTextContents();
 
 	await styles.first().click();
 	await expect(page.getByRole("heading", { level: 1 })).toHaveText(name);
