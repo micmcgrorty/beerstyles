@@ -1,5 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
+// Matches `preview.port` in vite.config.ts.
 const PORT = 4173;
 
 // Set E2E_BASE_URL to run the suite against a deployed site instead of a local server.
@@ -10,6 +11,8 @@ export default defineConfig({
 	fullyParallel: true,
 	forbidOnly: Boolean(process.env.CI),
 	retries: process.env.CI ? 2 : 0,
+	// expect(...).toPass() retries for up to 5s, like other assertions, instead of until the test times out.
+	expect: { toPass: { timeout: 5_000 } },
 	reporter: process.env.CI
 		? [["github"], ["html", { open: "never" }]]
 		: [["list"], ["html", { open: "never" }]],
@@ -24,9 +27,10 @@ export default defineConfig({
 	webServer: externalBaseURL
 		? undefined
 		: {
-				command: "npm run start",
+				// Test the production build, as deployed.
+				command: "npm run build && npm run preview",
 				url: `http://localhost:${PORT}`,
-				env: { PORT: String(PORT) },
-				reuseExistingServer: !process.env.CI,
+				// Always build and serve fresh code; fail if the port is taken rather than test a stale server.
+				reuseExistingServer: false,
 			},
 });

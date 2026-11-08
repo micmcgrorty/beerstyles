@@ -1,0 +1,137 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.form {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 8px;
+
+	@media (min-width: 640px) {
+		grid-template-columns: 1fr auto auto;
+	}
+
+	& input,
+	& select,
+	& button {
+		font: inherit;
+		min-height: 44px;
+		border-radius: 10px;
+		border: 1px solid var(--rule);
+		background: var(--surface);
+		color: var(--text);
+	}
+
+	& input {
+		padding: 0 14px;
+		width: 100%;
+		min-width: 0;
+		grid-column: 1 / -1;
+
+		@media (min-width: 640px) {
+			grid-column: auto;
+		}
+	}
+
+	& select {
+		padding: 0 10px;
+	}
+
+	& button {
+		padding: 0 18px;
+		font-weight: 700;
+		background: var(--text);
+		color: var(--bg);
+		border-color: var(--text);
+		cursor: pointer;
+	}
+}
+
+.sort {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	grid-column: 1 / 2;
+	color: var(--muted);
+	font-size: 14px;
+
+	@media (min-width: 640px) {
+		grid-column: auto;
+	}
+
+	& select {
+		flex: 1;
+	}
+}
+
+.chips {
+	list-style: none;
+	margin: 0 -16px;
+	padding: 2px 16px 6px;
+	display: flex;
+	gap: 6px;
+	overflow-x: auto;
+	scrollbar-width: thin;
+
+	@media (min-width: 640px) {
+		flex-wrap: wrap;
+		overflow-x: visible;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.chip {
+	display: inline-flex;
+	align-items: center;
+	min-height: 36px;
+	padding: 0 14px;
+	border-radius: 999px;
+	border: 1px solid var(--rule);
+	background: var(--surface);
+	white-space: nowrap;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+
+	&:hover {
+		border-color: var(--muted);
+	}
+
+	&[aria-current="true"] {
+		background: var(--text);
+		border-color: var(--text);
+		color: var(--bg);
+	}
+}
+
+.summary {
+	margin: 0;
+	color: var(--muted);
+	font-size: 14px;
+
+	& a {
+		color: var(--text);
+		font-weight: 600;
+		margin-left: 6px;
+	}
+}
+
+.empty {
+	padding: 32px 20px;
+	border-radius: 14px;
+	border: 1px dashed var(--rule);
+	text-align: center;
+	color: var(--muted);
+
+	& p {
+		margin: 0 0 8px;
+	}
+
+	& a {
+		color: var(--text);
+		font-weight: 600;
+	}
+}

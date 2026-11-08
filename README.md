@@ -1,6 +1,6 @@
 # BJCP Beer Styles
 
-A reference for every beer style in the BJCP 2015 Style Guidelines, built in Remix 3. It lets you browse, search and filter the styles, compare their colour and bitterness on charts, and read the full guideline for each style.
+A reference for every beer style in the BJCP 2015 Style Guidelines, built with React, React Router and Vite+. It lets you browse, search and filter the styles, compare their colour and bitterness on charts, and read the full guideline for each style.
 
 Live at [beer.micmcgrorty.dev](https://beer.micmcgrorty.dev).
 
@@ -11,33 +11,38 @@ Live at [beer.micmcgrorty.dev](https://beer.micmcgrorty.dev).
 - `/bitterness` charts each style's IBU range.
 - `/styles/:slug` shows the full guideline for one style: stats, colour and bitterness bars, aroma, flavour, history, commercial examples and more.
 
-Search, filters and sort are plain `GET` query parameters (`?q=stout&group=porters-stouts&sort=abv`). Every page is server-rendered and works without JavaScript, and every filtered view has a URL you can share.
+Search, filters and sort live in the URL query string (`?q=stout&group=porters-stouts&sort=abv`), so every filtered view has a URL you can share.
+
+## Stack
+
+- React 19 and React Router 8 (data mode), as a single-page app
+- CSS modules, with design tokens as CSS custom properties for light and dark themes
+- [Vite+](https://viteplus.dev): Vite for dev and build, Vitest for unit tests, Oxlint and Oxfmt for linting and formatting
+- Playwright for end-to-end tests on desktop and mobile Chromium
+- GitHub Actions CI
 
 ## Shape
 
-- `app/routes.ts` defines the shared route contract used by server and browser modules for type-safe hrefs.
-- `app/router.ts` wires routes to controllers and installs the standard Remix component renderer used by actions.
-- `app/actions/controller.tsx` owns the route actions. The pages it renders live alongside it: `home-page.tsx`, `chart-page.tsx`, `style-page.tsx` and `not-found-page.tsx`.
-- `app/actions/document.tsx` is the HTML shell and holds the design tokens (light and dark).
-- `app/ui/` holds shared UI: the layout (header, nav, footer), filters, range chart and stat list.
-- `app/data/bjcp-2015.ts` is the style data. `app/data/styles.ts` parses the stats and handles search, filter and sort. `app/data/srm.ts` maps SRM values to colours.
-- `app/actions/public/` contains the browser runtime entry.
-- Root `public/` contains static files served unchanged from the app root.
+- `src/router.tsx` defines the routes. `src/paths.ts` builds every internal URL.
+- `src/pages/` holds one component per route, each with a CSS module.
+- `src/ui/` holds shared UI: the layout (header, nav, footer), filters, range chart and stat list.
+- `src/styles/global.css` holds the design tokens (light and dark).
+- `src/data/bjcp-2015.ts` is the style data. `src/data/styles.ts` parses the stats and handles search, filter and sort. `src/data/srm.ts` maps SRM values to colours.
+- `e2e/` holds the Playwright tests.
 
 ## Commands
 
 ```sh
 npm i
-npm run dev        # watch and restart the server
-npm run start      # production mode
-npm test           # data tests (Vitest)
-npm run test:e2e   # Playwright end-to-end tests (desktop + mobile)
-npm run typecheck
-npm run lint       # oxlint
-npm run format     # oxfmt (format:check in CI)
+npm run dev        # dev server with HMR
+npm run build      # production build in dist/
+npm run preview    # serve the build on port 4173
+npm run check      # format, lint and type check
+npm test           # unit tests
+npm run test:e2e   # end-to-end tests (builds and serves the app first)
 ```
 
-Requires Node 24.3 or later. The server listens on `PORT` (default 44100). Before the first `npm run test:e2e`, install the browser with `npx playwright install chromium`.
+Requires Node 24.3 or later. Before the first `npm run test:e2e`, install the browser with `npx playwright install chromium`.
 
 ## Data
 

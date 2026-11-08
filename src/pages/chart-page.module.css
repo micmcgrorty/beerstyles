@@ -1,0 +1,10 @@
+.intro {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 24px;
+}
+
+.empty {
+	margin-top: 24px;
+}

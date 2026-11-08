@@ -2,11 +2,16 @@ import { expect, test } from "@playwright/test";
 
 test("lists every style, grouped by category", async ({ page }) => {
 	await page.goto("/");
-	let styles = page.getByRole("main").locator('a[href^="/styles/"]');
-	let count = await styles.count();
+	// The unfiltered summary reads "N styles".
+	let total = parseInt(
+		await page
+			.getByRole("main")
+			.getByText(/^\d+ styles$/)
+			.innerText(),
+	);
 
 	await expect(page.getByRole("heading", { level: 1, name: "Beer styles" })).toBeVisible();
-	await expect(page.getByRole("main").getByText(`${count} styles`, { exact: true })).toBeVisible();
+	await expect(page.getByRole("main").locator('a[href^="/styles/"]')).toHaveCount(total);
 	await expect(page.getByRole("main").getByRole("heading", { level: 2 }).first()).toBeVisible();
 });
 
@@ -47,6 +52,7 @@ test.describe("search", () => {
 	test("ignores accents", async ({ page }) => {
 		await page.goto("/");
 		let styles = page.getByRole("main").locator('a[href^="/styles/"]');
+		await expect(styles.first()).toBeVisible();
 		let names = await styles.allInnerTexts();
 		let unaccented = names.map((name) => name.normalize("NFD").replace(/\p{Diacritic}/gu, ""));
 		let index = names.findIndex((name, i) => unaccented[i] !== name);
@@ -63,7 +69,12 @@ test.describe("search", () => {
 	test("shows an empty state that leads back to every style", async ({ page }) => {
 		await page.goto("/");
 		let styles = page.getByRole("main").locator('a[href^="/styles/"]');
-		let total = await styles.count();
+		let total = parseInt(
+			await page
+				.getByRole("main")
+				.getByText(/^\d+ styles$/)
+				.innerText(),
+		);
 
 		await page.getByRole("searchbox", { name: "Search styles" }).fill("zzqqxx no such beer");
 		await page.getByRole("searchbox", { name: "Search styles" }).press("Enter");
@@ -82,7 +93,12 @@ test.describe("group filter", () => {
 	test("filters by type and marks the active chip", async ({ page }) => {
 		await page.goto("/");
 		let styles = page.getByRole("main").locator('a[href^="/styles/"]');
-		let total = await styles.count();
+		let total = parseInt(
+			await page
+				.getByRole("main")
+				.getByText(/^\d+ styles$/)
+				.innerText(),
+		);
 		let chips = page.getByRole("navigation", { name: "Filter by type" }).getByRole("link");
 		let all = page
 			.getByRole("navigation", { name: "Filter by type" })
@@ -108,9 +124,15 @@ test.describe("group filter", () => {
 	test("combines with search, and clearing resets both", async ({ page }) => {
 		await page.goto("/");
 		let styles = page.getByRole("main").locator('a[href^="/styles/"]');
-		let total = await styles.count();
+		let total = parseInt(
+			await page
+				.getByRole("main")
+				.getByText(/^\d+ styles$/)
+				.innerText(),
+		);
 		await page.getByRole("navigation", { name: "Filter by type" }).getByRole("link").nth(1).click();
 		await expect(page).toHaveURL((url) => url.searchParams.has("group"));
+		await expect(page.getByText(/^Showing \d+ of \d+ styles in /)).toBeVisible();
 		let inGroup = await styles.count();
 		let name = await styles.first().innerText();
 
@@ -120,6 +142,7 @@ test.describe("group filter", () => {
 		await expect(page).toHaveURL(
 			(url) => url.searchParams.get("q") === name && url.searchParams.has("group"),
 		);
+		await expect(page.getByText(`matching “${name}”`)).toBeVisible();
 		let count = await styles.count();
 		expect(count).toBeGreaterThan(0);
 		expect(count).toBeLessThanOrEqual(inGroup);
@@ -141,8 +164,11 @@ test.describe("sort", () => {
 
 		await expect(page).toHaveURL((url) => url.searchParams.get("sort") === "name");
 		await expect(page.getByLabel("Sort")).toHaveValue("name");
-		let names = await page.getByRole("main").locator('a[href^="/styles/"]').allInnerTexts();
-		expect(names).toEqual(names.toSorted((a, b) => a.localeCompare(b, "en")));
+		// Retry: the list can re-render a moment after the URL changes.
+		await expect(async () => {
+			let names = await page.getByRole("main").locator('a[href^="/styles/"]').allInnerTexts();
+			expect(names).toEqual(names.toSorted((a, b) => a.localeCompare(b, "en")));
+		}).toPass();
 	});
 
 	test("sorts by strength", async ({ page }) => {
@@ -152,15 +178,18 @@ test.describe("sort", () => {
 		await page.getByRole("searchbox", { name: "Search styles" }).press("Enter");
 
 		await expect(page).toHaveURL((url) => url.searchParams.get("sort") === "abv");
-		let abv = await page
-			.getByRole("main")
-			.locator("dt", { hasText: /^ABV$/ })
-			.locator("xpath=following-sibling::dd[1]")
-			.allInnerTexts();
-		// "4.2–5.3%" → 4.2; styles that vary by type have no range and sort last.
-		let mins = abv.map((text) => Number(text.match(/[\d.]+(?=\s*–)/)?.[0] ?? Infinity));
-		expect(mins.length).toBeGreaterThan(1);
-		expect(mins).toEqual(mins.toSorted((a, b) => a - b));
+		// Retry: the list can re-render a moment after the URL changes.
+		await expect(async () => {
+			let abv = await page
+				.getByRole("main")
+				.locator("dt", { hasText: /^ABV$/ })
+				.locator("xpath=following-sibling::dd[1]")
+				.allInnerTexts();
+			// "4.2–5.3%" → 4.2; styles that vary by type have no range and sort last.
+			let mins = abv.map((text) => Number(text.match(/[\d.]+(?=\s*–)/)?.[0] ?? Infinity));
+			expect(mins.length).toBeGreaterThan(1);
+			expect(mins).toEqual(mins.toSorted((a, b) => a - b));
+		}).toPass();
 	});
 
 	test("keeps the sort when filtering by type", async ({ page }) => {
@@ -180,12 +209,18 @@ test("restores filters from a shared URL", async ({ page, browser }) => {
 	let chips = page.getByRole("navigation", { name: "Filter by type" }).getByRole("link");
 	let label = await chips.nth(1).innerText();
 	await chips.nth(1).click();
+	await expect(chips.nth(1)).toHaveAttribute("aria-current", "true");
 	await page.getByLabel("Sort").selectOption({ label: "Name" });
 	await page.getByRole("searchbox", { name: "Search styles" }).press("Enter");
 	await expect(page).toHaveURL(
 		(url) => url.searchParams.get("sort") === "name" && url.searchParams.has("group"),
 	);
-	let results = await page.getByRole("main").locator('a[href^="/styles/"]').allInnerTexts();
+	let results: string[] = [];
+	// Retry: the list can re-render a moment after the URL changes.
+	await expect(async () => {
+		results = await page.getByRole("main").locator('a[href^="/styles/"]').allInnerTexts();
+		expect(results).toEqual(results.toSorted((a, b) => a.localeCompare(b, "en")));
+	}).toPass();
 
 	let shared = await browser.newPage();
 	await shared.goto(page.url());
