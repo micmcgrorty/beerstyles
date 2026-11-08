@@ -14,7 +14,9 @@ jobs:
   e2e:
     name: E2E tests on deploy preview
     # Set the repository variable NETLIFY_SITE_NAME (the "<name>" in <name>.netlify.app) to enable.
-    if: vars.NETLIFY_SITE_NAME != ''
+    # Netlify only builds previews for PRs into main. A stacked PR skips this job; once it's
+    # retargeted to main, push to it (e.g. merge main in) so Netlify builds its preview.
+    if: vars.NETLIFY_SITE_NAME != '' && github.base_ref == 'main'
     runs-on: ubuntu-latest
     env:
       E2E_BASE_URL: https://deploy-preview-${{ github.event.pull_request.number }}--${{ vars.NETLIFY_SITE_NAME }}.netlify.app
