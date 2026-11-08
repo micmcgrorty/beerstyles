@@ -95,3 +95,87 @@ test.describe("compare: choosing styles", () => {
 		await expect(page.getByLabel("Second style")).toHaveValue("");
 	});
 });
+
+test.describe("compare: the comparison", () => {
+	test("shows both styles side by side", async ({ page }) => {
+		await page.goto("/compare");
+		let aOption = page.getByLabel("First style").locator("option").nth(1);
+		// Option labels read "5B Kölsch": the code, then the name.
+		let a = {
+			slug: (await aOption.getAttribute("value"))!,
+			name: (await aOption.innerText()).split(" ").slice(1).join(" "),
+		};
+		let bOption = page.getByLabel("First style").locator("option").nth(2);
+		// Option labels read "5B Kölsch": the code, then the name.
+		let b = {
+			slug: (await bOption.getAttribute("value"))!,
+			name: (await bOption.innerText()).split(" ").slice(1).join(" "),
+		};
+
+		await page.goto(`/compare?a=${a.slug}&b=${b.slug}`);
+
+		await expect(page.getByRole("heading", { level: 1 })).toHaveText(`${a.name} vs ${b.name}`);
+		await expect(page).toHaveTitle(new RegExp(`${a.name} vs ${b.name}`));
+		await expect(page.getByRole("heading", { level: 2, name: a.name })).toBeVisible();
+		await expect(page.getByRole("heading", { level: 2, name: b.name })).toBeVisible();
+		let table = page.getByRole("table");
+		await expect(table.getByRole("columnheader", { name: a.name })).toBeVisible();
+		await expect(table.getByRole("columnheader", { name: b.name })).toBeVisible();
+		for (let stat of ["ABV", "IBU", "SRM", "OG", "FG"]) {
+			await expect(table.getByRole("rowheader", { name: stat })).toBeVisible();
+		}
+		await expect(page.getByRole("heading", { level: 2, name: "Aroma" })).toBeVisible();
+	});
+
+	test("links each style to its own page", async ({ page }) => {
+		await page.goto("/compare");
+		let aOption = page.getByLabel("First style").locator("option").nth(1);
+		// Option labels read "5B Kölsch": the code, then the name.
+		let a = {
+			slug: (await aOption.getAttribute("value"))!,
+			name: (await aOption.innerText()).split(" ").slice(1).join(" "),
+		};
+		let bOption = page.getByLabel("First style").locator("option").nth(2);
+		// Option labels read "5B Kölsch": the code, then the name.
+		let b = {
+			slug: (await bOption.getAttribute("value"))!,
+			name: (await bOption.innerText()).split(" ").slice(1).join(" "),
+		};
+		await page.goto(`/compare?a=${a.slug}&b=${b.slug}`);
+
+		await page.getByRole("heading", { level: 2, name: b.name }).getByRole("link").click();
+
+		await expect(page).toHaveURL(`/styles/${b.slug}`);
+		await expect(page.getByRole("heading", { level: 1 })).toHaveText(b.name);
+	});
+
+	test("with one style chosen, asks for the other", async ({ page }) => {
+		await page.goto("/compare");
+		let aOption = page.getByLabel("First style").locator("option").nth(1);
+		// Option labels read "5B Kölsch": the code, then the name.
+		let a = {
+			slug: (await aOption.getAttribute("value"))!,
+			name: (await aOption.innerText()).split(" ").slice(1).join(" "),
+		};
+
+		await page.goto(`/compare?a=${a.slug}`);
+
+		await expect(page.getByRole("heading", { level: 2, name: a.name })).toBeVisible();
+		await expect(page.getByText("Choose a second style")).toBeVisible();
+		await expect(page.getByRole("table")).toHaveCount(0);
+	});
+
+	test("says so when a style is compared with itself", async ({ page }) => {
+		await page.goto("/compare");
+		let aOption = page.getByLabel("First style").locator("option").nth(1);
+		// Option labels read "5B Kölsch": the code, then the name.
+		let a = {
+			slug: (await aOption.getAttribute("value"))!,
+			name: (await aOption.innerText()).split(" ").slice(1).join(" "),
+		};
+
+		await page.goto(`/compare?a=${a.slug}&b=${a.slug}`);
+
+		await expect(page.getByText(`You're comparing ${a.name} with itself.`)).toBeVisible();
+	});
+});
