@@ -1,5 +1,7 @@
-import { categories } from "./bjcp-2015.ts";
-import type { RawStyle } from "./types.ts";
+import catalogue from "./bjcp-2015/catalogue.json";
+import type { RawCategory, RawStyle } from "./types.ts";
+
+const categories: RawCategory[] = catalogue;
 
 export interface Range {
 	min: number;

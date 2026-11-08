@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link, NavLink, Outlet, ScrollRestoration } from "react-router";
 
 import { paths } from "../paths.ts";
@@ -12,8 +13,29 @@ const NAV = [
 	{ label: "Bitterness", to: paths.bitterness },
 ];
 
-/** The shell around every page: header, main nav and footer. */
+/** The root route: every page renders inside the shell. */
 export function Layout() {
+	return (
+		<>
+			<AppShell>
+				<Outlet />
+			</AppShell>
+			<ScrollRestoration />
+		</>
+	);
+}
+
+/** Shown on a first visit while a route's loader runs: the shell with an empty page. */
+export function LayoutFallback() {
+	return (
+		<AppShell>
+			<title>{SITE_NAME}</title>
+		</AppShell>
+	);
+}
+
+/** The header, main nav and footer around every page. */
+function AppShell({ children }: { children?: ReactNode }) {
 	return (
 		<>
 			<header className={styles.header}>
@@ -38,9 +60,7 @@ export function Layout() {
 				</div>
 			</header>
 
-			<main className={`${theme.container} ${styles.main}`}>
-				<Outlet />
-			</main>
+			<main className={`${theme.container} ${styles.main}`}>{children}</main>
 
 			<footer className={styles.footer}>
 				<div className={theme.container}>
@@ -54,8 +74,6 @@ export function Layout() {
 					</p>
 				</div>
 			</footer>
-
-			<ScrollRestoration />
 		</>
 	);
 }
