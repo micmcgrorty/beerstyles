@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 
-import { paths } from "../paths.ts";
-import { PageMeta } from "../ui/layout.tsx";
+import { paths } from "./paths.ts";
+import { PageMeta } from "./layout.tsx";
 import theme from "../ui/theme.module.css";
 import styles from "./not-found-page.module.css";
 

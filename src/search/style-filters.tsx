@@ -1,10 +1,10 @@
 import { useId } from "react";
 import { Form, Link } from "react-router";
 
-import { GROUPS, SORTS, groupLabel } from "../data/styles.ts";
-import type { StyleSearch } from "../pages/use-style-search.ts";
+import { GROUPS, SORTS, groupLabel } from "../catalogue/styles.ts";
+import type { StyleSearch } from "./use-style-search.ts";
 import styles from "./style-filters.module.css";
-import theme from "./theme.module.css";
+import theme from "../ui/theme.module.css";
 
 /** Search, sort and group chips. All state lives in the URL query string. */
 export function StyleFilters({ search }: { search: StyleSearch }) {

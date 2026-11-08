@@ -1,14 +1,14 @@
 import { Link } from "react-router";
 
-import { styleSwatch } from "../data/scales.ts";
-import type { BeerStyle } from "../data/styles.ts";
-import { paths } from "../paths.ts";
-import { PageMeta } from "../ui/layout.tsx";
+import { styleSwatch } from "../catalogue/scales.ts";
+import type { BeerStyle } from "../catalogue/styles.ts";
+import { paths } from "../app/paths.ts";
+import { PageMeta } from "../app/layout.tsx";
 import { StatList } from "../ui/stat-list.tsx";
-import { EmptyResults, StyleFilters } from "../ui/style-filters.tsx";
+import { EmptyResults, StyleFilters } from "../search/style-filters.tsx";
 import theme from "../ui/theme.module.css";
 import styles from "./home-page.module.css";
-import { useStyleSearch } from "./use-style-search.ts";
+import { useStyleSearch } from "../search/use-style-search.ts";
 
 export function HomePage() {
 	let search = useStyleSearch();

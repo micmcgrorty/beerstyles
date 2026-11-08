@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { Link, NavLink, Outlet, ScrollRestoration } from "react-router";
 
-import { paths } from "../paths.ts";
+import { paths } from "./paths.ts";
 import styles from "./layout.module.css";
-import theme from "./theme.module.css";
+import theme from "../ui/theme.module.css";
 
 export const SITE_NAME = "BJCP Beer Styles";
 

@@ -1,10 +1,10 @@
 import { Link } from "react-router";
 
-import { SCALES, SRM_SPECTRUM, rangeGradient, type ScaleKey } from "../data/scales.ts";
-import { formatStat, type BeerStyle, type ResultSection, type Stat } from "../data/styles.ts";
-import { paths } from "../paths.ts";
+import { SCALES, SRM_SPECTRUM, rangeGradient, type ScaleKey } from "../catalogue/scales.ts";
+import { formatStat, type BeerStyle, type ResultSection, type Stat } from "../catalogue/styles.ts";
+import { paths } from "../app/paths.ts";
 import styles from "./range-chart.module.css";
-import theme from "./theme.module.css";
+import theme from "../ui/theme.module.css";
 
 function pct(value: number, max: number): number {
 	return Math.min(100, Math.max(0, (value / max) * 100));

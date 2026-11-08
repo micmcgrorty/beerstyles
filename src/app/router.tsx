@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router";
 
-import { ChartPage } from "./pages/chart-page.tsx";
-import { HomePage } from "./pages/home-page.tsx";
-import { NotFoundPage } from "./pages/not-found-page.tsx";
-import { StylePage, styleLoader } from "./pages/style-page.tsx";
+import { ChartPage } from "../charts/chart-page.tsx";
+import { HomePage } from "../browse/home-page.tsx";
+import { NotFoundPage } from "./not-found-page.tsx";
+import { StylePage, styleLoader } from "../style-guide/style-page.tsx";
 import { paths } from "./paths.ts";
-import { Layout, LayoutFallback } from "./ui/layout.tsx";
+import { Layout, LayoutFallback } from "./layout.tsx";
 
 export const router = createBrowserRouter([
 	{

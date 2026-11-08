@@ -1,7 +1,7 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite-plus";
 
-import { netlifyRedirects } from "./src/redirects.ts";
+import { netlifyRedirects } from "./src/app/redirects.ts";
 
 export default defineConfig({
 	plugins: [
