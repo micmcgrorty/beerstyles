@@ -18,6 +18,14 @@ import styles from "./comparison.module.css";
 
 type Side = "a" | "b";
 
+/** The two styles in column order, each with its side, which also serves as its key. */
+function sides(a: LoadedStyle, b: LoadedStyle) {
+	return [
+		{ side: "a", loaded: a },
+		{ side: "b", loaded: b },
+	] as const;
+}
+
 function Badge({ side }: { side: Side }) {
 	return <span className={styles.badge}>{side.toUpperCase()}</span>;
 }
@@ -115,10 +123,10 @@ function StatsComparison({ a, b }: { a: LoadedStyle; b: LoadedStyle }) {
 						<th scope="col">
 							<span className={theme.srOnly}>Statistic</span>
 						</th>
-						{[a, b].map((loaded, i) => (
-							<th key={i} scope="col">
+						{sides(a, b).map(({ side, loaded }) => (
+							<th key={side} scope="col">
 								<span className={styles.who}>
-									<Badge side={i === 0 ? "a" : "b"} /> {loaded.style.name}
+									<Badge side={side} /> {loaded.style.name}
 								</span>
 							</th>
 						))}
@@ -144,10 +152,10 @@ function StatsComparison({ a, b }: { a: LoadedStyle; b: LoadedStyle }) {
 						<span>{`${STATS[key].unit}, same scale for both`}</span>
 					</div>
 					<div className={styles.barsGrid}>
-						{[a, b].map((loaded, i) => (
-							<div key={i} className={styles.barRow}>
+						{sides(a, b).map(({ side, loaded }) => (
+							<div key={side} className={styles.barRow}>
 								<span className={styles.who}>
-									<Badge side={i === 0 ? "a" : "b"} />
+									<Badge side={side} />
 									<span className={styles.barName}>{loaded.style.name}</span>
 								</span>
 								<RangeTrack kind={key} stat={loaded.style.stats[key]} large />
@@ -174,10 +182,10 @@ function GuidelineComparison({ a, b }: { a: LoadedStyle; b: LoadedStyle }) {
 				<section key={key} className={styles.section}>
 					<h2 className={styles.sectionTitle}>{heading}</h2>
 					<div className={styles.columns}>
-						{[a, b].map((loaded, i) => (
-							<div key={i}>
+						{sides(a, b).map(({ side, loaded }) => (
+							<div key={side}>
 								<p className={styles.columnLabel}>
-									<Badge side={i === 0 ? "a" : "b"} /> {loaded.style.name}
+									<Badge side={side} /> {loaded.style.name}
 								</p>
 								<p className={styles.text}>{loaded.guideline[key] ?? "Not described."}</p>
 							</div>
@@ -189,10 +197,10 @@ function GuidelineComparison({ a, b }: { a: LoadedStyle; b: LoadedStyle }) {
 				<section className={styles.section}>
 					<h2 className={styles.sectionTitle}>Commercial examples</h2>
 					<div className={styles.columns}>
-						{[a, b].map((loaded, i) => (
-							<div key={i}>
+						{sides(a, b).map(({ side, loaded }) => (
+							<div key={side}>
 								<p className={styles.columnLabel}>
-									<Badge side={i === 0 ? "a" : "b"} /> {loaded.style.name}
+									<Badge side={side} /> {loaded.style.name}
 								</p>
 								<ul className={styles.pills}>
 									{loaded.style.commercialExamples.map((example) => (
