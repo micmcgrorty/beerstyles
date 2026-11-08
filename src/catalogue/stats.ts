@@ -1,6 +1,9 @@
 /** A style's vital statistics: what each one is, how to parse it, and how to show it. */
 
-import { IBU_MAX, SRM_MAX, SRM_SPECTRUM, ibuColour, rangeGradient, srmColour } from "./colours.ts";
+import { SRM_MAX, SRM_SPECTRUM, hopGreen, rangeGradient, srmColour } from "./colours.ts";
+
+/** The top of the bitterness scale, in IBU. */
+const IBU_MAX = 120;
 
 export interface Range {
 	min: number;
@@ -65,7 +68,7 @@ const DEFINITIONS = {
 		label: "Bitterness",
 		unit: "IBU",
 		sortable: true,
-		scale: { max: IBU_MAX, step: 20, colourAt: ibuColour },
+		scale: { max: IBU_MAX, step: 20, colourAt: (ibu) => hopGreen(ibu / IBU_MAX) },
 	},
 	srm: {
 		abbr: "SRM",

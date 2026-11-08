@@ -1,7 +1,7 @@
 import type { Range } from "./stats.ts";
 
+/** The SRM colour table runs from 1 to 40. */
 export const SRM_MAX = 40;
-export const IBU_MAX = 120;
 
 // Approximate display colour for each whole SRM value.
 const SRM_HEX: Record<number, string> = {
@@ -72,10 +72,9 @@ export function srmColour(srm: number): string {
 	return mix(SRM_HEX[lo], SRM_HEX[hi], v - lo).toUpperCase();
 }
 
-/** Colour for a bitterness value: pale hop green at 0 to deep green at the top of the scale. */
-export function ibuColour(ibu: number): string {
-	let t = Math.min(1, Math.max(0, ibu / IBU_MAX));
-	return mix("#C9DC8A", "#3E6418", t).toUpperCase();
+/** Pale hop green at 0 to deep green at 1, for bitterness. Values outside 0–1 clamp. */
+export function hopGreen(t: number): string {
+	return mix("#C9DC8A", "#3E6418", Math.min(1, Math.max(0, t))).toUpperCase();
 }
 
 /** Gradient across one range, with a stop for every whole step so it follows the scale. */
