@@ -25,7 +25,7 @@ npm scripts must not use `&&` or inline env vars, because they need to run under
 
 ## Deploying
 
-Netlify builds and hosts the site (`netlify.toml`): `npm run build` publishes `dist/`, every route falls back to `index.html`, and the build writes the commit SHA to `/version.txt`. Each PR gets a deploy preview, and the "Deploy preview" workflow waits for the preview to serve the PR's commit, then runs the e2e suite against it. It needs the repository variable `NETLIFY_SITE_NAME`.
+Netlify builds and hosts the site (`netlify.toml`): `npm run build` publishes `dist/`, and the build writes the commit SHA to `/version.txt`. Routing rules are generated into `dist/_redirects` by a Vite plugin from `src/redirects.ts`: every page (including each style slug in the catalogue) serves `index.html` with 200, and anything else serves it with 404. If you add a route, add it there too. `vp preview` ignores `_redirects`, so status codes are only checked on deploy previews. Each PR gets a deploy preview, and the "Deploy preview" workflow waits for the preview to serve the PR's commit, then runs the e2e suite against it. It needs the repository variable `NETLIFY_SITE_NAME`.
 
 ## Layout
 

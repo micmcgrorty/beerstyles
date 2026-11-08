@@ -37,6 +37,23 @@ jobs:
           echo "::error::Deploy preview did not serve $SHA within 10 minutes"
           exit 1
       - uses: actions/checkout@v7
+      - name: Check HTTP status codes
+        run: |
+          slug=$(node -p 'require("./src/data/bjcp-2015/catalogue.json")[0].styles[0].slug')
+          failed=0
+          check() {
+            got=$(curl -s -o /dev/null -w "%{http_code}" "$E2E_BASE_URL$1")
+            echo "$1 → $got (want $2)"
+            [ "$got" = "$2" ] || failed=1
+          }
+          check / 200
+          check /colour 200
+          check "/bitterness?group=sour" 200
+          check "/styles/$slug" 200
+          check /favicon.svg 200
+          check /styles/not-a-real-style 404
+          check /no/such/page 404
+          exit $failed
       - uses: actions/setup-node@v7
         with:
           node-version: 24
