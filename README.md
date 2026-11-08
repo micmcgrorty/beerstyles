@@ -27,7 +27,7 @@ Search, filters and sort live in the URL query string (`?q=stout&group=porters-s
 - `src/pages/` holds one component per route, each with a CSS module.
 - `src/ui/` holds shared UI: the layout (header, nav, footer), filters, range chart and stat list.
 - `src/styles/global.css` holds the design tokens (light and dark).
-- `src/data/bjcp-2015.ts` is the style data. `src/data/styles.ts` parses the stats and handles search, filter and sort. `src/data/srm.ts` maps SRM values to colours.
+- `src/data/bjcp-2015/` is the style data: a catalogue bundled with the app, and each style's guideline text loaded on demand. `src/data/styles.ts` parses and formats the stats and handles search, filter and sort. `src/data/scales.ts` defines the colour (SRM) and bitterness (IBU) scales.
 - `e2e/` holds the Playwright tests.
 
 ## Commands

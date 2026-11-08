@@ -1,10 +1,9 @@
 import { describe, expect, it } from "vite-plus/test";
 
-import { srmColour } from "./srm.ts";
+import { srmColour } from "./scales.ts";
 import {
 	allStyles,
 	formatStat,
-	formatStatFull,
 	getStyle,
 	parseQuery,
 	parseRanges,
@@ -62,7 +61,23 @@ describe("style data", () => {
 	it("formats multi-range stats", () => {
 		let saison = getStyle("saison")!.style;
 		expect(formatStat("srm", saison.stats.srm)).toBe("5–22");
-		expect(formatStatFull("srm", saison.stats.srm)).toBe("5–14 (pale), 15–22 (dark)");
+		expect(formatStat("srm", saison.stats.srm, { form: "full" })).toBe("5–14 (pale), 15–22 (dark)");
+		expect(formatStat("srm", saison.stats.srm, { form: "full", unit: true })).toBe(
+			"5–14 (pale), 15–22 (dark) SRM",
+		);
+	});
+
+	it("adds units only to colour and bitterness, and never to values that vary", () => {
+		let lager = getStyle("american-light-lager")!.style;
+		expect(formatStat("ibu", lager.stats.ibu, { unit: true })).toBe("8–12 IBU");
+		expect(formatStat("abv", lager.stats.abv, { unit: true })).toBe("2.8–4.2%");
+		expect(formatStat("og", lager.stats.og, { unit: true })).toBe("1.028–1.040");
+
+		let specialty = getStyle("specialty-ipa")!.style;
+		expect(formatStat("srm", specialty.stats.srm)).toBe("Varies");
+		expect(formatStat("srm", specialty.stats.srm, { form: "full", unit: true })).toBe(
+			"Varies by type",
+		);
 	});
 });
 
