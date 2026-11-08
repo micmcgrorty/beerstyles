@@ -1,15 +1,15 @@
 import { Link, useLoaderData, type LoaderFunctionArgs } from "react-router";
 
-import { loadGuideline } from "../data/guidelines.ts";
-import { SCALE_KEYS, SCALES, styleSwatch } from "../data/scales.ts";
-import { DEFAULT_QUERY, formatStat, getStyle, groupLabel, queryHref } from "../data/styles.ts";
-import type { Guideline } from "../data/types.ts";
-import { paths } from "../paths.ts";
-import { PageMeta } from "../ui/layout.tsx";
-import { RangeTrack } from "../ui/range-chart.tsx";
+import { loadGuideline } from "../catalogue/guidelines.ts";
+import { SCALE_KEYS, SCALES, styleSwatch } from "../catalogue/scales.ts";
+import { DEFAULT_QUERY, formatStat, getStyle, groupLabel, queryHref } from "../catalogue/styles.ts";
+import type { Guideline } from "../catalogue/types.ts";
+import { paths } from "../app/paths.ts";
+import { PageMeta } from "../app/layout.tsx";
+import { RangeTrack } from "../ui/range-track.tsx";
 import { StatList } from "../ui/stat-list.tsx";
 import theme from "../ui/theme.module.css";
-import { NotFoundPage } from "./not-found-page.tsx";
+import { NotFoundPage } from "../app/not-found-page.tsx";
 import styles from "./style-page.module.css";
 
 const SECTIONS: { key: keyof Guideline; heading: string }[] = [

@@ -7,7 +7,7 @@ import {
 	searchStyles,
 	type SearchResult,
 	type StyleQuery,
-} from "../data/styles.ts";
+} from "../catalogue/styles.ts";
 
 export interface StyleSearch extends SearchResult {
 	/** The search, filter and sort read from the URL. */

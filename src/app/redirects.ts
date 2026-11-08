@@ -1,4 +1,4 @@
-import { allStyles } from "./data/styles.ts";
+import { allStyles } from "../catalogue/styles.ts";
 import { paths } from "./paths.ts";
 
 /**

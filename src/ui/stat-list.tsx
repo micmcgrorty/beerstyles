@@ -1,4 +1,4 @@
-import { formatRange, formatStat, type BeerStyle, type StatKey } from "../data/styles.ts";
+import { formatRange, formatStat, type BeerStyle, type StatKey } from "../catalogue/styles.ts";
 import styles from "./stat-list.module.css";
 
 const PRIMARY: { key: StatKey; label: string; title: string }[] = [

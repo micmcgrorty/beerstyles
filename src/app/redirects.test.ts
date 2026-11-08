@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vite-plus/test";
 
-import { allStyles } from "./data/styles.ts";
+import { allStyles } from "../catalogue/styles.ts";
 import { paths } from "./paths.ts";
 import { netlifyRedirects } from "./redirects.ts";
 

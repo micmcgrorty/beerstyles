@@ -101,6 +101,11 @@ export const SCALES: Record<ScaleKey, Scale> = {
 /** The scales in display order. */
 export const SCALE_KEYS: ScaleKey[] = ["srm", "ibu"];
 
+/** How far along its scale a value sits, as a percentage clamped to 0–100. */
+export function scalePercent(key: ScaleKey, value: number): number {
+	return Math.min(100, Math.max(0, (value / SCALES[key].max) * 100));
+}
+
 /** Gradient across one range, with a stop for every whole step so it follows the scale. */
 export function rangeGradient(
 	range: Range,

@@ -1,11 +1,11 @@
-import { paths } from "../paths.ts";
-import { PageMeta } from "../ui/layout.tsx";
-import type { ScaleKey } from "../data/scales.ts";
-import { RangeChart } from "../ui/range-chart.tsx";
-import { EmptyResults, StyleFilters } from "../ui/style-filters.tsx";
+import { paths } from "../app/paths.ts";
+import { PageMeta } from "../app/layout.tsx";
+import type { ScaleKey } from "../catalogue/scales.ts";
+import { RangeChart } from "./range-chart.tsx";
+import { EmptyResults, StyleFilters } from "../search/style-filters.tsx";
 import theme from "../ui/theme.module.css";
 import styles from "./chart-page.module.css";
-import { useStyleSearch } from "./use-style-search.ts";
+import { useStyleSearch } from "../search/use-style-search.ts";
 
 const PAGES: Record<
 	ScaleKey,
