@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 
 import { statGradient } from "../catalogue/stats.ts";
-import type { BeerStyle } from "../catalogue/styles.ts";
+import type { BeerStyle } from "../catalogue/catalogue.ts";
 import { paths } from "../app/routes.ts";
 import { PageMeta } from "../app/layout.tsx";
 import { StatList } from "../ui/stat-list.tsx";
@@ -9,6 +9,7 @@ import { EmptyResults, StyleFilters } from "../search/style-filters.tsx";
 import theme from "../ui/theme.module.css";
 import styles from "./home-page.module.css";
 import { useStyleSearch } from "../search/use-style-search.ts";
+import { edition } from "../catalogue/styles.ts";
 
 export function HomePage() {
 	let search = useStyleSearch();
@@ -17,14 +18,14 @@ export function HomePage() {
 		<>
 			<PageMeta
 				title="BJCP Beer Styles"
-				description="Every BJCP 2015 beer style with its strength, bitterness, colour and gravity. Search, filter and compare styles."
+				description={`Every ${edition.name} beer style with its strength, bitterness, colour and gravity. Search, filter and compare styles.`}
 			/>
 
 			<div className={styles.intro}>
 				<h1 className={theme.pageTitle}>Beer styles</h1>
 				<p className={theme.lede}>
-					All {search.total} styles from the BJCP 2015 guidelines, with their strength, bitterness,
-					colour and gravity ranges.
+					All {search.total}
+					{` styles from the ${edition.name} guidelines, with their strength, bitterness, colour and gravity ranges.`}
 				</p>
 			</div>
 

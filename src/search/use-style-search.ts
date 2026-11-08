@@ -1,13 +1,9 @@
 import { useCallback, useMemo } from "react";
 import { useLocation, useSearchParams } from "react-router";
 
-import {
-	parseQuery,
-	queryHref,
-	searchStyles,
-	type SearchResult,
-	type StyleQuery,
-} from "../catalogue/styles.ts";
+import { parseQuery, queryHref, type StyleQuery } from "../catalogue/query.ts";
+import { searchStyles } from "../catalogue/styles.ts";
+import { type SearchResult } from "../catalogue/catalogue.ts";
 
 export interface StyleSearch extends SearchResult {
 	/** The search, filter and sort read from the URL. */
