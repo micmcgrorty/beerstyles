@@ -41,9 +41,15 @@ jobs:
         run: |
           slug=$(node -p 'require("./src/catalogue/bjcp-2021/catalogue.json")[0].styles[0].slug')
           failed=0
+          # Netlify can answer the first requests to a new deploy before its routing rules apply,
+          # so each check retries a few times before it counts as a failure.
           check() {
-            got=$(curl -s -o /dev/null -w "%{http_code}" "$E2E_BASE_URL$1")
-            echo "$1 → $got (want $2)"
+            for attempt in 1 2 3 4; do
+              got=$(curl -s -o /dev/null -w "%{http_code}" "$E2E_BASE_URL$1")
+              [ "$got" = "$2" ] && break
+              sleep 5
+            done
+            echo "$1 → $got (want $2, attempt $attempt)"
             [ "$got" = "$2" ] || failed=1
           }
           check / 200
