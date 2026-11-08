@@ -1,0 +1,10 @@
+.notFound {
+	display: grid;
+	gap: 14px;
+	padding-block: 32px;
+
+	& a {
+		font-weight: 700;
+		color: var(--accent);
+	}
+}

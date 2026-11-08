@@ -1,5 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
+// Matches `preview.port` in vite.config.ts.
 const PORT = 4173;
 
 // Set E2E_BASE_URL to run the suite against a deployed site instead of a local server.
@@ -24,9 +25,9 @@ export default defineConfig({
 	webServer: externalBaseURL
 		? undefined
 		: {
-				command: "npm run start",
+				// Test the production build, as deployed.
+				command: "npm run build && npm run preview",
 				url: `http://localhost:${PORT}`,
-				env: { PORT: String(PORT) },
 				reuseExistingServer: !process.env.CI,
 			},
 });

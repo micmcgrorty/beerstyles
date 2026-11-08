@@ -57,9 +57,10 @@ function rgbToHex([r, g, b]: [number, number, number]): string {
 }
 
 function mix(a: string, b: string, t: number): string {
-	let ca = hexToRgb(a);
-	let cb = hexToRgb(b);
-	return rgbToHex([0, 1, 2].map((i) => ca[i] + (cb[i] - ca[i]) * t) as [number, number, number]);
+	let [r1, g1, b1] = hexToRgb(a);
+	let [r2, g2, b2] = hexToRgb(b);
+	let lerp = (from: number, to: number) => from + (to - from) * t;
+	return rgbToHex([lerp(r1, r2), lerp(g1, g2), lerp(b1, b2)]);
 }
 
 /** Colour for any SRM value, interpolating between whole numbers (so 2.5 or 4.5 work). */

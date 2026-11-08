@@ -1,0 +1,79 @@
+/* Shared building blocks used by several pages. */
+
+/* Centred page column. */
+.container {
+	width: 100%;
+	max-width: 960px;
+	margin-inline: auto;
+	padding-inline: 16px;
+
+	@media (min-width: 640px) {
+		padding-inline: 24px;
+	}
+}
+
+/* Hide visually but keep for screen readers. */
+.srOnly {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Small uppercase label, used above stat values and as eyebrows. */
+.eyebrow {
+	margin: 0;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+
+.pageTitle {
+	margin: 0;
+	font-size: clamp(30px, 6vw, 44px);
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	line-height: 1.05;
+}
+
+.lede {
+	margin: 0;
+	max-width: 60ch;
+	color: var(--muted);
+	font-size: 17px;
+}
+
+/* Category heading used to group styles. */
+.categoryHeading {
+	margin: 0;
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+	font-size: 18px;
+	font-weight: 750;
+	letter-spacing: -0.01em;
+}
+
+.categoryNumber {
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--accent);
+	min-width: 2ch;
+}
+
+/* Pill used for tags and commercial examples. */
+.pill {
+	display: inline-block;
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: var(--track);
+	font-size: 14px;
+	line-height: 1.4;
+}
