@@ -31,13 +31,13 @@ npm i
 npm run dev        # watch and restart the server
 npm run start      # production mode
 npm test           # data tests (Vitest)
-npm run test:routes  # route smoke tests (remix test)
+npm run test:e2e   # Playwright end-to-end tests (desktop + mobile)
 npm run typecheck
 npm run lint       # oxlint
 npm run format     # oxfmt (format:check in CI)
 ```
 
-Requires Node 24.3 or later. The server listens on `PORT` (default 44100).
+Requires Node 24.3 or later. The server listens on `PORT` (default 44100). Before the first `npm run test:e2e`, install the browser with `npx playwright install chromium`.
 
 ## Data
 

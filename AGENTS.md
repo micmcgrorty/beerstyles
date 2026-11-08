@@ -9,7 +9,7 @@ npm i
 npm run dev
 npm run start
 npm test
-npm run test:routes
+npm run test:e2e
 npm run typecheck
 npm run lint
 npm run format
@@ -18,7 +18,7 @@ npm run format:check
 
 `npm run dev` watches and restarts the server. `npm run start` runs in production mode without a separate build step.
 
-`npm test` runs the Vitest data tests in `app/data/`. `npm run test:routes` runs the router smoke test with `remix test`. Lint with oxlint (`.oxlintrc.json`) and format with oxfmt (`.oxfmtrc.json`). Run `npm run format` and `npm run lint` before committing; both must pass with no warnings. npm scripts must not use `&&` or inline env vars, because they need to run under any `script-shell`, including Windows PowerShell.
+`npm test` runs the Vitest data tests in `app/data/`. `npm run test:e2e` runs the Playwright suite in `e2e/` against a local production server on port 4173, on desktop and mobile Chromium; set `E2E_BASE_URL` to run it against a deployed site instead. Install the browser once with `npx playwright install chromium`. Lint with oxlint (`.oxlintrc.json`) and format with oxfmt (`.oxfmtrc.json`). Run `npm run format` and `npm run lint` before committing; both must pass with no warnings. npm scripts must not use `&&` or inline env vars, because they need to run under any `script-shell`, including Windows PowerShell.
 
 ## Building Features
 
@@ -28,7 +28,7 @@ Refer to ./.agents/skills/remix/SKILL.md for the Remix mental model and how to f
 
 - `app/routes.ts` defines the shared route contract used by server and browser modules for type-safe hrefs
 - `app/router.ts` wires routes to controllers and installs the standard Remix component renderer used by actions
-- Put top-level route actions in `app/actions/controller.tsx`; add `app/actions/<route-key>/controller.tsx` for nested route maps. `app/actions/controller.test.ts` is the router smoke test
+- Put top-level route actions in `app/actions/controller.tsx`; add `app/actions/<route-key>/controller.tsx` for nested route maps.
 - Route-owned pages live beside the controller in `app/actions/` (`home-page.tsx`, `chart-page.tsx`, `style-page.tsx`, `not-found-page.tsx`); `document.tsx` is the HTML shell and owns the design tokens as CSS custom properties
 - `app/ui/` holds UI shared by several pages (layout, filters, range chart, stat list, theme helpers)
 - `app/data/` holds the BJCP 2015 style data (`bjcp-2015.ts`), parsing/search/sort (`styles.ts`) and colour scales (`srm.ts`), with tests in `styles.test.ts`
@@ -39,4 +39,5 @@ Refer to ./.agents/skills/remix/SKILL.md for the Remix mental model and how to f
 
 - Pages are server-rendered with no client JavaScript. Search, filter and sort are `GET` query params parsed by `parseQuery` and built with `queryHref`.
 - Style with `css()` mixins and the tokens defined in `document.tsx` (`var(--bg)`, `var(--accent)` and so on); use the `style` prop only for per-item values such as bar positions.
+- E2E tests are the behaviour contract for the React rewrite, so they must not depend on the framework or the data. Locate by role, label and `/styles/:slug` href, never by class or DOM shape. Read expected values from the page, never hard-code BJCP style names, counts or stats, so a data update (BJCP 2021) leaves them green. Don't assert HTTP status codes. Shared helpers live in `e2e/support.ts`.
 - Keep data corrections in `app/data/bjcp-2015.ts` and note them in its header comment.
