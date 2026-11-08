@@ -1,18 +1,17 @@
 import { Link } from "react-router";
 
 import { styleSwatch } from "../data/srm.ts";
-import { groupByCategory, type BeerStyle } from "../data/styles.ts";
+import type { BeerStyle } from "../data/styles.ts";
 import { paths } from "../paths.ts";
 import { PageMeta } from "../ui/layout.tsx";
 import { StatList } from "../ui/stat-list.tsx";
 import { EmptyResults, StyleFilters } from "../ui/style-filters.tsx";
 import theme from "../ui/theme.module.css";
 import styles from "./home-page.module.css";
-import { useStyleQuery } from "./use-style-query.ts";
+import { useStyleSearch } from "./use-style-search.ts";
 
 export function HomePage() {
-	let { query, styles: results, total } = useStyleQuery();
-	let grouped = query.sort === "bjcp";
+	let search = useStyleSearch();
 
 	return (
 		<>
@@ -24,44 +23,46 @@ export function HomePage() {
 			<div className={styles.intro}>
 				<h1 className={theme.pageTitle}>Beer styles</h1>
 				<p className={theme.lede}>
-					All {total} styles from the BJCP 2015 guidelines, with their strength, bitterness, colour
-					and gravity ranges.
+					All {search.total} styles from the BJCP 2015 guidelines, with their strength, bitterness,
+					colour and gravity ranges.
 				</p>
 			</div>
 
-			<StyleFilters path={paths.home} query={query} count={results.length} total={total} />
+			<StyleFilters search={search} />
 
-			{results.length === 0 ? (
+			{search.count === 0 ? (
 				<div className={styles.spaced}>
-					<EmptyResults path={paths.home} query={query} />
+					<EmptyResults search={search} />
 				</div>
-			) : grouped ? (
-				groupByCategory(results).map((group) => (
+			) : null}
+
+			{search.sections.map(({ category, styles: sectionStyles }) =>
+				category ? (
 					<section
-						key={group.category.number}
+						key={category.number}
 						className={styles.section}
-						aria-labelledby={`cat-${group.category.number}`}
+						aria-labelledby={`cat-${category.number}`}
 					>
 						<h2
-							id={`cat-${group.category.number}`}
+							id={`cat-${category.number}`}
 							className={`${theme.categoryHeading} ${styles.stickyHeading}`}
 						>
-							<span className={theme.categoryNumber}>{group.category.number}</span>
-							{group.category.name}
+							<span className={theme.categoryNumber}>{category.number}</span>
+							{category.name}
 						</h2>
 						<ul className={styles.cards}>
-							{group.styles.map((style) => (
+							{sectionStyles.map((style) => (
 								<StyleCard key={style.slug} style={style} />
 							))}
 						</ul>
 					</section>
-				))
-			) : (
-				<ul className={`${styles.cards} ${styles.spaced}`}>
-					{results.map((style) => (
-						<StyleCard key={style.slug} style={style} />
-					))}
-				</ul>
+				) : (
+					<ul key="all" className={`${styles.cards} ${styles.spaced}`}>
+						{sectionStyles.map((style) => (
+							<StyleCard key={style.slug} style={style} />
+						))}
+					</ul>
+				),
 			)}
 		</>
 	);

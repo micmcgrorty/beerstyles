@@ -8,7 +8,7 @@ import {
 	rangeGradient,
 	srmColour,
 } from "../data/srm.ts";
-import { formatStatFull, groupByCategory, type BeerStyle, type Stat } from "../data/styles.ts";
+import { formatStatFull, type BeerStyle, type ResultSection, type Stat } from "../data/styles.ts";
 import { paths } from "../paths.ts";
 import styles from "./range-chart.module.css";
 import theme from "./theme.module.css";
@@ -110,16 +110,14 @@ function ChartRow({ kind, style }: { kind: ChartKind; style: BeerStyle }) {
 	);
 }
 
-/** One row per style, optionally grouped by BJCP category, under a sticky axis. */
+/** One row per style, in the sections given, under a sticky axis. */
 export function RangeChart({
 	kind,
-	styles: beerStyles,
-	grouped,
+	sections,
 	label,
 }: {
 	kind: ChartKind;
-	styles: BeerStyle[];
-	grouped: boolean;
+	sections: ResultSection[];
 	label: string;
 }) {
 	return (
@@ -132,30 +130,30 @@ export function RangeChart({
 				<RangeAxis kind={kind} />
 			</div>
 
-			{grouped ? (
-				groupByCategory(beerStyles).map((group) => (
+			{sections.map(({ category, styles: sectionStyles }) =>
+				category ? (
 					<section
-						key={group.category.number}
+						key={category.number}
 						className={styles.section}
-						aria-labelledby={`cat-${group.category.number}`}
+						aria-labelledby={`cat-${category.number}`}
 					>
-						<h2 id={`cat-${group.category.number}`} className={theme.categoryHeading}>
-							<span className={theme.categoryNumber}>{group.category.number}</span>
-							{group.category.name}
+						<h2 id={`cat-${category.number}`} className={theme.categoryHeading}>
+							<span className={theme.categoryNumber}>{category.number}</span>
+							{category.name}
 						</h2>
 						<ol className={styles.rows}>
-							{group.styles.map((style) => (
+							{sectionStyles.map((style) => (
 								<ChartRow key={style.slug} kind={kind} style={style} />
 							))}
 						</ol>
 					</section>
-				))
-			) : (
-				<ol className={`${styles.rows} ${styles.ungrouped}`}>
-					{beerStyles.map((style) => (
-						<ChartRow key={style.slug} kind={kind} style={style} />
-					))}
-				</ol>
+				) : (
+					<ol key="all" className={`${styles.rows} ${styles.ungrouped}`}>
+						{sectionStyles.map((style) => (
+							<ChartRow key={style.slug} kind={kind} style={style} />
+						))}
+					</ol>
+				),
 			)}
 		</div>
 	);

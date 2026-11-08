@@ -3,13 +3,13 @@ import { describe, expect, it } from "vite-plus/test";
 import { srmColour } from "./srm.ts";
 import {
 	allStyles,
-	findStyles,
 	formatStat,
 	formatStatFull,
 	getStyle,
 	parseQuery,
 	parseRanges,
 	queryHref,
+	searchStyles,
 	DEFAULT_QUERY,
 } from "./styles.ts";
 
@@ -79,14 +79,21 @@ describe("srmColour", () => {
 	});
 });
 
-describe("findStyles", () => {
+/** Every style in a result, in display order. */
+function flatten(result: ReturnType<typeof searchStyles>) {
+	return result.sections.flatMap((section) => section.styles);
+}
+
+describe("searchStyles", () => {
 	it("searches names, codes and descriptions without accents", () => {
-		expect(findStyles({ ...DEFAULT_QUERY, q: "kolsch" }).map((s) => s.slug)).toContain("kolsch");
-		expect(findStyles({ ...DEFAULT_QUERY, q: "21A" }).map((s) => s.slug)).toEqual(["american-ipa"]);
+		let kolsch = flatten(searchStyles({ ...DEFAULT_QUERY, q: "kolsch" }));
+		expect(kolsch.map((s) => s.slug)).toContain("kolsch");
+		let ipa = flatten(searchStyles({ ...DEFAULT_QUERY, q: "21A" }));
+		expect(ipa.map((s) => s.slug)).toEqual(["american-ipa"]);
 	});
 
 	it("filters by group and sorts by a stat", () => {
-		let sours = findStyles({ q: "", group: "sour", sort: "ibu" });
+		let sours = flatten(searchStyles({ q: "", group: "sour", sort: "ibu" }));
 		expect(sours.length).toBeGreaterThan(0);
 		expect(sours.every((s) => s.groups.includes("sour"))).toBe(true);
 		let mins = sours.map((s) => s.stats.ibu.ranges[0].min);
@@ -94,8 +101,37 @@ describe("findStyles", () => {
 	});
 
 	it("sorts styles that cannot be measured last", () => {
-		let byColour = findStyles({ ...DEFAULT_QUERY, sort: "srm" });
+		let byColour = flatten(searchStyles({ ...DEFAULT_QUERY, sort: "srm" }));
 		expect(byColour.at(-1)?.slug).toBe("specialty-ipa");
+	});
+
+	it("groups BJCP order into one section per category", () => {
+		let result = searchStyles(DEFAULT_QUERY);
+		expect(result.count).toBe(allStyles.length);
+		expect(result.total).toBe(allStyles.length);
+		expect(flatten(result)).toEqual(allStyles);
+		for (let section of result.sections) {
+			expect(section.category).not.toBeNull();
+			expect(section.styles.every((s) => s.category.number === section.category?.number)).toBe(
+				true,
+			);
+		}
+		let numbers = result.sections.map((section) => section.category?.number);
+		expect(new Set(numbers).size).toBe(numbers.length);
+	});
+
+	it("returns any other sort as one flat section", () => {
+		let result = searchStyles({ ...DEFAULT_QUERY, sort: "name" });
+		expect(result.sections).toHaveLength(1);
+		expect(result.sections[0].category).toBeNull();
+		expect(result.sections[0].styles).toHaveLength(result.count);
+	});
+
+	it("returns no sections when nothing matches", () => {
+		for (let sort of ["bjcp", "abv"] as const) {
+			let result = searchStyles({ ...DEFAULT_QUERY, q: "zzqqxx", sort });
+			expect(result).toEqual({ count: 0, total: allStyles.length, sections: [] });
+		}
 	});
 });
 
