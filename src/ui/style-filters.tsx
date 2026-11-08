@@ -1,20 +1,14 @@
 import { useId } from "react";
 import { Form, Link } from "react-router";
 
-import { GROUPS, SORTS, groupLabel, queryHref, type StyleQuery } from "../data/styles.ts";
+import { GROUPS, SORTS, groupLabel } from "../data/styles.ts";
+import type { StyleSearch } from "../pages/use-style-search.ts";
 import styles from "./style-filters.module.css";
 import theme from "./theme.module.css";
 
-export interface StyleFiltersProps {
-	/** Page the form submits to and the chips link to. */
-	path: string;
-	query: StyleQuery;
-	count: number;
-	total: number;
-}
-
 /** Search, sort and group chips. All state lives in the URL query string. */
-export function StyleFilters({ path, query, count, total }: StyleFiltersProps) {
+export function StyleFilters({ search }: { search: StyleSearch }) {
+	let { path, query, count, total, linkTo } = search;
 	let filtered = Boolean(query.q || query.group);
 	let searchId = useId();
 	let sortId = useId();
@@ -61,7 +55,7 @@ export function StyleFilters({ path, query, count, total }: StyleFiltersProps) {
 				<ul className={styles.chips}>
 					<li>
 						<Link
-							to={queryHref(path, query, { group: null })}
+							to={linkTo({ group: null })}
 							className={styles.chip}
 							aria-current={query.group === null ? "true" : undefined}
 						>
@@ -71,7 +65,7 @@ export function StyleFilters({ path, query, count, total }: StyleFiltersProps) {
 					{GROUPS.map((group) => (
 						<li key={group.id}>
 							<Link
-								to={queryHref(path, query, { group: group.id })}
+								to={linkTo({ group: group.id })}
 								className={styles.chip}
 								aria-current={query.group === group.id ? "true" : undefined}
 							>
@@ -86,19 +80,17 @@ export function StyleFilters({ path, query, count, total }: StyleFiltersProps) {
 				{filtered ? `Showing ${count} of ${total} styles` : `${total} styles`}
 				{query.group ? ` in ${groupLabel(query.group)}` : ""}
 				{query.q ? ` matching “${query.q}”` : ""}
-				{filtered ? (
-					<Link to={queryHref(path, query, { q: "", group: null })}>Clear filters</Link>
-				) : null}
+				{filtered ? <Link to={linkTo({ q: "", group: null })}>Clear filters</Link> : null}
 			</p>
 		</div>
 	);
 }
 
-export function EmptyResults({ path, query }: { path: string; query: StyleQuery }) {
+export function EmptyResults({ search }: { search: StyleSearch }) {
 	return (
 		<div className={styles.empty}>
 			<p>No styles match those filters.</p>
-			<Link to={queryHref(path, query, { q: "", group: null })}>Show all styles</Link>
+			<Link to={search.linkTo({ q: "", group: null })}>Show all styles</Link>
 		</div>
 	);
 }

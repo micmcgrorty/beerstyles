@@ -248,7 +248,7 @@ function compareBy(key: StatKey) {
 	};
 }
 
-export function findStyles(query: StyleQuery): BeerStyle[] {
+function matchingStyles(query: StyleQuery): BeerStyle[] {
 	let terms = normalise(query.q).split(/\s+/).filter(Boolean);
 	let results = allStyles.filter((style) => {
 		if (query.group && !style.groups.includes(query.group)) return false;
@@ -268,18 +268,33 @@ export function findStyles(query: StyleQuery): BeerStyle[] {
 	}
 }
 
-export interface CategoryGroup {
-	category: Category;
+/** A run of results to render together: one BJCP category, or (category null) one flat list. */
+export interface ResultSection {
+	category: Category | null;
 	styles: BeerStyle[];
 }
 
-/** Group styles under their BJCP category, keeping the order given. */
-export function groupByCategory(styles: BeerStyle[]): CategoryGroup[] {
-	let groups: CategoryGroup[] = [];
-	for (let style of styles) {
-		let last = groups.at(-1);
-		if (last && last.category.number === style.category.number) last.styles.push(style);
-		else groups.push({ category: style.category, styles: [style] });
+export interface SearchResult {
+	/** Number of styles matching the query. */
+	count: number;
+	/** Number of styles in the catalogue. */
+	total: number;
+	/** In BJCP order, one section per category. Sorted by anything else, a single flat section. Empty when nothing matches. */
+	sections: ResultSection[];
+}
+
+/** Search, filter and sort the catalogue, and lay the results out for display. */
+export function searchStyles(query: StyleQuery): SearchResult {
+	let styles = matchingStyles(query);
+	let sections: ResultSection[] = [];
+	if (query.sort !== "bjcp") {
+		if (styles.length > 0) sections.push({ category: null, styles });
+	} else {
+		for (let style of styles) {
+			let last = sections.at(-1);
+			if (last?.category?.number === style.category.number) last.styles.push(style);
+			else sections.push({ category: style.category, styles: [style] });
+		}
 	}
-	return groups;
+	return { count: styles.length, total: allStyles.length, sections };
 }

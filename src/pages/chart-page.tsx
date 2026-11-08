@@ -4,7 +4,7 @@ import { RangeChart, type ChartKind } from "../ui/range-chart.tsx";
 import { EmptyResults, StyleFilters } from "../ui/style-filters.tsx";
 import theme from "../ui/theme.module.css";
 import styles from "./chart-page.module.css";
-import { useStyleQuery } from "./use-style-query.ts";
+import { useStyleSearch } from "./use-style-search.ts";
 
 const PAGES: Record<
 	ChartKind,
@@ -38,7 +38,7 @@ const PAGES: Record<
 };
 
 export function ChartPage({ kind }: { kind: ChartKind }) {
-	let { query, styles: results, total } = useStyleQuery();
+	let search = useStyleSearch();
 	let page = PAGES[kind];
 
 	return (
@@ -50,19 +50,14 @@ export function ChartPage({ kind }: { kind: ChartKind }) {
 				<p className={theme.lede}>{page.intro}</p>
 			</div>
 
-			<StyleFilters path={page.path} query={query} count={results.length} total={total} />
+			<StyleFilters search={search} />
 
-			{results.length === 0 ? (
+			{search.count === 0 ? (
 				<div className={styles.empty}>
-					<EmptyResults path={page.path} query={query} />
+					<EmptyResults search={search} />
 				</div>
 			) : (
-				<RangeChart
-					kind={kind}
-					styles={results}
-					grouped={query.sort === "bjcp"}
-					label={page.label}
-				/>
+				<RangeChart kind={kind} sections={search.sections} label={page.label} />
 			)}
 		</>
 	);
